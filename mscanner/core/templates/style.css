@@ -1,0 +1,212 @@
+/* 
+Colour Palette
+
+white (page background)
+#EEEEEE; /* light gray
+#CCCCCC; /* middle gray
+#BBBBBB; /* darker gray
+
+#C2D7EE; /* light blue    (page background??)
+#E8F0F8; /* pastel blue   (table background)
+#70B0FF; /* middle blue   (table heading)
+#FFFFDD; /* light yellow  (row heading background)
+#A0F0C0; /* pastel green  (header/footer and note heading)
+#EEEEFF; /* light mauve   (help blocks in table)
+*/
+
+html, body, div {
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+html { 
+    background-color: #C2D7EE; /* light blue */ 
+    color: black; /* default font color */
+}
+img { 
+    display: block; 
+}
+
+/*************************** BLOCK ELEMENTS ******************/
+
+div#header, div#footer {
+    background-color: white; 
+}
+
+div#header {
+    /* header section for page */
+    border-bottom-style: dotted;
+    padding: 0.3em;
+    text-align: center;
+}
+
+div#body {
+    padding: 1em;
+    width: 100%;
+}
+
+div#footer {
+    /* footer section for page */
+    border-top-style: dotted;
+    padding: 1ex;
+}
+
+div#header > h1 {
+    /* avoid margins within the header */
+    margin: 0;
+}
+
+div.narrow {
+    /* keep everything within this div to a readable width */
+    max-width: 45em;
+}
+
+h2 {
+    /* underline major headings */
+    border-bottom: 1px solid black;
+    margin-top: 1ex;
+}
+
+/************************ TABLES **************************/
+
+table, thead, tbody {
+    /* thick border around tables */    
+    border: 2px solid black;
+}
+table {
+    /* default table settings */
+    border-collapse: collapse;
+    width: 100%; /* fill surrounding container */
+    background-color: #E8F0F8; /* pastel blue */
+}
+thead {
+    /* column headings */
+    background-color: #70B0FF; /* middle blue */
+}
+tbody th {
+    /* row headings */
+    background-color: #E8F0F8; /* pastel blue */
+    text-align: left;
+}
+td, th {
+    /* thin border around table cells */
+    border: 1px solid black;
+    padding: 0.5ex;
+}
+div.help {
+    /* help sections within table rows */
+    text-align: justify;
+}
+
+/******************* RESULTS.TMPL ONLY *************************/
+
+table.results col.label {
+    /* column with name of the quantity */
+    width: 13em;
+}
+table.results col.value {
+    /* column with value of the quantity */
+}
+table.results col.help {
+    /* column with help buttons */
+    background-color: #EEEEFF; /* light mauve */
+    width: 2em;
+}
+table.results tr.help {
+    /* rows with help info */
+    background-color: #EEEEFF; /* light mauve */
+    text-align: justify;
+    padding: 1ex;
+}
+table.results tr.newsection td {
+    /* make a thick line after this row */
+    border-top-width: 3px;
+}
+
+/*********************** FEATURES.TMPL ONLY ***********************/
+
+table#features col.label {
+    /* width of left-most column with labels */
+    width: 20em;
+}
+
+
+/*********************** VALIDATION.TMPL ONLY ***********************/
+
+table#matrix td.tp { background-color: #FF3333; } /* bright red */
+table#matrix td.tn { background-color: #3333FF; } /* bright blue */
+table#matrix td.fp { background-color: #CCCCFF; } /* pale red */
+table#matrix td.fn { background-color: #FFCCCC; } /* pale blue */
+
+/********************** CITATIONS.TMPL ONLY ************************/
+
+/* form controls on the page */
+div.control {
+    margin-bottom: 1ex;
+}
+
+table#citations {
+    /* citation table */
+    background-color: white;
+    width: 95%;
+    min-width: 40em;
+    text-align: center;
+}              
+
+/* manual classifications as relevant/irrelevant */
+table#citations td.pos {
+    background-color: red;
+}
+table#citations td.neg {
+    background-color: blue;
+}
+
+table#citations col.classification {
+    /* column for manual classification */
+    background-color: lightgrey;
+}
+
+table#citations tr.author, col.author {
+    /* author colour */
+    background-color: #FFFFDD; /* light yellow */
+}
+
+table#citations tr.abstract, col.abstract {
+    /* abstract row colour  */
+    background-color: #EEEEFF; /* light mauve */
+}
+
+table#citations tr.mesh, col.mesh {
+    /* mesh row colour */
+    background-color: #A0F0C0; /* pastel green */
+}
+
+table#citations > thead > tr > th {
+    /* full-size centered for headings */
+    font-size: 100%;
+    text-align: center;
+}
+
+table#citations tr.abstract td {
+    /* abstracts */
+    padding: 1em;
+    text-align: justify;
+}
+
+/* column widths for citation table */
+table#citations col.classification { width: 1em; }
+table#citations col.rank { width: 1em; }
+table#citations col.score { width: 3em;}
+table#citations col.pmid { width: 5em; }
+table#citations col.year { width: 3em; }
+table#citations col.author{ width: 1em; }
+table#citations col.abstract { width: 1em; }
+table#citations col.journal { width: 10em; }
+
+table#citations td + td + td + td + td + td + td + td {
+    /* title column (column 8) is variable width */
+    text-align: left;
+    font-size: smaller;
+}
+

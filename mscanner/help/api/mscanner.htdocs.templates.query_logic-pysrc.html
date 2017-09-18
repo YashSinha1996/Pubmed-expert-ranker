@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>mscanner.htdocs.templates.query_logic</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;mscanner ::
+        <a href="mscanner.htdocs-module.html">Package&nbsp;htdocs</a> ::
+        <a href="mscanner.htdocs.templates-module.html">Package&nbsp;templates</a> ::
+        Module&nbsp;query_logic
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="mscanner.htdocs.templates.query_logic-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="mscanner.htdocs.templates.query_logic-module.html">Module mscanner.htdocs.templates.query_logic</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""web.py handler for the query submission page"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-name">__copyright__</tt> <tt class="py-op">=</tt> <tt class="py-string">"2007 Graham Poulter"</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-name">__author__</tt> <tt class="py-op">=</tt> <tt class="py-string">"Graham Poulter &lt;http://graham.poulter.googlepages.com&gt;"</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-name">__license__</tt> <tt class="py-op">=</tt> <tt class="py-string">"GPL"</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">web</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">time</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">md5</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Method mscanner.core.QueryManager.QueryManager.query()=mscanner.core.QueryManager.QueryManager-class.html#query,Module mscanner.htdocs.templates.query=mscanner.htdocs.templates.query-module.html,Class mscanner.htdocs.templates.query.query=mscanner.htdocs.templates.query.query-class.html,Module mscanner.scripts.query=mscanner.scripts.query-module.html"><a title="mscanner.core.QueryManager.QueryManager.query
+mscanner.htdocs.templates.query
+mscanner.htdocs.templates.query.query
+mscanner.scripts.query" class="py-name" href="#" onclick="return doclink('link-0', 'query', 'link-0');">query</a></tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">mscanner</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package mscanner.htdocs=mscanner.htdocs-module.html"><a title="mscanner.htdocs" class="py-name" href="#" onclick="return doclink('link-1', 'htdocs', 'link-1');">htdocs</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Module mscanner.htdocs.forms=mscanner.htdocs.forms-module.html"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-2', 'forms', 'link-2');">forms</a></tt><tt class="py-op">,</tt> <tt id="link-3" class="py-name" targets="Module mscanner.htdocs.queue=mscanner.htdocs.queue-module.html"><a title="mscanner.htdocs.queue" class="py-name" href="#" onclick="return doclink('link-3', 'queue', 'link-3');">queue</a></tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">mscanner</tt><tt class="py-op">.</tt><tt class="py-name">configuration</tt> <tt class="py-keyword">import</tt> <tt class="py-name">rc</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"> </tt>
+<a name="parse_pmids"></a><div id="parse_pmids-def"><a name="L17"></a><tt class="py-lineno"> 17</tt> <a class="py-toggle" href="#" id="parse_pmids-toggle" onclick="return toggle('parse_pmids');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.htdocs.templates.query_logic-module.html#parse_pmids">parse_pmids</a><tt class="py-op">(</tt><tt class="py-param">pmids</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="parse_pmids-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="parse_pmids-expanded"><a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">    <tt class="py-docstring">"""Parse a string into a list of integer PubMed IDs"""</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">y</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">y</tt> <tt class="py-keyword">in</tt> <tt class="py-name">pmids</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt id="link-4" class="py-name" targets="Variable mscanner.htdocs.templates.query_logic.delcode_validator=mscanner.htdocs.templates.query_logic-module.html#delcode_validator"><a title="mscanner.htdocs.templates.query_logic.delcode_validator" class="py-name" href="#" onclick="return doclink('link-4', 'delcode_validator', 'link-4');">delcode_validator</a></tt> <tt class="py-op">=</tt> <tt id="link-5" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-5', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Class mscanner.htdocs.forms.RegexValidator=mscanner.htdocs.forms.RegexValidator-class.html"><a title="mscanner.htdocs.forms.RegexValidator" class="py-name" href="#" onclick="return doclink('link-6', 'RegexValidator', 'link-6');">RegexValidator</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">    <tt class="py-string">r"^[ a-zA-Z0-9.;:_-]{0,10}$"</tt><tt class="py-op">,</tt>  </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">    <tt class="py-string">"Should be 0-10 characters long, containing "</tt><tt class="py-op">+</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">    <tt class="py-string">"only letters, numbers and .;:,_- punctuation."</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-string">"""Checks deletion code for valid format"""</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt id="link-7" class="py-name" targets="Variable mscanner.htdocs.templates.query_logic.dataset_validator=mscanner.htdocs.templates.query_logic-module.html#dataset_validator"><a title="mscanner.htdocs.templates.query_logic.dataset_validator" class="py-name" href="#" onclick="return doclink('link-7', 'dataset_validator', 'link-7');">dataset_validator</a></tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-8', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="mscanner.htdocs.forms.RegexValidator" class="py-name" href="#" onclick="return doclink('link-9', 'RegexValidator', 'link-6');">RegexValidator</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">    <tt class="py-string">r"^[ a-zA-Z0-9.,;:_-]{1,30}$"</tt><tt class="py-op">,</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">    <tt class="py-string">"Should be 1-30 characters long, containing "</tt><tt class="py-op">+</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">    <tt class="py-string">"only letters, numbers and .,;:_- punctuation."</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-string">"""Checks task name for valid format"""</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"> </tt>
+<a name="parse_date"></a><div id="parse_date-def"><a name="L37"></a><tt class="py-lineno"> 37</tt> <a class="py-toggle" href="#" id="parse_date-toggle" onclick="return toggle('parse_date');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.htdocs.templates.query_logic-module.html#parse_date">parse_date</a><tt class="py-op">(</tt><tt class="py-param">date_code</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="parse_date-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="parse_date-expanded"><a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">    <tt class="py-docstring">"""Convert YYYY/MM/DD date string to YYYYMMDD integer."""</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">    <tt class="py-name">year</tt><tt class="py-op">,</tt> <tt class="py-name">month</tt><tt class="py-op">,</tt> <tt class="py-name">day</tt> <tt class="py-op">=</tt> <tt class="py-name">date_code</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">"/"</tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">    <tt class="py-name">date</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-string">"%04d%02d%02d"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">year</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">month</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">day</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">date</tt> <tt class="py-keyword">if</tt> <tt class="py-name">date</tt> <tt class="py-op">&gt;=</tt> <tt class="py-number">19650101</tt> <tt class="py-keyword">else</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"> </tt>
+<a name="date_is_valid"></a><div id="date_is_valid-def"><a name="L44"></a><tt class="py-lineno"> 44</tt> <a class="py-toggle" href="#" id="date_is_valid-toggle" onclick="return toggle('date_is_valid');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.htdocs.templates.query_logic-module.html#date_is_valid">date_is_valid</a><tt class="py-op">(</tt><tt class="py-param">date_code</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="date_is_valid-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="date_is_valid-expanded"><a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">    <tt class="py-docstring">"""Must be a YYYY/MM/DD date string, before today"""</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt class="py-name">date</tt> <tt class="py-op">=</tt> <tt id="link-10" class="py-name" targets="Function mscanner.htdocs.templates.query_logic.parse_date()=mscanner.htdocs.templates.query_logic-module.html#parse_date"><a title="mscanner.htdocs.templates.query_logic.parse_date" class="py-name" href="#" onclick="return doclink('link-10', 'parse_date', 'link-10');">parse_date</a></tt><tt class="py-op">(</tt><tt class="py-name">date_code</tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">        <tt class="py-name">yesterday</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">strftime</tt><tt class="py-op">(</tt><tt class="py-string">"%Y%m%d"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">-</tt><tt class="py-number">1</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">(</tt><tt class="py-name">date</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt> <tt class="py-keyword">or</tt> <tt class="py-name">date</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">yesterday</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+</div><a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"> </tt>
+<a name="task_does_not_exist"></a><div id="task_does_not_exist-def"><a name="L54"></a><tt class="py-lineno"> 54</tt> <a class="py-toggle" href="#" id="task_does_not_exist-toggle" onclick="return toggle('task_does_not_exist');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.htdocs.templates.query_logic-module.html#task_does_not_exist">task_does_not_exist</a><tt class="py-op">(</tt><tt class="py-param">dataset</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="task_does_not_exist-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="task_does_not_exist-expanded"><a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">    <tt class="py-docstring">"""True if task does not exist in queue or output directory"""</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-keyword">not</tt> <tt id="link-11" class="py-name" targets="Function mscanner.htdocs.templates.query_logic.task_exists()=mscanner.htdocs.templates.query_logic-module.html#task_exists"><a title="mscanner.htdocs.templates.query_logic.task_exists" class="py-name" href="#" onclick="return doclink('link-11', 'task_exists', 'link-11');">task_exists</a></tt><tt class="py-op">(</tt><tt class="py-name">dataset</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"> </tt>
+<a name="task_exists"></a><div id="task_exists-def"><a name="L59"></a><tt class="py-lineno"> 59</tt> <a class="py-toggle" href="#" id="task_exists-toggle" onclick="return toggle('task_exists');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.htdocs.templates.query_logic-module.html#task_exists">task_exists</a><tt class="py-op">(</tt><tt class="py-param">dataset</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="task_exists-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="task_exists-expanded"><a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">    <tt class="py-docstring">"""True if task exists in queue or output directory"""</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-op">(</tt><tt class="py-name">rc</tt><tt class="py-op">.</tt><tt class="py-name">queue_path</tt> <tt class="py-op">/</tt> <tt class="py-name">dataset</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">isfile</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt>\ </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">           <tt class="py-op">(</tt><tt class="py-name">rc</tt><tt class="py-op">.</tt><tt class="py-name">web_report_dir</tt> <tt class="py-op">/</tt> <tt class="py-name">dataset</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">isdir</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt id="link-12" class="py-name" targets="Variable mscanner.htdocs.templates.query_logic.QueryForm=mscanner.htdocs.templates.query_logic-module.html#QueryForm"><a title="mscanner.htdocs.templates.query_logic.QueryForm" class="py-name" href="#" onclick="return doclink('link-12', 'QueryForm', 'link-12');">QueryForm</a></tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-13', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Class mscanner.htdocs.forms.Form=mscanner.htdocs.forms.Form-class.html"><a title="mscanner.htdocs.forms.Form" class="py-name" href="#" onclick="return doclink('link-14', 'Form', 'link-14');">Form</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">    <tt id="link-15" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-15', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Class mscanner.htdocs.forms.Hidden=mscanner.htdocs.forms.Hidden-class.html"><a title="mscanner.htdocs.forms.Hidden" class="py-name" href="#" onclick="return doclink('link-16', 'Hidden', 'link-16');">Hidden</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-string">"captcha"</tt><tt class="py-op">,</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt id="link-17" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-17', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Module mscanner.core.Validator=mscanner.core.Validator-module.html,Class mscanner.htdocs.forms.Validator=mscanner.htdocs.forms.Validator-class.html"><a title="mscanner.core.Validator
+mscanner.htdocs.forms.Validator" class="py-name" href="#" onclick="return doclink('link-18', 'Validator', 'link-18');">Validator</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">            <tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">:</tt> <tt class="py-name">x</tt> <tt class="py-op">==</tt> <tt class="py-string">"orange"</tt><tt class="py-op">,</tt> <tt class="py-string">"Should be the word 'orange'"</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">"Enter the word 'orange'"</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">     </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">    <tt id="link-19" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-19', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Class mscanner.htdocs.forms.Textarea=mscanner.htdocs.forms.Textarea-class.html"><a title="mscanner.htdocs.forms.Textarea" class="py-name" href="#" onclick="return doclink('link-20', 'Textarea', 'link-20');">Textarea</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-string">"positives"</tt><tt class="py-op">,</tt>  </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt id="link-21" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-21', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="mscanner.core.Validator
+mscanner.htdocs.forms.Validator" class="py-name" href="#" onclick="return doclink('link-22', 'Validator', 'link-18');">Validator</a></tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">:</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt id="link-23" class="py-name" targets="Function mscanner.htdocs.templates.query_logic.parse_pmids()=mscanner.htdocs.templates.query_logic-module.html#parse_pmids"><a title="mscanner.htdocs.templates.query_logic.parse_pmids" class="py-name" href="#" onclick="return doclink('link-23', 'parse_pmids', 'link-23');">parse_pmids</a></tt><tt class="py-op">(</tt><tt class="py-name">x</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">            <tt class="py-string">"Should be numbers separated by line breaks"</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">"Input Citations"</tt><tt class="py-op">,</tt> <tt class="py-name">rows</tt><tt class="py-op">=</tt><tt class="py-number">3</tt><tt class="py-op">,</tt> <tt class="py-name">cols</tt><tt class="py-op">=</tt><tt class="py-number">10</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">     </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">    <tt id="link-24" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-24', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Class mscanner.htdocs.forms.Textbox=mscanner.htdocs.forms.Textbox-class.html"><a title="mscanner.htdocs.forms.Textbox" class="py-name" href="#" onclick="return doclink('link-25', 'Textbox', 'link-25');">Textbox</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-string">"dataset"</tt><tt class="py-op">,</tt>  </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt id="link-26" class="py-name"><a title="mscanner.htdocs.templates.query_logic.dataset_validator" class="py-name" href="#" onclick="return doclink('link-26', 'dataset_validator', 'link-7');">dataset_validator</a></tt><tt class="py-op">,</tt>  </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt id="link-27" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-27', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="mscanner.core.Validator
+mscanner.htdocs.forms.Validator" class="py-name" href="#" onclick="return doclink('link-28', 'Validator', 'link-18');">Validator</a></tt><tt class="py-op">(</tt><tt id="link-29" class="py-name" targets="Function mscanner.htdocs.templates.query_logic.task_does_not_exist()=mscanner.htdocs.templates.query_logic-module.html#task_does_not_exist"><a title="mscanner.htdocs.templates.query_logic.task_does_not_exist" class="py-name" href="#" onclick="return doclink('link-29', 'task_does_not_exist', 'link-29');">task_does_not_exist</a></tt><tt class="py-op">,</tt> <tt class="py-string">"Task already exists"</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">"Task Name"</tt><tt class="py-op">,</tt> <tt class="py-name">size</tt><tt class="py-op">=</tt><tt class="py-number">30</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">     </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">    <tt id="link-30" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-30', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="mscanner.htdocs.forms.Textbox" class="py-name" href="#" onclick="return doclink('link-31', 'Textbox', 'link-25');">Textbox</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-string">"delcode"</tt><tt class="py-op">,</tt> <tt id="link-32" class="py-name"><a title="mscanner.htdocs.templates.query_logic.delcode_validator" class="py-name" href="#" onclick="return doclink('link-32', 'delcode_validator', 'link-4');">delcode_validator</a></tt><tt class="py-op">,</tt> <tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">"Deletion Code"</tt><tt class="py-op">,</tt> <tt class="py-name">size</tt><tt class="py-op">=</tt><tt class="py-number">8</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">     </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">    <tt id="link-33" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-33', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-34" class="py-name" targets="Class mscanner.htdocs.forms.Checkbox=mscanner.htdocs.forms.Checkbox-class.html"><a title="mscanner.htdocs.forms.Checkbox" class="py-name" href="#" onclick="return doclink('link-34', 'Checkbox', 'link-34');">Checkbox</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt class="py-string">"hidden"</tt><tt class="py-op">,</tt> <tt id="link-35" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-35', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-36" class="py-name" targets="Variable mscanner.htdocs.forms.checkbox_validator=mscanner.htdocs.forms-module.html#checkbox_validator"><a title="mscanner.htdocs.forms.checkbox_validator" class="py-name" href="#" onclick="return doclink('link-36', 'checkbox_validator', 'link-36');">checkbox_validator</a></tt><tt class="py-op">,</tt> <tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">"Hide output"</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">     </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">    <tt id="link-37" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-37', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="mscanner.htdocs.forms.Textbox" class="py-name" href="#" onclick="return doclink('link-38', 'Textbox', 'link-25');">Textbox</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-string">"limit"</tt><tt class="py-op">,</tt>  </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt id="link-39" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-39', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="mscanner.core.Validator
+mscanner.htdocs.forms.Validator" class="py-name" href="#" onclick="return doclink('link-40', 'Validator', 'link-18');">Validator</a></tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">:</tt> <tt class="py-number">100</tt> <tt class="py-op">&lt;=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">x</tt><tt class="py-op">)</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">10000</tt><tt class="py-op">,</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">            <tt class="py-string">"Should be between 100 and 10000."</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">"Result limit"</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">     </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">    <tt id="link-41" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-41', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="mscanner.htdocs.forms.Textbox" class="py-name" href="#" onclick="return doclink('link-42', 'Textbox', 'link-25');">Textbox</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-string">"mindate"</tt><tt class="py-op">,</tt>  </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt id="link-43" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-43', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="mscanner.core.Validator
+mscanner.htdocs.forms.Validator" class="py-name" href="#" onclick="return doclink('link-44', 'Validator', 'link-18');">Validator</a></tt><tt class="py-op">(</tt><tt id="link-45" class="py-name" targets="Function mscanner.htdocs.templates.query_logic.date_is_valid()=mscanner.htdocs.templates.query_logic-module.html#date_is_valid"><a title="mscanner.htdocs.templates.query_logic.date_is_valid" class="py-name" href="#" onclick="return doclink('link-45', 'date_is_valid', 'link-45');">date_is_valid</a></tt><tt class="py-op">,</tt>  </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-string">"Date should be YYYY/MM/DD, and the day before yesterday at latest."</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">"Minimum date"</tt><tt class="py-op">,</tt> <tt class="py-name">size</tt><tt class="py-op">=</tt><tt class="py-number">12</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">    <tt id="link-46" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-46', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="mscanner.htdocs.forms.Textbox" class="py-name" href="#" onclick="return doclink('link-47', 'Textbox', 'link-25');">Textbox</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-string">"prevalence"</tt><tt class="py-op">,</tt>  </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt id="link-48" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-48', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="mscanner.core.Validator
+mscanner.htdocs.forms.Validator" class="py-name" href="#" onclick="return doclink('link-49', 'Validator', 'link-18');">Validator</a></tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">:</tt> <tt class="py-name">x</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-string">""</tt> <tt class="py-keyword">or</tt> <tt class="py-number">1e-6</tt> <tt class="py-op">&lt;=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">x</tt><tt class="py-op">)</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">0.1</tt><tt class="py-op">,</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">            <tt class="py-string">"Should be empty, or a number between 0.000001 (10^-6) and 0.1"</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">"Estimated prevalence"</tt><tt class="py-op">,</tt> <tt class="py-name">size</tt><tt class="py-op">=</tt><tt class="py-number">8</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">     </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">    <tt id="link-50" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-50', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="mscanner.htdocs.forms.Textbox" class="py-name" href="#" onclick="return doclink('link-51', 'Textbox', 'link-25');">Textbox</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-string">"minscore"</tt><tt class="py-op">,</tt>  </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">        <tt id="link-52" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-52', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="mscanner.core.Validator
+mscanner.htdocs.forms.Validator" class="py-name" href="#" onclick="return doclink('link-53', 'Validator', 'link-18');">Validator</a></tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">:</tt> <tt class="py-op">-</tt><tt class="py-number">1000</tt> <tt class="py-op">&lt;=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">x</tt><tt class="py-op">)</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">1000</tt><tt class="py-op">,</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">            <tt class="py-string">"Should be between -1000 and +1000."</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">"Minimum score"</tt><tt class="py-op">,</tt> <tt class="py-name">size</tt><tt class="py-op">=</tt><tt class="py-number">8</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">     </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">    <tt id="link-54" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-54', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="mscanner.htdocs.forms.Textbox" class="py-name" href="#" onclick="return doclink('link-55', 'Textbox', 'link-25');">Textbox</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-string">"numnegs"</tt><tt class="py-op">,</tt>  </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt id="link-56" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-56', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="mscanner.core.Validator
+mscanner.htdocs.forms.Validator" class="py-name" href="#" onclick="return doclink('link-57', 'Validator', 'link-18');">Validator</a></tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">:</tt> <tt class="py-number">100</tt> <tt class="py-op">&lt;=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">x</tt><tt class="py-op">)</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">100000</tt><tt class="py-op">,</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">            <tt class="py-string">"Should be between 100 and 100000."</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">        <tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">"Number of Negatives"</tt><tt class="py-op">,</tt> <tt class="py-name">size</tt><tt class="py-op">=</tt><tt class="py-number">8</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">     </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">    <tt id="link-58" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-58', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-59" class="py-name" targets="Class mscanner.htdocs.forms.Radio=mscanner.htdocs.forms.Radio-class.html"><a title="mscanner.htdocs.forms.Radio" class="py-name" href="#" onclick="return doclink('link-59', 'Radio', 'link-59');">Radio</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">        <tt class="py-string">"operation"</tt><tt class="py-op">,</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">        <tt class="py-op">[</tt> <tt class="py-op">(</tt><tt class="py-string">"retrieval"</tt><tt class="py-op">,</tt> <tt class="py-string">"Medline retrieval operation"</tt><tt class="py-op">)</tt><tt class="py-op">,</tt>  </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">          <tt class="py-op">(</tt><tt class="py-string">"validate"</tt><tt class="py-op">,</tt> <tt class="py-string">"Cross validation operation"</tt><tt class="py-op">)</tt> <tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">        <tt id="link-60" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-60', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-61" class="py-name"><a title="mscanner.core.Validator
+mscanner.htdocs.forms.Validator" class="py-name" href="#" onclick="return doclink('link-61', 'Validator', 'link-18');">Validator</a></tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">:</tt> <tt class="py-name">x</tt> <tt class="py-keyword">in</tt> <tt class="py-op">[</tt><tt class="py-string">"retrieval"</tt><tt class="py-op">,</tt> <tt class="py-string">"validate"</tt><tt class="py-op">]</tt><tt class="py-op">,</tt>  </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">                        <tt class="py-string">"Invalid operation"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-op">)</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-string">"""Structure of the query form"""</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-comment"># Initial values to fill into the form (see queue.py for meanings)</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-62" class="py-name" targets="Variable mscanner.htdocs.templates.query_logic.form_defaults=mscanner.htdocs.templates.query_logic-module.html#form_defaults"><a title="mscanner.htdocs.templates.query_logic.form_defaults" class="py-name" href="#" onclick="return doclink('link-62', 'form_defaults', 'link-62');">form_defaults</a></tt> <tt class="py-op">=</tt> <tt class="py-name">dict</tt><tt class="py-op">(</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">    <tt class="py-name">captcha</tt> <tt class="py-op">=</tt> <tt class="py-string">"orange"</tt><tt class="py-op">,</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">    <tt class="py-name">delcode</tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt><tt class="py-op">,</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">    <tt class="py-name">dataset</tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt><tt class="py-op">,</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">    <tt class="py-name">hidden</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt><tt class="py-op">,</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">    <tt class="py-name">limit</tt> <tt class="py-op">=</tt> <tt class="py-number">1000</tt><tt class="py-op">,</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">    <tt class="py-name">mindate</tt> <tt class="py-op">=</tt> <tt class="py-string">"0000/00/00"</tt><tt class="py-op">,</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">    <tt class="py-name">minscore</tt> <tt class="py-op">=</tt> <tt class="py-string">"0"</tt><tt class="py-op">,</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">    <tt class="py-name">numnegs</tt> <tt class="py-op">=</tt> <tt class="py-number">50000</tt><tt class="py-op">,</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">    <tt class="py-name">operation</tt> <tt class="py-op">=</tt> <tt class="py-string">"retrieval"</tt><tt class="py-op">,</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">    <tt class="py-name">positives</tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt><tt class="py-op">,</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">    <tt class="py-name">prevalence</tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt><tt class="py-op">,</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"><tt class="py-op">)</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line"><tt class="py-string">"""Default values for the query form"""</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"> </tt>
+<a name="QueryPage"></a><div id="QueryPage-def"><a name="L148"></a><tt class="py-lineno">148</tt> <a class="py-toggle" href="#" id="QueryPage-toggle" onclick="return toggle('QueryPage');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="mscanner.htdocs.templates.query_logic.QueryPage-class.html">QueryPage</a><tt class="py-op">:</tt> </tt>
+</div><div id="QueryPage-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="QueryPage-expanded"><a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">    <tt class="py-docstring">"""Submission form for queries or validation"""</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">     </tt>
+<a name="QueryPage.GET"></a><div id="QueryPage.GET-def"><a name="L151"></a><tt class="py-lineno">151</tt> <a class="py-toggle" href="#" id="QueryPage.GET-toggle" onclick="return toggle('QueryPage.GET');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.htdocs.templates.query_logic.QueryPage-class.html#GET">GET</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="QueryPage.GET-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="QueryPage.GET-expanded"><a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">        <tt class="py-docstring">"""Print the query form, filled with default values"""</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">        <tt class="py-name">web</tt><tt class="py-op">.</tt><tt id="link-63" class="py-name" targets="Method mscanner.htdocs.templates.page.page.header()=mscanner.htdocs.templates.page.page-class.html#header"><a title="mscanner.htdocs.templates.page.page.header" class="py-name" href="#" onclick="return doclink('link-63', 'header', 'link-63');">header</a></tt><tt class="py-op">(</tt><tt class="py-string">'Content-Type'</tt><tt class="py-op">,</tt> <tt class="py-string">'text/html; charset=utf-8'</tt><tt class="py-op">)</tt>  </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">        <tt id="link-64" class="py-name" targets="Module mscanner.htdocs.templates.page=mscanner.htdocs.templates.page-module.html,Class mscanner.htdocs.templates.page.page=mscanner.htdocs.templates.page.page-class.html"><a title="mscanner.htdocs.templates.page
+mscanner.htdocs.templates.page.page" class="py-name" href="#" onclick="return doclink('link-64', 'page', 'link-64');">page</a></tt> <tt class="py-op">=</tt> <tt id="link-65" class="py-name"><a title="mscanner.core.QueryManager.QueryManager.query
+mscanner.htdocs.templates.query
+mscanner.htdocs.templates.query.query
+mscanner.scripts.query" class="py-name" href="#" onclick="return doclink('link-65', 'query', 'link-0');">query</a></tt><tt class="py-op">.</tt><tt id="link-66" class="py-name"><a title="mscanner.core.QueryManager.QueryManager.query
+mscanner.htdocs.templates.query
+mscanner.htdocs.templates.query.query
+mscanner.scripts.query" class="py-name" href="#" onclick="return doclink('link-66', 'query', 'link-0');">query</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">        <tt id="link-67" class="py-name"><a title="mscanner.htdocs.templates.page
+mscanner.htdocs.templates.page.page" class="py-name" href="#" onclick="return doclink('link-67', 'page', 'link-64');">page</a></tt><tt class="py-op">.</tt><tt class="py-name">inputs</tt> <tt class="py-op">=</tt> <tt id="link-68" class="py-name"><a title="mscanner.htdocs.templates.query_logic.QueryForm" class="py-name" href="#" onclick="return doclink('link-68', 'QueryForm', 'link-12');">QueryForm</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">        <tt id="link-69" class="py-name"><a title="mscanner.htdocs.templates.page
+mscanner.htdocs.templates.page.page" class="py-name" href="#" onclick="return doclink('link-69', 'page', 'link-64');">page</a></tt><tt class="py-op">.</tt><tt class="py-name">inputs</tt><tt class="py-op">.</tt><tt id="link-70" class="py-name" targets="Method mscanner.htdocs.forms.Form.fill()=mscanner.htdocs.forms.Form-class.html#fill"><a title="mscanner.htdocs.forms.Form.fill" class="py-name" href="#" onclick="return doclink('link-70', 'fill', 'link-70');">fill</a></tt><tt class="py-op">(</tt><tt id="link-71" class="py-name"><a title="mscanner.htdocs.templates.query_logic.form_defaults" class="py-name" href="#" onclick="return doclink('link-71', 'form_defaults', 'link-62');">form_defaults</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt id="link-72" class="py-name"><a title="mscanner.htdocs.templates.page
+mscanner.htdocs.templates.page.page" class="py-name" href="#" onclick="return doclink('link-72', 'page', 'link-64');">page</a></tt> </tt>
+</div><a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"> </tt>
+<a name="QueryPage.POST"></a><div id="QueryPage.POST-def"><a name="L160"></a><tt class="py-lineno">160</tt> <a class="py-toggle" href="#" id="QueryPage.POST-toggle" onclick="return toggle('QueryPage.POST');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.htdocs.templates.query_logic.QueryPage-class.html#POST">POST</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="QueryPage.POST-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="QueryPage.POST-expanded"><a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">        <tt class="py-docstring">"""Submit the query form, maintains previous values"""</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">        <tt class="py-name">web</tt><tt class="py-op">.</tt><tt id="link-73" class="py-name"><a title="mscanner.htdocs.templates.page.page.header" class="py-name" href="#" onclick="return doclink('link-73', 'header', 'link-63');">header</a></tt><tt class="py-op">(</tt><tt class="py-string">'Content-Type'</tt><tt class="py-op">,</tt> <tt class="py-string">'text/html; charset=utf-8'</tt><tt class="py-op">)</tt>  </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">        <tt class="py-name">qform</tt> <tt class="py-op">=</tt> <tt id="link-74" class="py-name"><a title="mscanner.htdocs.templates.query_logic.QueryForm" class="py-name" href="#" onclick="return doclink('link-74', 'QueryForm', 'link-12');">QueryForm</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">qform</tt><tt class="py-op">.</tt><tt id="link-75" class="py-name" targets="Method mscanner.htdocs.forms.Form.validates()=mscanner.htdocs.forms.Form-class.html#validates"><a title="mscanner.htdocs.forms.Form.validates" class="py-name" href="#" onclick="return doclink('link-75', 'validates', 'link-75');">validates</a></tt><tt class="py-op">(</tt><tt class="py-name">web</tt><tt class="py-op">.</tt><tt class="py-name">input</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">            <tt class="py-comment"># Add a descriptor to the queue</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-name">inputs</tt> <tt class="py-op">=</tt> <tt class="py-name">qform</tt><tt class="py-op">.</tt><tt id="link-76" class="py-name" targets="Variable mscanner.htdocs.forms.Form.d=mscanner.htdocs.forms.Form-class.html#d"><a title="mscanner.htdocs.forms.Form.d" class="py-name" href="#" onclick="return doclink('link-76', 'd', 'link-76');">d</a></tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">            <tt class="py-name">inputs</tt><tt class="py-op">.</tt><tt class="py-name">submitted</tt> <tt class="py-op">=</tt> <tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">time</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">            <tt class="py-name">inputs</tt><tt class="py-op">.</tt><tt class="py-name">hidden</tt> <tt class="py-op">=</tt> <tt id="link-77" class="py-name"><a title="mscanner.htdocs.forms" class="py-name" href="#" onclick="return doclink('link-77', 'forms', 'link-2');">forms</a></tt><tt class="py-op">.</tt><tt id="link-78" class="py-name" targets="Function mscanner.htdocs.forms.ischecked()=mscanner.htdocs.forms-module.html#ischecked"><a title="mscanner.htdocs.forms.ischecked" class="py-name" href="#" onclick="return doclink('link-78', 'ischecked', 'link-78');">ischecked</a></tt><tt class="py-op">(</tt><tt class="py-name">inputs</tt><tt class="py-op">.</tt><tt class="py-name">hidden</tt><tt class="py-op">)</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">            <tt class="py-comment"># MD5 hash the deletion code</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-name">delcode_plain</tt> <tt class="py-op">=</tt> <tt class="py-name">inputs</tt><tt class="py-op">.</tt><tt class="py-name">delcode</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">            <tt class="py-name">inputs</tt><tt class="py-op">.</tt><tt class="py-name">delcode</tt> <tt class="py-op">=</tt> <tt class="py-name">md5</tt><tt class="py-op">.</tt><tt class="py-name">new</tt><tt class="py-op">(</tt><tt class="py-name">delcode_plain</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">hexdigest</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">            <tt class="py-comment"># Parse the date string to integer</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-name">inputs</tt><tt class="py-op">.</tt><tt class="py-name">mindate</tt> <tt class="py-op">=</tt> <tt id="link-79" class="py-name"><a title="mscanner.htdocs.templates.query_logic.parse_date" class="py-name" href="#" onclick="return doclink('link-79', 'parse_date', 'link-10');">parse_date</a></tt><tt class="py-op">(</tt><tt class="py-name">inputs</tt><tt class="py-op">.</tt><tt class="py-name">mindate</tt><tt class="py-op">)</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">            <tt class="py-comment"># Check for default prevalence</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-keyword">if</tt> <tt class="py-name">inputs</tt><tt class="py-op">.</tt><tt class="py-name">prevalence</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-string">""</tt><tt class="py-op">:</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">                <tt class="py-name">inputs</tt><tt class="py-op">.</tt><tt class="py-name">prevalence</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt>  </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">            <tt id="link-80" class="py-name"><a title="mscanner.htdocs.queue" class="py-name" href="#" onclick="return doclink('link-80', 'queue', 'link-3');">queue</a></tt><tt class="py-op">.</tt><tt id="link-81" class="py-name" targets="Function mscanner.htdocs.queue.write_descriptor()=mscanner.htdocs.queue-module.html#write_descriptor"><a title="mscanner.htdocs.queue.write_descriptor" class="py-name" href="#" onclick="return doclink('link-81', 'write_descriptor', 'link-81');">write_descriptor</a></tt><tt class="py-op">(</tt><tt class="py-name">rc</tt><tt class="py-op">.</tt><tt class="py-name">queue_path</tt> <tt class="py-op">/</tt> <tt class="py-name">inputs</tt><tt class="py-op">.</tt><tt class="py-name">dataset</tt><tt class="py-op">,</tt>  </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">                                   <tt id="link-82" class="py-name"><a title="mscanner.htdocs.templates.query_logic.parse_pmids" class="py-name" href="#" onclick="return doclink('link-82', 'parse_pmids', 'link-23');">parse_pmids</a></tt><tt class="py-op">(</tt><tt class="py-name">inputs</tt><tt class="py-op">.</tt><tt class="py-name">positives</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">inputs</tt><tt class="py-op">)</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">            <tt class="py-comment"># Show status page for the task</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">sleep</tt><tt class="py-op">(</tt><tt class="py-number">0.05</tt><tt class="py-op">)</tt> <tt class="py-comment"># So we show up in the queue</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">            <tt class="py-name">web</tt><tt class="py-op">.</tt><tt class="py-name">seeother</tt><tt class="py-op">(</tt><tt class="py-string">"status?dataset=%s;delcode=%s"</tt> <tt class="py-op">%</tt>  </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">                         <tt class="py-op">(</tt><tt class="py-name">inputs</tt><tt class="py-op">.</tt><tt class="py-name">dataset</tt><tt class="py-op">,</tt> <tt class="py-name">web</tt><tt class="py-op">.</tt><tt class="py-name">urlquote</tt><tt class="py-op">(</tt><tt class="py-name">delcode_plain</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">            <tt class="py-comment"># Errors in the form, print it again</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt id="link-83" class="py-name"><a title="mscanner.htdocs.templates.page
+mscanner.htdocs.templates.page.page" class="py-name" href="#" onclick="return doclink('link-83', 'page', 'link-64');">page</a></tt> <tt class="py-op">=</tt> <tt id="link-84" class="py-name"><a title="mscanner.core.QueryManager.QueryManager.query
+mscanner.htdocs.templates.query
+mscanner.htdocs.templates.query.query
+mscanner.scripts.query" class="py-name" href="#" onclick="return doclink('link-84', 'query', 'link-0');">query</a></tt><tt class="py-op">.</tt><tt id="link-85" class="py-name"><a title="mscanner.core.QueryManager.QueryManager.query
+mscanner.htdocs.templates.query
+mscanner.htdocs.templates.query.query
+mscanner.scripts.query" class="py-name" href="#" onclick="return doclink('link-85', 'query', 'link-0');">query</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">            <tt id="link-86" class="py-name"><a title="mscanner.htdocs.templates.page
+mscanner.htdocs.templates.page.page" class="py-name" href="#" onclick="return doclink('link-86', 'page', 'link-64');">page</a></tt><tt class="py-op">.</tt><tt id="link-87" class="py-name"><a title="mscanner.htdocs.queue" class="py-name" href="#" onclick="return doclink('link-87', 'queue', 'link-3');">queue</a></tt> <tt class="py-op">=</tt> <tt id="link-88" class="py-name"><a title="mscanner.htdocs.queue" class="py-name" href="#" onclick="return doclink('link-88', 'queue', 'link-3');">queue</a></tt><tt class="py-op">.</tt><tt id="link-89" class="py-name" targets="Class mscanner.htdocs.queue.QueueStatus=mscanner.htdocs.queue.QueueStatus-class.html"><a title="mscanner.htdocs.queue.QueueStatus" class="py-name" href="#" onclick="return doclink('link-89', 'QueueStatus', 'link-89');">QueueStatus</a></tt><tt class="py-op">(</tt><tt class="py-name">with_done</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">            <tt id="link-90" class="py-name"><a title="mscanner.htdocs.templates.page
+mscanner.htdocs.templates.page.page" class="py-name" href="#" onclick="return doclink('link-90', 'page', 'link-64');">page</a></tt><tt class="py-op">.</tt><tt class="py-name">inputs</tt> <tt class="py-op">=</tt> <tt class="py-name">qform</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt> <tt id="link-91" class="py-name"><a title="mscanner.htdocs.templates.page
+mscanner.htdocs.templates.page.page" class="py-name" href="#" onclick="return doclink('link-91', 'page', 'link-64');">page</a></tt> </tt>
+</div></div><a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Fri Nov 23 09:13:23 2007
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

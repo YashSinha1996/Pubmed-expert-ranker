@@ -1,0 +1,1006 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>mscanner.core.PerformanceStats.PerformanceStats</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;mscanner ::
+        <a href="mscanner.core-module.html">Package&nbsp;core</a> ::
+        <a href="mscanner.core.PerformanceStats-module.html">Module&nbsp;PerformanceStats</a> ::
+        Class&nbsp;PerformanceStats
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="mscanner.core.PerformanceStats.PerformanceStats-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class PerformanceStats</h1><span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats">source&nbsp;code</a></span><br /><br />
+Performance statistics calculation after cross validation.<br /><br />
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.PerformanceStats.PerformanceStats-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pscores</span>,
+        <span class="summary-sig-arg">nscores</span>,
+        <span class="summary-sig-arg">alpha</span>,
+        <span class="summary-sig-arg">utility_r</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Constructor - parameters correspond to instance variables.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.PerformanceStats.PerformanceStats-class.html#make_confusion_matrix" class="summary-sig-name">make_confusion_matrix</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Calculates confusion matrix counts by iterating over pscores</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.make_confusion_matrix">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.PerformanceStats.PerformanceStats-class.html#make_ratio_vectors" class="summary-sig-name">make_ratio_vectors</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">alpha</span>)</span><br />
+      Calculate performance using vector algebra</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.make_ratio_vectors">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.PerformanceStats.PerformanceStats-class.html#make_curve_areas" class="summary-sig-name">make_curve_areas</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Calculate areas under ROC and precision-recall curves</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.make_curve_areas">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.PerformanceStats.PerformanceStats-class.html#mergescores" class="summary-sig-name">mergescores</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Merged the contents of pscores and nscores in a single pass.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.mergescores">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.PerformanceStats.PerformanceStats-class.html#averaged_precision" class="summary-sig-name">averaged_precision</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Average the precision over each point of recall</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.averaged_precision">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.PerformanceStats.PerformanceStats-class.html#roc_error" class="summary-sig-name">roc_error</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Area under ROC and its standard error</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.roc_error">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.PerformanceStats.PerformanceStats-class.html#find_breakeven" class="summary-sig-name">find_breakeven</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Calculate break-even, where precision equals recall.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.find_breakeven">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.PerformanceStats.PerformanceStats-class.html#maximise_fmeasure" class="summary-sig-name">maximise_fmeasure</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Point of maximum F measure</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.maximise_fmeasure">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.PerformanceStats.PerformanceStats-class.html#maximise_utility" class="summary-sig-name">maximise_utility</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Point of maximum utility</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.maximise_utility">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.PerformanceStats.PerformanceStats-class.html#get_tunedstats" class="summary-sig-name">get_tunedstats</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Performance at the chosen threshold (usually the point of maximum 
+      F measure).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.get_tunedstats">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="AvPrec"></a><span class="summary-name">AvPrec</span><br />
+      Averaged precision, from <a 
+      href="mscanner.core.PerformanceStats.PerformanceStats-class.html#averaged_precision"
+      class="link">averaged_precision</a>.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TN"></a><span class="summary-name">TN</span><br />
+      Vectors for confusion matrix at each distinct threshold
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="W"></a><span class="summary-name">W</span><br />
+      Better area under ROC curve, from <a 
+      href="mscanner.core.PerformanceStats.PerformanceStats-class.html#roc_error"
+      class="link">roc_error</a>.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="W_stderr"></a><span class="summary-name">W_stderr</span><br />
+      Better area under ROC curve, from <a 
+      href="mscanner.core.PerformanceStats.PerformanceStats-class.html#roc_error"
+      class="link">roc_error</a>.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="bep_index"></a><span class="summary-name">bep_index</span><br />
+      Breakeven point (where precision=recall), from <a 
+      href="mscanner.core.PerformanceStats.PerformanceStats-class.html#find_breakeven"
+      class="link">find_breakeven</a>.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="breakeven"></a><span class="summary-name">breakeven</span><br />
+      Breakeven point (where precision=recall), from <a 
+      href="mscanner.core.PerformanceStats.PerformanceStats-class.html#find_breakeven"
+      class="link">find_breakeven</a>.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="threshold"></a><span class="summary-name">threshold</span><br />
+      Tuned threshold and its index, from <a 
+      href="mscanner.core.PerformanceStats.PerformanceStats-class.html#maximise_fmeasure"
+      class="link">maximise_fmeasure</a>.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="threshold_index"></a><span class="summary-name">threshold_index</span><br />
+      Tuned threshold and its index, from <a 
+      href="mscanner.core.PerformanceStats.PerformanceStats-class.html#maximise_fmeasure"
+      class="link">maximise_fmeasure</a>.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="tuned"></a><span class="summary-name">tuned</span><br />
+      Tuned performance statistics, from <a 
+      href="mscanner.core.PerformanceStats.PerformanceStats-class.html#get_tunedstats"
+      class="link">get_tunedstats</a>.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="mscanner.core.PerformanceStats.PerformanceStats-class.html#utility_r" class="summary-name">utility_r</a><br />
+      Utility of retrieving one relevant article (retrieving an 
+      irrelevant article has utility -1).
+    </td>
+  </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;From constructor</th></tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="A"></a><span class="summary-name">A</span><br />
+      Equal to <a 
+      href="mscanner.core.PerformanceStats.PerformanceStats-class.html#P" 
+      class="link">P</a>+<a 
+      href="mscanner.core.PerformanceStats.PerformanceStats-class.html#N" 
+      class="link">N</a>.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="N"></a><span class="summary-name">N</span><br />
+      Number of negative articles.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="P"></a><span class="summary-name">P</span><br />
+      Number of positive articles.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="alpha"></a><span class="summary-name">alpha</span><br />
+      Balance of recall and precision in the F measure.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="nscores"></a><span class="summary-name">nscores</span><br />
+      Increasing scores of negative articles.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="pscores"></a><span class="summary-name">pscores</span><br />
+      Increasing scores of positive articles.
+    </td>
+  </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;From counts</th></tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="FN"></a><span class="summary-name">FN</span><br />
+      Vectors for confusion matrix at each distinct threshold
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="FP"></a><span class="summary-name">FP</span><br />
+      Vectors for confusion matrix at each distinct threshold
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NE"></a><span class="summary-name">NE</span><br />
+      Number of negatives with each score in <a 
+      href="mscanner.core.PerformanceStats.PerformanceStats-class.html#uscores"
+      class="link">uscores</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PE"></a><span class="summary-name">PE</span><br />
+      Number of positives with each score in <a 
+      href="mscanner.core.PerformanceStats.PerformanceStats-class.html#uscores"
+      class="link">uscores</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TP"></a><span class="summary-name">TP</span><br />
+      Vectors for confusion matrix at each distinct threshold
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="uscores"></a><span class="summary-name">uscores</span><br />
+      Unique scores in increasing order
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="vlen"></a><span class="summary-name">vlen</span><br />
+      Length of performance vectors (= length of <a 
+      href="mscanner.core.PerformanceStats.PerformanceStats-class.html#uscores"
+      class="link">uscores</a>)
+    </td>
+  </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;From make_ratio_vectors</th></tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="FM"></a><span class="summary-name">FM</span><br />
+      Vectors of performance ratios at each distinct threshold.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="FMa"></a><span class="summary-name">FMa</span><br />
+      Vectors of performance ratios at each distinct threshold.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="FPR"></a><span class="summary-name">FPR</span><br />
+      Vectors of performance ratios at each distinct threshold.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PPV"></a><span class="summary-name">PPV</span><br />
+      Vectors of performance ratios at each distinct threshold.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TPR"></a><span class="summary-name">TPR</span><br />
+      Vectors of performance ratios at each distinct threshold.
+    </td>
+  </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;From make_curve_areas</th></tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PR_area"></a><span class="summary-name">PR_area</span><br />
+      Aread under precision-recall curve.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ROC_area"></a><span class="summary-name">ROC_area</span><br />
+      Area under ROC curve.
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">pscores</span>,
+        <span class="sig-arg">nscores</span>,
+        <span class="sig-arg">alpha</span>,
+        <span class="sig-arg">utility_r</span>=<span class="sig-default">None</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Constructor - parameters correspond to instance variables.
+  <dl class="fields">
+  </dl>
+<div class="fields">      <p><strong>Note:</strong>
+        Sorted copies are made of <a 
+        href="mscanner.core.PerformanceStats.PerformanceStats-class.html#pscores"
+        class="link">pscores</a> and <a 
+        href="mscanner.core.PerformanceStats.PerformanceStats-class.html#nscores"
+        class="link">nscores</a>.
+      </p>
+</div></td></tr></table>
+</div>
+<a name="make_confusion_matrix"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">make_confusion_matrix</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.make_confusion_matrix">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Calculates confusion matrix counts by iterating over pscores</p>
+  As a side effects, sets <a 
+  href="mscanner.core.PerformanceStats.PerformanceStats-class.html#uscores"
+  class="link">uscores</a>, <a 
+  href="mscanner.core.PerformanceStats.PerformanceStats-class.html#vlen" 
+  class="link">vlen</a>, <a 
+  href="mscanner.core.PerformanceStats.PerformanceStats-class.html#PE" 
+  class="link">PE</a>, <a 
+  href="mscanner.core.PerformanceStats.PerformanceStats-class.html#NE" 
+  class="link">NE</a>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><a 
+          href="mscanner.core.PerformanceStats.PerformanceStats-class.html#TP"
+          class="link">TP</a>, <a 
+          href="mscanner.core.PerformanceStats.PerformanceStats-class.html#TN"
+          class="link">TN</a>, <a 
+          href="mscanner.core.PerformanceStats.PerformanceStats-class.html#FP"
+          class="link">FP</a>, <a 
+          href="mscanner.core.PerformanceStats.PerformanceStats-class.html#FN"
+          class="link">FN</a></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="make_ratio_vectors"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">make_ratio_vectors</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">alpha</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.make_ratio_vectors">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Calculate performance using vector algebra
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>alpha</code></strong> - Weight of precision in calculating FMa</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd><a 
+          href="mscanner.core.PerformanceStats.PerformanceStats-class.html#TPR"
+          class="link">TPR</a>, <a 
+          href="mscanner.core.PerformanceStats.PerformanceStats-class.html#FPR"
+          class="link">FPR</a>, <a 
+          href="mscanner.core.PerformanceStats.PerformanceStats-class.html#PPV"
+          class="link">PPV</a>, <a 
+          href="mscanner.core.PerformanceStats.PerformanceStats-class.html#FM"
+          class="link">FM</a>, <a 
+          href="mscanner.core.PerformanceStats.PerformanceStats-class.html#FMa"
+          class="link">FMa</a></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="make_curve_areas"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">make_curve_areas</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.make_curve_areas">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Calculate areas under ROC and precision-recall curves</p>
+  <p>Uses trapz(y, x). TPR is decreasing as threshold climbs, so vectors 
+  have to be reversed.</p>
+  This method underestimates ROC areas because boundary points (0,0) and
+  (1,1) usually are not present in the data. Better to use <a 
+  href="mscanner.core.PerformanceStats.PerformanceStats-class.html#roc_error"
+  class="link">roc_error</a> which does not have that problem.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><a 
+          href="mscanner.core.PerformanceStats.PerformanceStats-class.html#ROC_area"
+          class="link">ROC_area</a>, <a 
+          href="mscanner.core.PerformanceStats.PerformanceStats-class.html#PR_area"
+          class="link">PR_area</a></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="mergescores"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">mergescores</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.mergescores">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Merged the contents of pscores and nscores in a single pass.</p>
+  Expects <a 
+  href="mscanner.core.PerformanceStats.PerformanceStats-class.html#nscores"
+  class="link">nscores</a> and <a 
+  href="mscanner.core.PerformanceStats.PerformanceStats-class.html#pscores"
+  class="link">pscores</a> in increasing order of score.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>Iterator over (score, relevance) in decreasing order of score.
+          Relevance is True for members of pscores, and False for members 
+          of nscores.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="averaged_precision"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">averaged_precision</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.averaged_precision">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Average the precision over each point of recall
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><a 
+          href="mscanner.core.PerformanceStats.PerformanceStats-class.html#AvPrec"
+          class="link">AvPrec</a>, the precision averaged over each point 
+          where a relevant document is returned</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="roc_error"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">roc_error</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.roc_error">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Area under ROC and its standard error</p>
+  Uses method of Hanley1982 to calculate standard error on the Wilcoxon 
+  statistic W, which corresponds to the area under the ROC by trapezoidal 
+  rule.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><a 
+          href="mscanner.core.PerformanceStats.PerformanceStats-class.html#W"
+          class="link">W</a>, <a 
+          href="mscanner.core.PerformanceStats.PerformanceStats-class.html#W_stderr"
+          class="link">W_stderr</a></dd>
+  </dl>
+<div class="fields">      <p><strong>Note:</strong>
+        The vectors r1 .. r7 correspond to rows of Table II in 
+        Hanley1982.
+      </p>
+</div></td></tr></table>
+</div>
+<a name="find_breakeven"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">find_breakeven</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.find_breakeven">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Calculate break-even, where precision equals recall.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><a 
+          href="mscanner.core.PerformanceStats.PerformanceStats-class.html#bep_index"
+          class="link">bep_index</a>, <a 
+          href="mscanner.core.PerformanceStats.PerformanceStats-class.html#breakeven"
+          class="link">breakeven</a> - index into pscores, and the 
+          recall/precision of the break-even point.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="maximise_fmeasure"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">maximise_fmeasure</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.maximise_fmeasure">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Point of maximum F measure
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><a 
+          href="mscanner.core.PerformanceStats.PerformanceStats-class.html#threshold"
+          class="link">threshold</a> and <a 
+          href="mscanner.core.PerformanceStats.PerformanceStats-class.html#threshold_index"
+          class="link">threshold_index</a></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="maximise_utility"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">maximise_utility</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.maximise_utility">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Point of maximum utility
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><a 
+          href="mscanner.core.PerformanceStats.PerformanceStats-class.html#threshold"
+          class="link">threshold</a> and <a 
+          href="mscanner.core.PerformanceStats.PerformanceStats-class.html#threshold_index"
+          class="link">threshold_index</a></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_tunedstats"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_tunedstats</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.PerformanceStats-pysrc.html#PerformanceStats.get_tunedstats">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Performance at the chosen threshold (usually the point of maximum F 
+  measure).
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>Storage object with these keys:
+<pre class="literalblock">
+ P, N, A, T, F      (summary of input)
+ TP, FP, TN, FN     (confusion matrix)
+ TPR, FNR, TNR, FPR (ratios)
+ PPV, NPV           (ratios)
+ accuracy           (T/A)
+ enrichment         (precision/prevalence)
+ error              (F/A)
+ fmeasure           (harmonic mean of TPR and PPV [alpha=0.5])
+ fmeasure_alpha     (alpha-weighted F measure [alpha!=0.5])
+ fmeasure_max       (maximum of standard F measure [alpha=0.5])
+ precision          (PPV)
+ prevalence         (P/A)
+ recall             (TPR)
+ specificity        (TNR)
+ fp_tp_ratio        (FP/TP)
+</pre></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== INSTANCE VARIABLE DETAILS ==================== -->
+<a name="section-InstanceVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="utility_r"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">utility_r</h3>
+  Utility of retrieving one relevant article (retrieving an irrelevant 
+  article has utility -1).  If None, use ratio of negatives to positives in
+  the data.
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Fri Oct 26 21:01:05 2007
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>mscanner.scripts.retrievaltest.RetrievalTest</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;mscanner ::
+        <a href="mscanner.scripts-module.html">Package&nbsp;scripts</a> ::
+        <a href="mscanner.scripts.retrievaltest-module.html">Module&nbsp;retrievaltest</a> ::
+        Class&nbsp;RetrievalTest
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="mscanner.scripts.retrievaltest.RetrievalTest-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class RetrievalTest</h1><span class="codelink"><a href="mscanner.scripts.retrievaltest-pysrc.html#RetrievalTest">source&nbsp;code</a></span><br /><br />
+<pre class="base-tree">
+<a href="mscanner.core.QueryManager.QueryManager-class.html">core.QueryManager.QueryManager</a> --+
+                                 |
+                                <strong class="uidshort">RetrievalTest</strong>
+</pre>
+
+<hr />
+Performs retrieval-testing analysis, in which a subset of the data is 
+  used to query, and the results are tested against the rest of the 
+  data.<br /><br />
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.scripts.retrievaltest.RetrievalTest-class.html#retrieval_query" class="summary-sig-name">retrieval_query</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">input</span>,
+        <span class="summary-sig-arg">test_proportion</span>)</span><br />
+      Splits the input into training and testing, plots how many testing
+      PMIDs the query returns when trained on the training PMIDs.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.retrievaltest-pysrc.html#RetrievalTest.retrieval_query">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="report_tp_fp"></a><span class="summary-sig-name">report_tp_fp</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.retrievaltest-pysrc.html#RetrievalTest.report_tp_fp">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="mscanner.core.QueryManager.QueryManager-class.html">core.QueryManager.QueryManager</a></code></b>:
+      <code><a href="mscanner.core.QueryManager.QueryManager-class.html#__init__">__init__</a></code>,
+      <code><a href="mscanner.core.QueryManager.QueryManager-class.html#query">query</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="mscanner.core.QueryManager.QueryManager-class.html">core.QueryManager.QueryManager</a></code></b> (private):
+      <code><a href="mscanner.core.QueryManager.QueryManager-class.html#_load_input">_load_input</a></code>,
+      <code><a href="mscanner.core.QueryManager.QueryManager-class.html#_load_results">_load_results</a></code>,
+      <code><a href="mscanner.core.QueryManager.QueryManager-class.html#_make_feature_info">_make_feature_info</a></code>,
+      <code><a href="mscanner.core.QueryManager.QueryManager-class.html#_make_results">_make_results</a></code>,
+      <code><a href="mscanner.core.QueryManager.QueryManager-class.html#_save_results">_save_results</a></code>,
+      <code><a href="mscanner.core.QueryManager.QueryManager-class.html#_write_report">_write_report</a></code>
+      </p></div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="test_pmids_file"></a><span class="summary-name">test_pmids_file</span> = <code title="path(u'retrieval_test.txt')">path(u'retrieval_test.txt')</code><br />
+      Name of file with the gold standard against which the query is 
+      tested
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="retrieval_stats"></a><span class="summary-name">retrieval_stats</span> = <code title="path(u'retrieval_stats.txt')">path(u'retrieval_stats.txt')</code><br />
+      Name of file with cumulative count of retrieved test PMIDs
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="tpfp_graph"></a><span class="summary-name">tpfp_graph</span> = <code title="path(u'retrieval.png')">path(u'retrieval.png')</code><br />
+      Name of retrieval vs rank graph
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="test_proportion"></a><span class="summary-name">test_proportion</span> = <code title="0.2">0.2</code><br />
+      Proportion of data to use in retrieval test
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="mscanner.core.QueryManager.QueryManager-class.html">core.QueryManager.QueryManager</a></code></b>:
+      <code><a href="mscanner.core.QueryManager.QueryManager-class.html#featinfo">featinfo</a></code>,
+      <code><a href="mscanner.core.QueryManager.QueryManager-class.html#inputs">inputs</a></code>,
+      <code><a href="mscanner.core.QueryManager.QueryManager-class.html#notfound_pmids">notfound_pmids</a></code>,
+      <code><a href="mscanner.core.QueryManager.QueryManager-class.html#pmids">pmids</a></code>,
+      <code><a href="mscanner.core.QueryManager.QueryManager-class.html#results">results</a></code>,
+      <code><a href="mscanner.core.QueryManager.QueryManager-class.html#timestamp">timestamp</a></code>
+      </p>
+    </td>
+  </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;Passed via constructor</th></tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="mscanner.core.QueryManager.QueryManager-class.html">core.QueryManager.QueryManager</a></code></b>:
+      <code><a href="mscanner.core.QueryManager.QueryManager-class.html#dataset">dataset</a></code>,
+      <code><a href="mscanner.core.QueryManager.QueryManager-class.html#limit">limit</a></code>,
+      <code><a href="mscanner.core.QueryManager.QueryManager-class.html#maxdate">maxdate</a></code>,
+      <code><a href="mscanner.core.QueryManager.QueryManager-class.html#mindate">mindate</a></code>,
+      <code><a href="mscanner.core.QueryManager.QueryManager-class.html#outdir">outdir</a></code>,
+      <code><a href="mscanner.core.QueryManager.QueryManager-class.html#threshold">threshold</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="retrieval_query"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">retrieval_query</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">input</span>,
+        <span class="sig-arg">test_proportion</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.scripts.retrievaltest-pysrc.html#RetrievalTest.retrieval_query">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Splits the input into training and testing, plots how many testing 
+  PMIDs the query returns when trained on the training PMIDs.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>Array with cumulative test PMIDs as function of rank</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Tue Nov 13 13:05:28 2007
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

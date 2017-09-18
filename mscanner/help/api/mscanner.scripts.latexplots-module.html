@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>mscanner.scripts.latexplots</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;mscanner ::
+        <a href="mscanner.scripts-module.html">Package&nbsp;scripts</a> ::
+        Module&nbsp;latexplots
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="mscanner.scripts.latexplots-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module latexplots</h1><span class="codelink"><a href="mscanner.scripts.latexplots-pysrc.html">source&nbsp;code</a></span><br /><br />
+<p>Draws publication-quality plots for use in the paper</p>
+  The figures are:
+<pre class="literalblock">
+   Figure 1. Four score density plots
+   Figure 2. ROC curve overlay
+   Figure 3. PR curve overlay
+   Figure 4. P,R,F1,Fa curve for AIDSBio to demo optimisation
+</pre><br /><br />
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Graham Poulter &lt;http://graham.poulter.googlepages.com&gt;
+      </p>
+      <p><strong>Copyright:</strong>
+        2007 Graham Poulter
+      </p>
+      <p><strong>License:</strong>
+        This program is free software: you can redistribute it and/or
+        modify it under the terms of the GNU General Public License as 
+        published by the
+        Free Software Foundation, either version 3 of the License, or (at 
+        your option)
+        any later version.
+        
+        This program is distributed in the hope that it will be useful, but
+        WITHOUT ANY
+        WARRANTY; without even the implied warranty of MERCHANTABILITY or 
+        FITNESS FOR A
+        PARTICULAR PURPOSE. See the GNU General Public License for more 
+        details.
+        
+        You should have received a copy of the GNU General Public License 
+        along with
+        this program. If not, see &lt;http://www.gnu.org/licenses/&gt;.
+      </p>
+</div><!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.scripts.latexplots-module.html#smooth" class="summary-sig-name">smooth</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>,
+        <span class="summary-sig-arg">xn</span>=<span class="summary-sig-default">400</span>)</span><br />
+      Resample a curve (x,y) using interpolation.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.latexplots-pysrc.html#smooth">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="read_featscores"></a><span class="summary-sig-name">read_featscores</span>(<span class="summary-sig-arg">indir</span>,
+        <span class="summary-sig-arg">dataset</span>)</span><br />
+      Read feature scores for a dataset</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.latexplots-pysrc.html#read_featscores">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.scripts.latexplots-module.html#load_stats" class="summary-sig-name">load_stats</a>(<span class="summary-sig-arg">indir</span>,
+        <span class="summary-sig-arg">dataset</span>,
+        <span class="summary-sig-arg">title</span>,
+        <span class="summary-sig-arg">alpha</span>=<span class="summary-sig-default">0.5</span>)</span><br />
+      Read statistics based on score data</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.latexplots-pysrc.html#load_stats">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="gplot"></a><span class="summary-sig-name">gplot</span>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>,
+        <span class="summary-sig-arg">ls</span>,
+        <span class="summary-sig-arg">label</span>,
+        <span class="summary-sig-arg">pos</span>=<span class="summary-sig-default">0.6</span>,
+        <span class="summary-sig-arg">usemarker</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Wraps plot to add a single marker marker instead of lots</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.latexplots-pysrc.html#gplot">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="custom_show"></a><span class="summary-sig-name">custom_show</span>(<span class="summary-sig-arg">fname</span>,
+        <span class="summary-sig-arg">doshow</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">type</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">eps</code><code class="variable-quote">'</code></span>)</span><br />
+      Either shows an interactive plot, or writes to EPS followed by 
+      convertion to PDF (since matplotlib's PDF backend is buggy)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.latexplots-pysrc.html#custom_show">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.scripts.latexplots-module.html#plot_score_density" class="summary-sig-name">plot_score_density</a>(<span class="summary-sig-arg">fname</span>,
+        <span class="summary-sig-arg">statlist</span>)</span><br />
+      Plots four score density plots in a grid</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.latexplots-pysrc.html#plot_score_density">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="plot_score_histogram"></a><span class="summary-sig-name">plot_score_histogram</span>(<span class="summary-sig-arg">fname</span>,
+        <span class="summary-sig-arg">pscores</span>,
+        <span class="summary-sig-arg">nscores</span>)</span><br />
+      Plot histograms for pos/neg scores, with line to mark 
+      threshold</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.latexplots-pysrc.html#plot_score_histogram">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="plot_featscore_histogram"></a><span class="summary-sig-name">plot_featscore_histogram</span>(<span class="summary-sig-arg">fname</span>,
+        <span class="summary-sig-arg">fscores</span>)</span><br />
+      Plot histogram for individual feature scores</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.latexplots-pysrc.html#plot_featscore_histogram">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="plot_roc"></a><span class="summary-sig-name">plot_roc</span>(<span class="summary-sig-arg">fname</span>,
+        <span class="summary-sig-arg">statlist</span>)</span><br />
+      Plots ROC curves overlayed</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.latexplots-pysrc.html#plot_roc">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="plot_precision"></a><span class="summary-sig-name">plot_precision</span>(<span class="summary-sig-arg">fname</span>,
+        <span class="summary-sig-arg">statlist</span>)</span><br />
+      Plots PR curves overlayed</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.latexplots-pysrc.html#plot_precision">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="do_iedb"></a><span class="summary-sig-name">do_iedb</span>(<span class="summary-sig-arg">fname</span>)</span><br />
+      Plots retrieval test results for 20% of PharmGKB to see how 
+      MScanner and PubMed compare at retrieving the remaining 80%.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.latexplots-pysrc.html#do_iedb">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="do_publication"></a><span class="summary-sig-name">do_publication</span>()</span><br />
+      Draws figures for the BMC paper: including densities, ROC curve, 
+      PR curve, and PRF curve.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.latexplots-pysrc.html#do_publication">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="do_testplots"></a><span class="summary-sig-name">do_testplots</span>()</span><br />
+      Tests the plot functions using some old smaller datasets</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.latexplots-pysrc.html#do_testplots">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="do_subdirplots"></a><span class="summary-sig-name">do_subdirplots</span>(<span class="summary-sig-arg">subdirs</span>)</span><br />
+      Plots selected graphs for the datasets passed as parameters</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.latexplots-pysrc.html#do_subdirplots">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="interactive"></a><span class="summary-name">interactive</span> = <code title="False">False</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="npoints"></a><span class="summary-name">npoints</span> = <code title="400">400</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="mscanner.scripts.latexplots-module.html#mscanner_dir" class="summary-name">mscanner_dir</a> = <code title="path(u'C:\\Documents and Settings\\Graham\\My Documents\\data\\MScanne\
+r')">path(u'C:\\Documents and Settings\\Graham\\My D<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="mscanner.scripts.latexplots-module.html#source_dir" class="summary-name">source_dir</a> = <code title="path(u'C:\\Documents and Settings\\Graham\\My Documents\\data\\MScanne\
+r\\output')">path(u'C:\\Documents and Settings\\Graham\\My Doc<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="mscanner.scripts.latexplots-module.html#outdir" class="summary-name">outdir</a> = <code title="path(u'C:\\Documents and Settings\\Graham\\My Documents\\temporary')">path(u'C:\\Documents and Settings\\Graham\\My Documen<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="Complex0"></a><span class="summary-name">Complex0</span> = <code title="'F'"><code class="variable-quote">'</code><code class="variable-string">F</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="Complex16"></a><span class="summary-name">Complex16</span> = <code title="'F'"><code class="variable-quote">'</code><code class="variable-string">F</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="Complex8"></a><span class="summary-name">Complex8</span> = <code title="'F'"><code class="variable-quote">'</code><code class="variable-string">F</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="Float0"></a><span class="summary-name">Float0</span> = <code title="'f'"><code class="variable-quote">'</code><code class="variable-string">f</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="Float16"></a><span class="summary-name">Float16</span> = <code title="'f'"><code class="variable-quote">'</code><code class="variable-string">f</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="Float8"></a><span class="summary-name">Float8</span> = <code title="'f'"><code class="variable-quote">'</code><code class="variable-string">f</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="Int0"></a><span class="summary-name">Int0</span> = <code title="'b'"><code class="variable-quote">'</code><code class="variable-string">b</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="divide_safe"></a><span class="summary-name">divide_safe</span> = <code title="&lt;ufunc 'divide'&gt;">&lt;ufunc 'divide'&gt;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="floor_divide"></a><span class="summary-name">floor_divide</span> = <code title="&lt;ufunc 'floor_divide'&gt;">&lt;ufunc 'floor_divide'&gt;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="invert"></a><span class="summary-name">invert</span> = <code title="&lt;ufunc 'invert'&gt;">&lt;ufunc 'invert'&gt;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="left_shift"></a><span class="summary-name">left_shift</span> = <code title="&lt;ufunc 'left_shift'&gt;">&lt;ufunc 'left_shift'&gt;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="remainder"></a><span class="summary-name">remainder</span> = <code title="&lt;ufunc 'remainder'&gt;">&lt;ufunc 'remainder'&gt;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="right_shift"></a><span class="summary-name">right_shift</span> = <code title="&lt;ufunc 'right_shift'&gt;">&lt;ufunc 'right_shift'&gt;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="true_divide"></a><span class="summary-name">true_divide</span> = <code title="&lt;ufunc 'true_divide'&gt;">&lt;ufunc 'true_divide'&gt;</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="smooth"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">smooth</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>,
+        <span class="sig-arg">xn</span>=<span class="sig-default">400</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.scripts.latexplots-pysrc.html#smooth">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Resample a curve (x,y) using interpolation. xn is either a float with 
+  the new number of x value to evaluate the curve at, or an array of x 
+  values.
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="load_stats"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">load_stats</span>(<span class="sig-arg">indir</span>,
+        <span class="sig-arg">dataset</span>,
+        <span class="sig-arg">title</span>,
+        <span class="sig-arg">alpha</span>=<span class="sig-default">0.5</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.scripts.latexplots-pysrc.html#load_stats">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Read statistics based on score data
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>indir</code></strong> - Directory in which to find data sets</li>
+        <li><strong class="pname"><code>dataset</code></strong> - Subdirectory name for the particular data set</li>
+        <li><strong class="pname"><code>title</code></strong> - Name to put on the graphs (typically same as dataset)</li>
+        <li><strong class="pname"><code>alpha</code></strong> - What alpha to use when recalcing performance</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="plot_score_density"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">plot_score_density</span>(<span class="sig-arg">fname</span>,
+        <span class="sig-arg">statlist</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.scripts.latexplots-pysrc.html#plot_score_density">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Plots four score density plots in a grid
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>statlist</code></strong> - A tuple of a four PerformanceVectors objects</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="mscanner_dir"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">mscanner_dir</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+path(u'C:\\Documents and Settings\\Graham\\My Documents\\data\\MScanne<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+r')
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="source_dir"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">source_dir</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+path(u'C:\\Documents and Settings\\Graham\\My Documents\\data\\MScanne<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+r\\output')
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="outdir"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">outdir</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+path(u'C:\\Documents and Settings\\Graham\\My Documents\\temporary')
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Fri Nov 23 09:13:20 2007
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

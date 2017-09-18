@@ -1,0 +1,85 @@
+#extends page
+
+#* PARAMETERS
+$queue -- The QueueStatus object
+$inputs -- Parameters passed by the web browser
+$logcontents -- List of lines from the log file
+*#
+
+#def title
+MScanner Status Report
+#end def title
+
+#def extraheaders
+<script type="text/javascript">
+    window.onload = function() {
+        setTimeout(function() {window.location.reload()}, 10000);
+    }
+</script>
+#end def extraheaders
+
+#def contents
+<div class="narrow">
+
+<p>This page reloads every 10 seconds.</p>
+
+#set dataset = $inputs.d.dataset
+
+#if $queue.running is None
+    <p>There are no tasks waiting in the queue.</p>
+#elif $dataset not in $queue
+    <p>The specified task <q>$dataset</q> was not found.</p>
+#end if
+
+#if $dataset in $queue
+    $statusblock($queue[$dataset], $queue)
+#end if
+
+#if $dataset in $queue and ($queue.status[$dataset] == $queue.RUNNING)
+    $inputs.fill({"dataset":"", "delcode":"", "operation":"delete"})
+#end if
+    
+<h2>Delete a task</h2>
+<form action="output" method="post">
+$inputs.render()
+<div><input type="submit" value="Delete task"></div>
+</form>
+
+##### QUEUE CONTENTS #####
+
+#if len($queue.tasklist) > 0
+<h2>Tasks in the queue</h2>
+
+<table>
+<thead>
+  <tr>
+    <th>Submitted at</th>
+    <th>Type</th>
+    <th>Name</th>
+  </tr>
+</thead>
+<tbody>
+  #for d in $queue.tasklist
+  <tr>
+    <td class="timestamp">
+      $time.strftime("%Y/%m/%d %H:%M:%S GMT", $time.gmtime($d.submitted))
+    </td>
+    <td class="operation">$d.operation</td>
+    <td class="dataset">$d.dataset</td>
+  </tr>
+  #end for
+</tbody>
+</table>
+#end if
+
+##### LOG CONTENTS #####
+
+#if len($getVar('log_lines', [])) > 0
+<h2>Contents of the log</h2>
+<pre>
+#echo "".join($log_lines)
+</pre>
+#end if log_lines
+
+</div><!--class=narrow-->
+#end def contents

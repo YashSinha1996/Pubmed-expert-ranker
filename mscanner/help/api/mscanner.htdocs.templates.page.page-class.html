@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>mscanner.htdocs.templates.page.page</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;mscanner ::
+        <a href="mscanner.htdocs-module.html">Package&nbsp;htdocs</a> ::
+        <a href="mscanner.htdocs.templates-module.html">Package&nbsp;templates</a> ::
+        <a href="mscanner.htdocs.templates.page-module.html">Module&nbsp;page</a> ::
+        Class&nbsp;page
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="mscanner.htdocs.templates.page.page-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class page</h1><span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page">source&nbsp;code</a></span><br /><br />
+<pre class="base-tree">
+                 object --+            
+                          |            
+Cheetah.Servlet.BaseServlet --+        
+                              |        
+        Cheetah.Servlet.Servlet --+    
+                                  |    
+          Cheetah.Template.Template --+
+                                      |
+                                     <strong class="uidshort">page</strong>
+</pre>
+
+<dl><dt>Known Subclasses:</dt>
+<dd>
+    <a href="mscanner.htdocs.templates.status.status-class.html">status.status</a>,
+    <a href="mscanner.htdocs.templates.contact.contact-class.html">contact.contact</a>,
+    <a href="mscanner.htdocs.templates.front.front-class.html">front.front</a>,
+    <a href="mscanner.htdocs.templates.output.output-class.html">output.output</a>,
+    <a href="mscanner.htdocs.templates.query.query-class.html">query.query</a>
+</dd></dl>
+
+<hr />
+<!-- ==================== NESTED CLASSES ==================== -->
+<a name="section-NestedClasses"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Nested Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-NestedClasses"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>Cheetah.Template.Template</code></b>:
+      <code><a href="Cheetah.Utils.WebInputMixin.NonNumericInputError-class.html">NonNumericInputError</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>Cheetah.Template.Template</code></b> (private):
+      <code><a href="Cheetah.CacheRegion.CacheRegion-class.html">_CHEETAH_cacheRegionClass</a></code>,
+      <code><a href="Cheetah.CacheStore.MemoryCacheStore-class.html">_CHEETAH_cacheStoreClass</a></code>,
+      <code><a href="Cheetah.Compiler.ModuleCompiler-class.html">_CHEETAH_compilerClass</a></code>,
+      <code><a href="Cheetah.Template.TemplatePreprocessor-class.html">_CHEETAH_defaultPreprocessorClass</a></code>
+      </p></div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.htdocs.templates.page.page-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**KWs</span>)</span><br />
+      a) compiles a new template OR b) instantiates an existing template.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="doctype"></a><span class="summary-sig-name">doctype</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**KWS</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.doctype">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="title"></a><span class="summary-sig-name">title</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**KWS</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.title">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="wintitle"></a><span class="summary-sig-name">wintitle</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**KWS</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.wintitle">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="stdheaders"></a><span class="summary-sig-name">stdheaders</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**KWS</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.stdheaders">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="extraheaders"></a><span class="summary-sig-name">extraheaders</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**KWS</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.extraheaders">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="head"></a><span class="summary-sig-name">head</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**KWS</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.head">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="statusblock"></a><span class="summary-sig-name">statusblock</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">task</span>,
+        <span class="summary-sig-arg">queue</span>,
+        <span class="summary-sig-arg">**KWS</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.statusblock">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="header_text"></a><span class="summary-sig-name">header_text</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**KWS</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.header_text">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="header"></a><span class="summary-sig-name">header</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**KWS</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.header">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="topmenu"></a><span class="summary-sig-name">topmenu</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**KWS</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.topmenu">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="contents"></a><span class="summary-sig-name">contents</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**KWS</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.contents">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="contents_outer"></a><span class="summary-sig-name">contents_outer</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**KWS</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.contents_outer">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="footer_text"></a><span class="summary-sig-name">footer_text</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**KWS</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.footer_text">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="footer"></a><span class="summary-sig-name">footer</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**KWS</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.footer">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="body"></a><span class="summary-sig-name">body</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**KWS</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.body">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="html"></a><span class="summary-sig-name">html</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**KWS</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.htdocs.templates.page.page-class.html#respond" class="summary-sig-name">respond</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">trans</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.respond">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.htdocs.templates.page.page-class.html#__str__" class="summary-sig-name">__str__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      str(x)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.__str__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>Cheetah.Template.Template</code></b>:
+      <code>errorCatcher</code>,
+      <code>generatedClassCode</code>,
+      <code>generatedModuleCode</code>,
+      <code>getCacheRegion</code>,
+      <code>getCacheRegions</code>,
+      <code>getFileContents</code>,
+      <code>getVar</code>,
+      <code>hasVar</code>,
+      <code>i18n</code>,
+      <code>refreshCache</code>,
+      <code>runAsMainProgram</code>,
+      <code>searchList</code>,
+      <code>shutdown</code>,
+      <code>varExists</code>,
+      <code>webInput</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>Cheetah.Template.Template</code></b> (private):
+      <code>_compile</code>,
+      <code>_createCacheRegion</code>,
+      <code>_getCacheStore</code>,
+      <code>_getCacheStoreIdPrefix</code>,
+      <code>_getTemplateAPIClassForIncludeDirectiveCompilation</code>,
+      <code>_handleCheetahInclude</code>,
+      <code>_initCheetahInstance</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>Cheetah.Servlet.Servlet</code></b>:
+      <code>awake</code>,
+      <code>serverSidePath</code>,
+      <code>sleep</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS METHODS ==================== -->
+<a name="section-ClassMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>Cheetah.Template.Template</code></b>:
+      <code>compile</code>,
+      <code>subclass</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>Cheetah.Template.Template</code></b> (private):
+      <code>_addCheetahPlumbingCodeToClass</code>,
+      <code>_getCompilerClass</code>,
+      <code>_getCompilerSettings</code>,
+      <code>_normalizePreprocessorArg</code>,
+      <code>_normalizePreprocessorSettings</code>,
+      <code>_preprocessSource</code>,
+      <code>_updateSettingsWithPreprocessTokens</code>
+      </p></div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_CHEETAH__instanceInitialized"></a><span class="summary-name">_CHEETAH__instanceInitialized</span> = <code title="False">False</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_CHEETAH_version"></a><span class="summary-name">_CHEETAH_version</span> = <code title="'2.0rc7'"><code class="variable-quote">'</code><code class="variable-string">2.0rc7</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_CHEETAH_versionTuple"></a><span class="summary-name">_CHEETAH_versionTuple</span> = <code title="(2, 0, 0, 'candidate', 7)"><code class="variable-group">(</code>2<code class="variable-op">, </code>0<code class="variable-op">, </code>0<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">candidate</code><code class="variable-quote">'</code><code class="variable-op">, </code>7<code class="variable-group">)</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_CHEETAH_genTime"></a><span class="summary-name">_CHEETAH_genTime</span> = <code title="1193401027.99">1193401027.99</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_CHEETAH_genTimestamp"></a><span class="summary-name">_CHEETAH_genTimestamp</span> = <code title="'Fri Oct 26 14:17:07 2007'"><code class="variable-quote">'</code><code class="variable-string">Fri Oct 26 14:17:07 2007</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_CHEETAH_src"></a><span class="summary-name">_CHEETAH_src</span> = <code title="'page.tmpl'"><code class="variable-quote">'</code><code class="variable-string">page.tmpl</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_CHEETAH_srcLastModified"></a><span class="summary-name">_CHEETAH_srcLastModified</span> = <code title="'Fri Oct 26 14:17:08 2007'"><code class="variable-quote">'</code><code class="variable-string">Fri Oct 26 14:17:08 2007</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="base"></a><span class="summary-name">base</span> = <code title="''"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_mainCheetahMethod_for_page"></a><span class="summary-name">_mainCheetahMethod_for_page</span> = <code title="'respond'"><code class="variable-quote">'</code><code class="variable-string">respond</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>Cheetah.Template.Template</code></b> (private):
+      <code>_CHEETAH_cacheCompilationResults</code>,
+      <code>_CHEETAH_cacheDirForModuleFiles</code>,
+      <code>_CHEETAH_cacheModuleFilesForTracebacks</code>,
+      <code>_CHEETAH_cacheStore</code>,
+      <code>_CHEETAH_cacheStoreIdPrefix</code>,
+      <code>_CHEETAH_compileCache</code>,
+      <code>_CHEETAH_compileLock</code>,
+      <code>_CHEETAH_compilerSettings</code>,
+      <code>_CHEETAH_defaultBaseclassForTemplates</code>,
+      <code>_CHEETAH_defaultClassNameForTemplates</code>,
+      <code>_CHEETAH_defaultMainMethodName</code>,
+      <code>_CHEETAH_defaultMainMethodNameForTemplates</code>,
+      <code>_CHEETAH_defaultModuleGlobalsForTemplates</code>,
+      <code>_CHEETAH_defaultModuleNameForTemplates</code>,
+      <code>_CHEETAH_generatedModuleCode</code>,
+      <code>_CHEETAH_keepRefToGeneratedCode</code>,
+      <code>_CHEETAH_preprocessors</code>,
+      <code>_CHEETAH_requiredCheetahClassAttributes</code>,
+      <code>_CHEETAH_requiredCheetahClassMethods</code>,
+      <code>_CHEETAH_requiredCheetahMethods</code>,
+      <code>_CHEETAH_useCompilationCache</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>Cheetah.Servlet.Servlet</code></b>:
+      <code>application</code>,
+      <code>request</code>,
+      <code>session</code>,
+      <code>transaction</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>Cheetah.Servlet.BaseServlet</code></b> (private):
+      <code>_reusable</code>,
+      <code>_threadSafe</code>
+      </p></div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**KWs</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <pre class="literalblock">
+a) compiles a new template OR b) instantiates an existing template.
+
+Read this docstring carefully as there are two distinct usage patterns.
+You should also read this class' main docstring.
+
+a) to compile a new template:
+     t = Template(source=aSourceString)
+         # or 
+     t = Template(file='some/path')
+         # or 
+     t = Template(file=someFileObject)
+         # or
+     namespaces = [{'foo':'bar'}]               
+     t = Template(source=aSourceString, namespaces=namespaces)
+         # or 
+     t = Template(file='some/path', namespaces=namespaces)
+
+     print t
+     
+b) to create an instance of an existing, precompiled template class:
+     ## i) first you need a reference to a compiled template class:
+     tclass = Template.compile(source=src) # or just Template.compile(src)
+         # or 
+     tclass = Template.compile(file='some/path')
+         # or 
+     tclass = Template.compile(file=someFileObject)
+         # or 
+     # if you used the command line compiler or have Cheetah's ImportHooks
+     # installed your template class is also available via Python's
+     # standard import mechanism:
+     from ACompileTemplate import AcompiledTemplate as tclass
+     
+     ## ii) then you create an instance
+     t = tclass(namespaces=namespaces)
+         # or 
+     t = tclass(namespaces=namespaces, filter='RawOrEncodedUnicode')
+     print t
+
+Arguments:
+  for usage pattern a)           
+    If you are compiling a new template, you must provide either a
+    'source' or 'file' arg, but not both:          
+      - source (string or None)
+      - file (string path, file-like object, or None)
+
+    Optional args (see below for more) :
+      - compilerSettings
+       Default: Template._CHEETAH_compilerSettings=None
+       
+       a dictionary of settings to override those defined in
+       DEFAULT_COMPILER_SETTINGS.  See
+       Cheetah.Template.DEFAULT_COMPILER_SETTINGS and the Users' Guide
+       for details.
+
+    You can pass the source arg in as a positional arg with this usage
+    pattern.  Use keywords for all other args.           
+
+  for usage pattern b)
+    Do not use positional args with this usage pattern, unless your
+    template subclasses something other than Cheetah.Template and you
+    want to pass positional args to that baseclass.  E.g.:
+      dictTemplate = Template.compile('hello $name from $caller', baseclass=dict)
+      tmplvars = dict(name='world', caller='me')
+      print dictTemplate(tmplvars)
+    This usage requires all Cheetah args to be passed in as keyword args.
+
+  optional args for both usage patterns:
+
+    - namespaces (aka 'searchList')
+      Default: None
+      
+      an optional list of namespaces (dictionaries, objects, modules,
+      etc.) which Cheetah will search through to find the variables
+      referenced in $placeholders.
+
+      If you provide a single namespace instead of a list, Cheetah will
+      automatically convert it into a list.
+        
+      NOTE: Cheetah does NOT force you to use the namespaces search list
+      and related features.  It's on by default, but you can turn if off
+      using the compiler settings useSearchList=False or
+      useNameMapper=False.
+        
+     - filter
+       Default: 'EncodeUnicode'
+       
+       Which filter should be used for output filtering. This should
+       either be a string which is the name of a filter in the
+       'filtersLib' or a subclass of Cheetah.Filters.Filter. . See the
+       Users' Guide for more details.
+
+     - filtersLib
+       Default: Cheetah.Filters
+       
+       A module containing subclasses of Cheetah.Filters.Filter. See the
+       Users' Guide for more details. 
+
+     - errorCatcher
+       Default: None
+
+       This is a debugging tool. See the Users' Guide for more details.
+       Do not use this or the #errorCatcher diretive with live
+       production systems.
+
+  Do NOT mess with the args _globalSetVars or _preBuiltSearchList!
+
+</pre>
+  <dl class="fields">
+    <dt>Overrides:
+      Cheetah.Template.Template.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="respond"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">respond</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">trans</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.respond">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  
+  <dl class="fields">
+    <dt>Overrides:
+      Cheetah.Servlet.Servlet.respond
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__str__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__str__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Informal representation operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.htdocs.templates.page-pysrc.html#page.__str__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  str(x)
+  <dl class="fields">
+    <dt>Overrides:
+      object.__str__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Fri Nov 23 09:13:21 2007
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

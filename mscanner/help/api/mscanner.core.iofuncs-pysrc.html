@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>mscanner.core.iofuncs</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;mscanner ::
+        <a href="mscanner.core-module.html">Package&nbsp;core</a> ::
+        Module&nbsp;iofuncs
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="mscanner.core.iofuncs-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="mscanner.core.iofuncs-module.html">Module mscanner.core.iofuncs</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""I/O functions - for reading and writing certain file formats."""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">__future__</tt> <tt class="py-keyword">import</tt> <tt class="py-name">with_statement</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">__future__</tt> <tt class="py-keyword">import</tt> <tt class="py-name">division</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">as</tt> <tt class="py-name">nx</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">itertools</tt> <tt class="py-keyword">import</tt> <tt class="py-name">izip</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-name">__copyright__</tt> <tt class="py-op">=</tt> <tt class="py-string">"2007 Graham Poulter"</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-name">__author__</tt> <tt class="py-op">=</tt> <tt class="py-string">"Graham Poulter &lt;http://graham.poulter.googlepages.com&gt;"</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-name">__license__</tt> <tt class="py-op">=</tt> <tt class="py-string">"""This program is free software: you can redistribute it and/or</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-string">modify it under the terms of the GNU General Public License as published by the</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-string">Free Software Foundation, either version 3 of the License, or (at your option)</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-string">any later version.</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-string"></tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-string">This program is distributed in the hope that it will be useful, but WITHOUT ANY</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-string">WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-string">PARTICULAR PURPOSE. See the GNU General Public License for more details.</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-string"></tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-string">You should have received a copy of the GNU General Public License along with</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-string">this program. If not, see &lt;http://www.gnu.org/licenses/&gt;."""</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"> </tt>
+<a name="write_pmids"></a><div id="write_pmids-def"><a name="L24"></a><tt class="py-lineno"> 24</tt> <a class="py-toggle" href="#" id="write_pmids-toggle" onclick="return toggle('write_pmids');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.core.iofuncs-module.html#write_pmids">write_pmids</a><tt class="py-op">(</tt><tt class="py-param">filename</tt><tt class="py-op">,</tt> <tt class="py-param">pmids</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="write_pmids-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="write_pmids-expanded"><a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">    <tt class="py-docstring">"""Write list of PMIDs one per line to file"""</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">    <tt class="py-keyword">with</tt> <tt id="link-0" class="py-name" targets="Function mscanner.medline.Shelf.open()=mscanner.medline.Shelf-module.html#open"><a title="mscanner.medline.Shelf.open" class="py-name" href="#" onclick="return doclink('link-0', 'open', 'link-0');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-string">"w"</tt><tt class="py-op">)</tt> <tt class="py-keyword">as</tt> <tt class="py-name">f</tt><tt class="py-op">:</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">        <tt class="py-name">f</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Method mscanner.medline.FeatureStream.FeatureStream.write()=mscanner.medline.FeatureStream.FeatureStream-class.html#write"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-1', 'write', 'link-1');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">"\n"</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">s</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">s</tt> <tt class="py-keyword">in</tt> <tt class="py-name">pmids</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"> </tt>
+<a name="read_pmids"></a><div id="read_pmids-def"><a name="L30"></a><tt class="py-lineno"> 30</tt> <a class="py-toggle" href="#" id="read_pmids-toggle" onclick="return toggle('read_pmids');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.core.iofuncs-module.html#read_pmids">read_pmids</a><tt class="py-op">(</tt><tt class="py-param">filename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="read_pmids-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="read_pmids-expanded"><a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">    <tt class="py-docstring">"""Yield PubMed IDs listed one per line in a file. Empty lines and lines</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">    starting with # are ignored."""</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">    <tt class="py-keyword">with</tt> <tt id="link-2" class="py-name"><a title="mscanner.medline.Shelf.open" class="py-name" href="#" onclick="return doclink('link-2', 'open', 'link-0');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt> <tt class="py-keyword">as</tt> <tt class="py-name">f</tt><tt class="py-op">:</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">line</tt> <tt class="py-keyword">in</tt> <tt class="py-name">f</tt><tt class="py-op">:</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">            <tt class="py-name">sline</tt> <tt class="py-op">=</tt> <tt class="py-name">line</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">sline</tt> <tt class="py-op">==</tt> <tt class="py-string">""</tt> <tt class="py-keyword">or</tt> <tt class="py-name">sline</tt><tt class="py-op">.</tt><tt class="py-name">startswith</tt><tt class="py-op">(</tt><tt class="py-string">"#"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">                <tt class="py-keyword">continue</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">            <tt class="py-keyword">yield</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">sline</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"> </tt>
+<a name="read_pmids_array"></a><div id="read_pmids_array-def"><a name="L41"></a><tt class="py-lineno"> 41</tt> <a class="py-toggle" href="#" id="read_pmids_array-toggle" onclick="return toggle('read_pmids_array');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.core.iofuncs-module.html#read_pmids_array">read_pmids_array</a><tt class="py-op">(</tt><tt class="py-param">filename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="read_pmids_array-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="read_pmids_array-expanded"><a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">    <tt class="py-docstring">"""Read array of PubMed IDs one per line from file"""</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">nx</tt><tt class="py-op">.</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt id="link-3" class="py-name" targets="Function mscanner.core.iofuncs.read_pmids()=mscanner.core.iofuncs-module.html#read_pmids"><a title="mscanner.core.iofuncs.read_pmids" class="py-name" href="#" onclick="return doclink('link-3', 'read_pmids', 'link-3');">read_pmids</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">nx</tt><tt class="py-op">.</tt><tt class="py-name">int32</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"> </tt>
+<a name="read_pmids_careful"></a><div id="read_pmids_careful-def"><a name="L46"></a><tt class="py-lineno"> 46</tt> <a class="py-toggle" href="#" id="read_pmids_careful-toggle" onclick="return toggle('read_pmids_careful');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.core.iofuncs-module.html#read_pmids_careful">read_pmids_careful</a><tt class="py-op">(</tt><tt class="py-param">filename</tt><tt class="py-op">,</tt> <tt class="py-param">include</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">exclude</tt><tt class="py-op">=</tt><tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="read_pmids_careful-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="read_pmids_careful-expanded"><a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">    <tt class="py-docstring">"""Reads array of PubMed IDs one per line, with checking.</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">    @param include: Only return members of this set (other PubMed IDs are</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring">    considered "broken").</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-docstring">    @param exclude: Do not return members of this set</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-docstring">    @return: Arrays for result, broken and excluded PubMed IDs</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">    <tt class="py-name">results</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">    <tt class="py-name">broken</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">    <tt class="py-name">excluded</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">pmid</tt> <tt class="py-keyword">in</tt> <tt id="link-4" class="py-name"><a title="mscanner.core.iofuncs.read_pmids" class="py-name" href="#" onclick="return doclink('link-4', 'read_pmids', 'link-3');">read_pmids</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">include</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt> <tt class="py-keyword">and</tt> <tt class="py-name">pmid</tt> <tt class="py-keyword">not</tt> <tt class="py-keyword">in</tt> <tt class="py-name">include</tt><tt class="py-op">:</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">            <tt class="py-name">broken</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">pmid</tt><tt class="py-op">)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">pmid</tt> <tt class="py-keyword">in</tt> <tt class="py-name">exclude</tt><tt class="py-op">:</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">            <tt class="py-name">excluded</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">pmid</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">            <tt class="py-name">results</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">pmid</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">tuple</tt><tt class="py-op">(</tt><tt class="py-name">nx</tt><tt class="py-op">.</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-name">a</tt><tt class="py-op">,</tt> <tt class="py-name">nx</tt><tt class="py-op">.</tt><tt class="py-name">int32</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">a</tt> <tt class="py-keyword">in</tt> <tt class="py-op">[</tt><tt class="py-name">results</tt><tt class="py-op">,</tt><tt class="py-name">broken</tt><tt class="py-op">,</tt><tt class="py-name">excluded</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"> </tt>
+<a name="write_lines"></a><div id="write_lines-def"><a name="L69"></a><tt class="py-lineno"> 69</tt> <a class="py-toggle" href="#" id="write_lines-toggle" onclick="return toggle('write_lines');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.core.iofuncs-module.html#write_lines">write_lines</a><tt class="py-op">(</tt><tt class="py-param">filename</tt><tt class="py-op">,</tt> <tt class="py-param">items</tt><tt class="py-op">,</tt> <tt class="py-param">desc</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">sep</tt><tt class="py-op">=</tt><tt class="py-string">"\t"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="write_lines-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="write_lines-expanded"><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">    <tt class="py-docstring">"""Basic function for writing sequence of items to text files</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">    @param filename: Name of file to write to</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">    @param items: Sequence of items convertible using str().  Tuples</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring">    are written as separated values.</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">    @param desc: Optional string to write at the top of the file</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">    @param sep: Separator for values</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">    <tt class="py-keyword">with</tt> <tt id="link-5" class="py-name"><a title="mscanner.medline.Shelf.open" class="py-name" href="#" onclick="return doclink('link-5', 'open', 'link-0');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-string">"w"</tt><tt class="py-op">)</tt> <tt class="py-keyword">as</tt> <tt class="py-name">f</tt><tt class="py-op">:</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">desc</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">            <tt class="py-name">f</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-6', 'write', 'link-1');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">desc</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-string">"\n"</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">item</tt> <tt class="py-keyword">in</tt> <tt id="link-7" class="py-name" targets="Method mscanner.medline.Shelf.Shelf.items()=mscanner.medline.Shelf.Shelf-class.html#items"><a title="mscanner.medline.Shelf.Shelf.items" class="py-name" href="#" onclick="return doclink('link-7', 'items', 'link-7');">items</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">item</tt><tt class="py-op">,</tt> <tt class="py-string">"__iter__"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">                <tt class="py-name">f</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-8', 'write', 'link-1');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">sep</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">x</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">x</tt> <tt class="py-keyword">in</tt> <tt class="py-name">item</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">                <tt class="py-name">f</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-9', 'write', 'link-1');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">item</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">            <tt class="py-name">f</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-10', 'write', 'link-1');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">"\n"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"> </tt>
+<a name="write_scores"></a><div id="write_scores-def"><a name="L92"></a><tt class="py-lineno"> 92</tt> <a class="py-toggle" href="#" id="write_scores-toggle" onclick="return toggle('write_scores');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.core.iofuncs-module.html#write_scores">write_scores</a><tt class="py-op">(</tt><tt class="py-param">filename</tt><tt class="py-op">,</tt> <tt class="py-param">pairs</tt><tt class="py-op">,</tt> <tt class="py-param">sort</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="write_scores-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="write_scores-expanded"><a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">    <tt class="py-docstring">"""Write scores and PubMed IDs to file</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-docstring">    @param pairs: Iterable over (score, PMID)</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-docstring">    @param sort: If True, write them in decreasing order of score</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">    <tt class="py-name">sorted_pairs</tt> <tt class="py-op">=</tt> <tt class="py-name">sorted</tt><tt class="py-op">(</tt><tt class="py-name">pairs</tt><tt class="py-op">,</tt> <tt class="py-name">reverse</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> <tt class="py-keyword">if</tt> <tt class="py-name">sort</tt> <tt class="py-keyword">else</tt> <tt class="py-name">pairs</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">    <tt class="py-name">filename</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Function mscanner.core.iofuncs.write_lines()=mscanner.core.iofuncs-module.html#write_lines"><a title="mscanner.core.iofuncs.write_lines" class="py-name" href="#" onclick="return doclink('link-11', 'write_lines', 'link-11');">write_lines</a></tt><tt class="py-op">(</tt><tt class="py-string">"%-10d %f"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">p</tt><tt class="py-op">,</tt><tt class="py-name">s</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">s</tt><tt class="py-op">,</tt><tt class="py-name">p</tt> <tt class="py-keyword">in</tt> <tt class="py-name">sorted_pairs</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"> </tt>
+<a name="read_scores"></a><div id="read_scores-def"><a name="L103"></a><tt class="py-lineno">103</tt> <a class="py-toggle" href="#" id="read_scores-toggle" onclick="return toggle('read_scores');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.core.iofuncs-module.html#read_scores">read_scores</a><tt class="py-op">(</tt><tt class="py-param">filename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="read_scores-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="read_scores-expanded"><a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">    <tt class="py-docstring">"""Yield (score, pmid) pairs from file written by L{write_scores}"""</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">    <tt class="py-keyword">with</tt> <tt id="link-12" class="py-name"><a title="mscanner.medline.Shelf.open" class="py-name" href="#" onclick="return doclink('link-12', 'open', 'link-0');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-string">"r"</tt><tt class="py-op">)</tt> <tt class="py-keyword">as</tt> <tt class="py-name">f</tt><tt class="py-op">:</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">line</tt> <tt class="py-keyword">in</tt> <tt class="py-name">f</tt><tt class="py-op">:</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">            <tt class="py-name">sline</tt> <tt class="py-op">=</tt> <tt class="py-name">line</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">sline</tt> <tt class="py-op">==</tt> <tt class="py-string">""</tt> <tt class="py-keyword">or</tt> <tt class="py-name">sline</tt><tt class="py-op">.</tt><tt class="py-name">startswith</tt><tt class="py-op">(</tt><tt class="py-string">"#"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">                <tt class="py-keyword">continue</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">            <tt class="py-name">splits</tt> <tt class="py-op">=</tt> <tt class="py-name">sline</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">            <tt class="py-keyword">yield</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">splits</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">splits</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">     </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"> </tt>
+<a name="read_scores_array"></a><div id="read_scores_array-def"><a name="L114"></a><tt class="py-lineno">114</tt> <a class="py-toggle" href="#" id="read_scores_array-toggle" onclick="return toggle('read_scores_array');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.core.iofuncs-module.html#read_scores_array">read_scores_array</a><tt class="py-op">(</tt><tt class="py-param">filename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="read_scores_array-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="read_scores_array-expanded"><a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">    <tt class="py-docstring">"""Reads a file written by L{write_scores}</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-docstring">    @param filename: Path to file from which to read the pmid,score</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt class="py-docstring">    @return: An array of PubMed IDs, and an array of scores"""</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">    <tt class="py-name">scores</tt><tt class="py-op">,</tt> <tt class="py-name">pmids</tt> <tt class="py-op">=</tt> <tt class="py-name">izip</tt><tt class="py-op">(</tt><tt class="py-op">*</tt><tt id="link-13" class="py-name" targets="Function mscanner.core.iofuncs.read_scores()=mscanner.core.iofuncs-module.html#read_scores"><a title="mscanner.core.iofuncs.read_scores" class="py-name" href="#" onclick="return doclink('link-13', 'read_scores', 'link-13');">read_scores</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">nx</tt><tt class="py-op">.</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-name">pmids</tt><tt class="py-op">,</tt><tt class="py-name">nx</tt><tt class="py-op">.</tt><tt class="py-name">int32</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">nx</tt><tt class="py-op">.</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-name">scores</tt><tt class="py-op">,</tt><tt class="py-name">nx</tt><tt class="py-op">.</tt><tt class="py-name">float32</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"> </tt>
+<a name="no_valid_pmids_page"></a><div id="no_valid_pmids_page-def"><a name="L124"></a><tt class="py-lineno">124</tt> <a class="py-toggle" href="#" id="no_valid_pmids_page-toggle" onclick="return toggle('no_valid_pmids_page');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.core.iofuncs-module.html#no_valid_pmids_page">no_valid_pmids_page</a><tt class="py-op">(</tt><tt class="py-param">filename</tt><tt class="py-op">,</tt> <tt class="py-param">dataset</tt><tt class="py-op">,</tt> <tt class="py-param">pmids</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="no_valid_pmids_page-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="no_valid_pmids_page-expanded"><a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">    <tt class="py-docstring">"""Print an error page when no valid PMIDs were found</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-docstring">    @param filename: Path to output file</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"><tt class="py-docstring">    @param pmids: List of any provided PMIDs (all invalid)</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt class="py-name">Cheetah</tt><tt class="py-op">.</tt><tt class="py-name">Template</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Template</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt class="py-name">mscanner</tt><tt class="py-op">.</tt><tt class="py-name">configuration</tt> <tt class="py-keyword">import</tt> <tt class="py-name">rc</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">    <tt class="py-keyword">with</tt> <tt id="link-14" class="py-name" targets="Class mscanner.core.iofuncs.FileTransaction=mscanner.core.iofuncs.FileTransaction-class.html"><a title="mscanner.core.iofuncs.FileTransaction" class="py-name" href="#" onclick="return doclink('link-14', 'FileTransaction', 'link-14');">FileTransaction</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-string">"w"</tt><tt class="py-op">)</tt> <tt class="py-keyword">as</tt> <tt class="py-name">ft</tt><tt class="py-op">:</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        <tt id="link-15" class="py-name" targets="Module mscanner.htdocs.templates.page=mscanner.htdocs.templates.page-module.html,Class mscanner.htdocs.templates.page.page=mscanner.htdocs.templates.page.page-class.html"><a title="mscanner.htdocs.templates.page
+mscanner.htdocs.templates.page.page" class="py-name" href="#" onclick="return doclink('link-15', 'page', 'link-15');">page</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Template</tt><tt class="py-op">(</tt><tt class="py-name">file</tt><tt class="py-op">=</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">rc</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Package mscanner.htdocs.templates=mscanner.htdocs.templates-module.html"><a title="mscanner.htdocs.templates" class="py-name" href="#" onclick="return doclink('link-16', 'templates', 'link-16');">templates</a></tt><tt class="py-op">/</tt><tt class="py-string">"notfound.tmpl"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">        <tt id="link-17" class="py-name"><a title="mscanner.htdocs.templates.page
+mscanner.htdocs.templates.page.page" class="py-name" href="#" onclick="return doclink('link-17', 'page', 'link-15');">page</a></tt><tt class="py-op">.</tt><tt class="py-name">dataset</tt> <tt class="py-op">=</tt> <tt class="py-name">dataset</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">        <tt id="link-18" class="py-name"><a title="mscanner.htdocs.templates.page
+mscanner.htdocs.templates.page.page" class="py-name" href="#" onclick="return doclink('link-18', 'page', 'link-15');">page</a></tt><tt class="py-op">.</tt><tt class="py-name">notfound_pmids</tt> <tt class="py-op">=</tt> <tt class="py-name">pmids</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">        <tt id="link-19" class="py-name"><a title="mscanner.htdocs.templates.page
+mscanner.htdocs.templates.page.page" class="py-name" href="#" onclick="return doclink('link-19', 'page', 'link-15');">page</a></tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Method mscanner.htdocs.templates.page.page.respond()=mscanner.htdocs.templates.page.page-class.html#respond"><a title="mscanner.htdocs.templates.page.page.respond" class="py-name" href="#" onclick="return doclink('link-20', 'respond', 'link-20');">respond</a></tt><tt class="py-op">(</tt><tt class="py-name">ft</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"> </tt>
+<a name="FileTransaction"></a><div id="FileTransaction-def"><a name="L140"></a><tt class="py-lineno">140</tt> <a class="py-toggle" href="#" id="FileTransaction-toggle" onclick="return toggle('FileTransaction');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="mscanner.core.iofuncs.FileTransaction-class.html">FileTransaction</a><tt class="py-op">(</tt><tt class="py-base-class">file</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FileTransaction-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="FileTransaction-expanded"><a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">    <tt class="py-docstring">"""Transaction for Cheetah templates to output direct-to-file.</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"><tt class="py-docstring">    Cheetah defaults to DummyTransaction which creates a huge list and</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line"><tt class="py-docstring">    joins them up to create a string.  This is way slower than writing to</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"><tt class="py-docstring">    file directly.</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"><tt class="py-docstring">    Usage::</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line"><tt class="py-docstring">        with FileTransaction("something.html","wb") as ft:</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"><tt class="py-docstring">            Template().respond(ft)</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">     </tt>
+<a name="FileTransaction.__init__"></a><div id="FileTransaction.__init__-def"><a name="L152"></a><tt class="py-lineno">152</tt> <a class="py-toggle" href="#" id="FileTransaction.__init__-toggle" onclick="return toggle('FileTransaction.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.core.iofuncs.FileTransaction-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kw</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FileTransaction.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="FileTransaction.__init__-expanded"><a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">        <tt class="py-docstring">"""Open the file, same parameters as for the builtin"""</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">        <tt class="py-name">file</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method mscanner.core.FeatureScores.FeatureScores.__init__()=mscanner.core.FeatureScores.FeatureScores-class.html#__init__,Method mscanner.core.Plotter.Plotter.__init__()=mscanner.core.Plotter.Plotter-class.html#__init__,Method mscanner.core.QueryManager.QueryManager.__init__()=mscanner.core.QueryManager.QueryManager-class.html#__init__,Method mscanner.core.ValidationManager.ValidationBase.__init__()=mscanner.core.ValidationManager.ValidationBase-class.html#__init__,Method mscanner.core.Validator.CrossValidator.__init__()=mscanner.core.Validator.CrossValidator-class.html#__init__,Method mscanner.core.iofuncs.FileTransaction.__init__()=mscanner.core.iofuncs.FileTransaction-class.html#__init__,Method mscanner.core.metrics.PerformanceMetrics.__init__()=mscanner.core.metrics.PerformanceMetrics-class.html#__init__,Method mscanner.core.metrics.PerformanceRange.__init__()=mscanner.core.metrics.PerformanceRange-class.html#__init__,Method mscanner.core.metrics.PerformanceVectors.__init__()=mscanner.core.metrics.PerformanceVectors-class.html#__init__,Method mscanner.core.metrics.PredictedMetrics.__init__()=mscanner.core.metrics.PredictedMetrics-class.html#__init__,Method mscanner.fastscores.FeatureCounter.FeatureCounter.__init__()=mscanner.fastscores.FeatureCounter.FeatureCounter-class.html#__init__,Method mscanner.fastscores.ScoreCalculator.ScoreCalculator.__init__()=mscanner.fastscores.ScoreCalculator.ScoreCalculator-class.html#__init__,Method mscanner.htdocs.forms.Dropdown.__init__()=mscanner.htdocs.forms.Dropdown-class.html#__init__,Method mscanner.htdocs.forms.Form.__init__()=mscanner.htdocs.forms.Form-class.html#__init__,Method mscanner.htdocs.forms.Input.__init__()=mscanner.htdocs.forms.Input-class.html#__init__,Method mscanner.htdocs.forms.Radio.__init__()=mscanner.htdocs.forms.Radio-class.html#__init__,Method mscanner.htdocs.forms.RegexValidator.__init__()=mscanner.htdocs.forms.RegexValidator-class.html#__init__,Method mscanner.htdocs.forms.Validator.__init__()=mscanner.htdocs.forms.Validator-class.html#__init__,Method mscanner.htdocs.queue.QueueStatus.__init__()=mscanner.htdocs.queue.QueueStatus-class.html#__init__,Method mscanner.htdocs.templates.contact.contact.__init__()=mscanner.htdocs.templates.contact.contact-class.html#__init__,Method mscanner.htdocs.templates.front.front.__init__()=mscanner.htdocs.templates.front.front-class.html#__init__,Method mscanner.htdocs.templates.output.output.__init__()=mscanner.htdocs.templates.output.output-class.html#__init__,Method mscanner.htdocs.templates.page.page.__init__()=mscanner.htdocs.templates.page.page-class.html#__init__,Method mscanner.htdocs.templates.query.query.__init__()=mscanner.htdocs.templates.query.query-class.html#__init__,Method mscanner.htdocs.templates.status.status.__init__()=mscanner.htdocs.templates.status.status-class.html#__init__,Method mscanner.medline.Article.Article.__init__()=mscanner.medline.Article.Article-class.html#__init__,Method mscanner.medline.Databases.Databases.__init__()=mscanner.medline.Databases.Databases-class.html#__init__,Method mscanner.medline.FeatureDatabase.FeatureDatabase.__init__()=mscanner.medline.FeatureDatabase.FeatureDatabase-class.html#__init__,Method mscanner.medline.FeatureMapping.FeatureMapping.__init__()=mscanner.medline.FeatureMapping.FeatureMapping-class.html#__init__,Method mscanner.medline.FeatureStream.FeatureStream.__init__()=mscanner.medline.FeatureStream.FeatureStream-class.html#__init__,Method mscanner.medline.FileTracker.FileTracker.__init__()=mscanner.medline.FileTracker.FileTracker-class.html#__init__,Method mscanner.medline.MedlineCache.MedlineCache.__init__()=mscanner.medline.MedlineCache.MedlineCache-class.html#__init__,Method mscanner.medline.Shelf.Shelf.__init__()=mscanner.medline.Shelf.Shelf-class.html#__init__"><a title="mscanner.core.FeatureScores.FeatureScores.__init__
+mscanner.core.Plotter.Plotter.__init__
+mscanner.core.QueryManager.QueryManager.__init__
+mscanner.core.ValidationManager.ValidationBase.__init__
+mscanner.core.Validator.CrossValidator.__init__
+mscanner.core.iofuncs.FileTransaction.__init__
+mscanner.core.metrics.PerformanceMetrics.__init__
+mscanner.core.metrics.PerformanceRange.__init__
+mscanner.core.metrics.PerformanceVectors.__init__
+mscanner.core.metrics.PredictedMetrics.__init__
+mscanner.fastscores.FeatureCounter.FeatureCounter.__init__
+mscanner.fastscores.ScoreCalculator.ScoreCalculator.__init__
+mscanner.htdocs.forms.Dropdown.__init__
+mscanner.htdocs.forms.Form.__init__
+mscanner.htdocs.forms.Input.__init__
+mscanner.htdocs.forms.Radio.__init__
+mscanner.htdocs.forms.RegexValidator.__init__
+mscanner.htdocs.forms.Validator.__init__
+mscanner.htdocs.queue.QueueStatus.__init__
+mscanner.htdocs.templates.contact.contact.__init__
+mscanner.htdocs.templates.front.front.__init__
+mscanner.htdocs.templates.output.output.__init__
+mscanner.htdocs.templates.page.page.__init__
+mscanner.htdocs.templates.query.query.__init__
+mscanner.htdocs.templates.status.status.__init__
+mscanner.medline.Article.Article.__init__
+mscanner.medline.Databases.Databases.__init__
+mscanner.medline.FeatureDatabase.FeatureDatabase.__init__
+mscanner.medline.FeatureMapping.FeatureMapping.__init__
+mscanner.medline.FeatureStream.FeatureStream.__init__
+mscanner.medline.FileTracker.FileTracker.__init__
+mscanner.medline.MedlineCache.MedlineCache.__init__
+mscanner.medline.Shelf.Shelf.__init__" class="py-name" href="#" onclick="return doclink('link-21', '__init__', 'link-21');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">kw</tt><tt class="py-op">)</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">response</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt> </tt>
+</div><a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"> </tt>
+<a name="FileTransaction.writeln"></a><div id="FileTransaction.writeln-def"><a name="L157"></a><tt class="py-lineno">157</tt> <a class="py-toggle" href="#" id="FileTransaction.writeln-toggle" onclick="return toggle('FileTransaction.writeln');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.core.iofuncs.FileTransaction-class.html#writeln">writeln</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FileTransaction.writeln-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="FileTransaction.writeln-expanded"><a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">        <tt class="py-docstring">"""Write a line of output"""</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-22', 'write', 'link-1');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">txt</tt><tt class="py-op">)</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-23', 'write', 'link-1');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">'\n'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"> </tt>
+<a name="FileTransaction.getvalue"></a><div id="FileTransaction.getvalue-def"><a name="L162"></a><tt class="py-lineno">162</tt> <a class="py-toggle" href="#" id="FileTransaction.getvalue-toggle" onclick="return toggle('FileTransaction.getvalue');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.core.iofuncs.FileTransaction-class.html#getvalue">getvalue</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FileTransaction.getvalue-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="FileTransaction.getvalue-expanded"><a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">        <tt class="py-docstring">"""Not implemented"""</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line"> </tt>
+<a name="FileTransaction.__call__"></a><div id="FileTransaction.__call__-def"><a name="L166"></a><tt class="py-lineno">166</tt> <a class="py-toggle" href="#" id="FileTransaction.__call__-toggle" onclick="return toggle('FileTransaction.__call__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.core.iofuncs.FileTransaction-class.html#__call__">__call__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FileTransaction.__call__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="FileTransaction.__call__-expanded"><a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt> </tt>
+</div></div><a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line"> </tt>
+<a name="start_logger"></a><div id="start_logger-def"><a name="L171"></a><tt class="py-lineno">171</tt> <a class="py-toggle" href="#" id="start_logger-toggle" onclick="return toggle('start_logger');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.core.iofuncs-module.html#start_logger">start_logger</a><tt class="py-op">(</tt><tt class="py-param">console</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> <tt class="py-param">logfile</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="start_logger-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="start_logger-expanded"><a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">    <tt class="py-docstring">"""Set up logging to file or console</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"><tt class="py-docstring">    @param console: If True, log to the console.</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line"><tt class="py-docstring">    @param logfile: If True, log to rc.logfile."""</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">    <tt class="py-comment"># Configure the root logger to print everything</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">from</tt> <tt class="py-name">mscanner</tt><tt class="py-op">.</tt><tt class="py-name">configuration</tt> <tt class="py-keyword">import</tt> <tt class="py-name">rc</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">logging</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">    <tt class="py-name">rootlog</tt> <tt class="py-op">=</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">getLogger</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">    <tt class="py-name">rootlog</tt><tt class="py-op">.</tt><tt class="py-name">setLevel</tt><tt class="py-op">(</tt><tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">DEBUG</tt><tt class="py-op">)</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">    <tt class="py-name">format</tt> <tt class="py-op">=</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">Formatter</tt><tt class="py-op">(</tt><tt class="py-string">"%(asctime)-9s %(levelname)-8s %(message)s"</tt><tt class="py-op">,</tt> <tt class="py-string">"%H:%M:%S"</tt><tt class="py-op">)</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">    <tt class="py-comment"># Configure primary file logger</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">if</tt> <tt class="py-name">logfile</tt><tt class="py-op">:</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">        <tt class="py-name">filelog</tt> <tt class="py-op">=</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">FileHandler</tt><tt class="py-op">(</tt><tt class="py-name">rc</tt><tt class="py-op">.</tt><tt class="py-name">logfile</tt><tt class="py-op">,</tt> <tt class="py-string">"a"</tt><tt class="py-op">)</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">        <tt class="py-name">filelog</tt><tt class="py-op">.</tt><tt class="py-name">setFormatter</tt><tt class="py-op">(</tt><tt class="py-name">format</tt><tt class="py-op">)</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">        <tt class="py-name">rootlog</tt><tt class="py-op">.</tt><tt class="py-name">addHandler</tt><tt class="py-op">(</tt><tt class="py-name">filelog</tt><tt class="py-op">)</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">    <tt class="py-comment"># Configure logging to console</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">if</tt> <tt class="py-name">console</tt><tt class="py-op">:</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">        <tt class="py-name">console</tt> <tt class="py-op">=</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">StreamHandler</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">        <tt class="py-name">console</tt><tt class="py-op">.</tt><tt class="py-name">setFormatter</tt><tt class="py-op">(</tt><tt class="py-name">format</tt><tt class="py-op">)</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">        <tt class="py-name">rootlog</tt><tt class="py-op">.</tt><tt class="py-name">addHandler</tt><tt class="py-op">(</tt><tt class="py-name">console</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line"> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line"> </tt>
+<a name="open_logfile"></a><div id="open_logfile-def"><a name="L193"></a><tt class="py-lineno">193</tt> <a class="py-toggle" href="#" id="open_logfile-toggle" onclick="return toggle('open_logfile');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.core.iofuncs-module.html#open_logfile">open_logfile</a><tt class="py-op">(</tt><tt class="py-param">filename</tt><tt class="py-op">,</tt> <tt class="py-param">logname</tt><tt class="py-op">=</tt><tt class="py-string">""</tt><tt class="py-op">,</tt> <tt class="py-param">mode</tt><tt class="py-op">=</tt><tt class="py-string">"a"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="open_logfile-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="open_logfile-expanded"><a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">    <tt class="py-docstring">"""Add a file handler to a logger using my default format.</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line"><tt class="py-docstring">    @param filename: File to write to</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line"><tt class="py-docstring">    @param logname: Name of log to write to (default '')</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line"><tt class="py-docstring">    @param mode: File open mode (default 'a')</tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line"><tt class="py-docstring">    @return: The logging.FileHandler instance</tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">logging</tt> </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line">    <tt class="py-name">logger</tt> <tt class="py-op">=</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">getLogger</tt><tt class="py-op">(</tt><tt class="py-name">logname</tt><tt class="py-op">)</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">    <tt class="py-name">handler</tt> <tt class="py-op">=</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">FileHandler</tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-name">mode</tt><tt class="py-op">)</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">    <tt class="py-name">handler</tt><tt class="py-op">.</tt><tt class="py-name">setFormatter</tt><tt class="py-op">(</tt><tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">Formatter</tt><tt class="py-op">(</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">        <tt class="py-string">"%(asctime)-9s %(levelname)-8s %(message)s"</tt><tt class="py-op">,</tt> <tt class="py-string">"%H:%M:%S"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line">    <tt class="py-name">logger</tt><tt class="py-op">.</tt><tt class="py-name">addHandler</tt><tt class="py-op">(</tt><tt class="py-name">handler</tt><tt class="py-op">)</tt> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">handler</tt> </tt>
+</div><a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line"> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line"> </tt>
+<a name="close_logfile"></a><div id="close_logfile-def"><a name="L209"></a><tt class="py-lineno">209</tt> <a class="py-toggle" href="#" id="close_logfile-toggle" onclick="return toggle('close_logfile');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.core.iofuncs-module.html#close_logfile">close_logfile</a><tt class="py-op">(</tt><tt class="py-param">handler</tt><tt class="py-op">,</tt> <tt class="py-param">logname</tt><tt class="py-op">=</tt><tt class="py-string">""</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="close_logfile-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="close_logfile-expanded"><a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">    <tt class="py-docstring">"""Remove and close a log file previously added with L{open_logfile}.  Does</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line"><tt class="py-docstring">    nothing if called a second time.</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line"><tt class="py-docstring">    @param handler: FileHandler instance to remove</tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line"><tt class="py-docstring">    @param logname: Name of the logger (defaults to '')</tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">logging</tt> </tt>
+<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line">    <tt class="py-name">logger</tt> <tt class="py-op">=</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">getLogger</tt><tt class="py-op">(</tt><tt class="py-name">logname</tt><tt class="py-op">)</tt> </tt>
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">handler</tt> <tt class="py-keyword">in</tt> <tt class="py-name">logger</tt><tt class="py-op">.</tt><tt class="py-name">handlers</tt><tt class="py-op">:</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line">        <tt class="py-name">logger</tt><tt class="py-op">.</tt><tt class="py-name">removeHandler</tt><tt class="py-op">(</tt><tt class="py-name">handler</tt><tt class="py-op">)</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">handler</tt><tt class="py-op">.</tt><tt class="py-name">stream</tt><tt class="py-op">.</tt><tt class="py-name">closed</tt><tt class="py-op">:</tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line">        <tt class="py-name">handler</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name" targets="Method mscanner.medline.Databases.Databases.close()=mscanner.medline.Databases.Databases-class.html#close,Method mscanner.medline.FeatureDatabase.FeatureDatabase.close()=mscanner.medline.FeatureDatabase.FeatureDatabase-class.html#close,Method mscanner.medline.FeatureStream.FeatureStream.close()=mscanner.medline.FeatureStream.FeatureStream-class.html#close,Method mscanner.medline.Shelf.Shelf.close()=mscanner.medline.Shelf.Shelf-class.html#close"><a title="mscanner.medline.Databases.Databases.close
+mscanner.medline.FeatureDatabase.FeatureDatabase.close
+mscanner.medline.FeatureStream.FeatureStream.close
+mscanner.medline.Shelf.Shelf.close" class="py-name" href="#" onclick="return doclink('link-24', 'close', 'link-24');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Fri Nov 23 09:13:25 2007
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

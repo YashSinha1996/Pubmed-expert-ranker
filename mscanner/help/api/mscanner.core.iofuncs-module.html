@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>mscanner.core.iofuncs</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;mscanner ::
+        <a href="mscanner.core-module.html">Package&nbsp;core</a> ::
+        Module&nbsp;iofuncs
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="mscanner.core.iofuncs-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module iofuncs</h1><span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html">source&nbsp;code</a></span><br /><br />
+I/O functions - for reading and writing certain file formats.<br /><br />
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Graham Poulter &lt;http://graham.poulter.googlepages.com&gt;
+      </p>
+      <p><strong>Copyright:</strong>
+        2007 Graham Poulter
+      </p>
+      <p><strong>License:</strong>
+        This program is free software: you can redistribute it and/or
+        modify it under the terms of the GNU General Public License as 
+        published by the
+        Free Software Foundation, either version 3 of the License, or (at 
+        your option)
+        any later version.
+        
+        This program is distributed in the hope that it will be useful, but
+        WITHOUT ANY
+        WARRANTY; without even the implied warranty of MERCHANTABILITY or 
+        FITNESS FOR A
+        PARTICULAR PURPOSE. See the GNU General Public License for more 
+        details.
+        
+        You should have received a copy of the GNU General Public License 
+        along with
+        this program. If not, see &lt;http://www.gnu.org/licenses/&gt;.
+      </p>
+</div><!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="mscanner.core.iofuncs.FileTransaction-class.html" class="summary-name">FileTransaction</a><br />
+      Transaction for Cheetah templates to output direct-to-file.
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="write_pmids"></a><span class="summary-sig-name">write_pmids</span>(<span class="summary-sig-arg">filename</span>,
+        <span class="summary-sig-arg">pmids</span>)</span><br />
+      Write list of PMIDs one per line to file</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#write_pmids">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.iofuncs-module.html#read_pmids" class="summary-sig-name">read_pmids</a>(<span class="summary-sig-arg">filename</span>)</span><br />
+      Yield PubMed IDs listed one per line in a file.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#read_pmids">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="read_pmids_array"></a><span class="summary-sig-name">read_pmids_array</span>(<span class="summary-sig-arg">filename</span>)</span><br />
+      Read array of PubMed IDs one per line from file</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#read_pmids_array">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.iofuncs-module.html#read_pmids_careful" class="summary-sig-name">read_pmids_careful</a>(<span class="summary-sig-arg">filename</span>,
+        <span class="summary-sig-arg">include</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">exclude</span>=<span class="summary-sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>)</span><br />
+      Reads array of PubMed IDs one per line, with checking.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#read_pmids_careful">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.iofuncs-module.html#write_lines" class="summary-sig-name">write_lines</a>(<span class="summary-sig-arg">filename</span>,
+        <span class="summary-sig-arg">items</span>,
+        <span class="summary-sig-arg">desc</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">sep</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">\t</code><code class="variable-quote">'</code></span>)</span><br />
+      Basic function for writing sequence of items to text files</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#write_lines">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.iofuncs-module.html#write_scores" class="summary-sig-name">write_scores</a>(<span class="summary-sig-arg">filename</span>,
+        <span class="summary-sig-arg">pairs</span>,
+        <span class="summary-sig-arg">sort</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Write scores and PubMed IDs to file</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#write_scores">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="read_scores"></a><span class="summary-sig-name">read_scores</span>(<span class="summary-sig-arg">filename</span>)</span><br />
+      Yield (score, pmid) pairs from file written by <a 
+      href="mscanner.core.iofuncs-module.html#write_scores" 
+      class="link">write_scores</a></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#read_scores">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.iofuncs-module.html#read_scores_array" class="summary-sig-name">read_scores_array</a>(<span class="summary-sig-arg">filename</span>)</span><br />
+      Reads a file written by <a 
+      href="mscanner.core.iofuncs-module.html#write_scores" 
+      class="link">write_scores</a></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#read_scores_array">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.iofuncs-module.html#no_valid_pmids_page" class="summary-sig-name">no_valid_pmids_page</a>(<span class="summary-sig-arg">filename</span>,
+        <span class="summary-sig-arg">dataset</span>,
+        <span class="summary-sig-arg">pmids</span>)</span><br />
+      Print an error page when no valid PMIDs were found</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#no_valid_pmids_page">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.iofuncs-module.html#start_logger" class="summary-sig-name">start_logger</a>(<span class="summary-sig-arg">console</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">logfile</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Set up logging to file or console</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#start_logger">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.iofuncs-module.html#open_logfile" class="summary-sig-name">open_logfile</a>(<span class="summary-sig-arg">filename</span>,
+        <span class="summary-sig-arg">logname</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">mode</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">a</code><code class="variable-quote">'</code></span>)</span><br />
+      Add a file handler to a logger using my default format.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#open_logfile">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.iofuncs-module.html#close_logfile" class="summary-sig-name">close_logfile</a>(<span class="summary-sig-arg">handler</span>,
+        <span class="summary-sig-arg">logname</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span><br />
+      Remove and close a log file previously added with <a 
+      href="mscanner.core.iofuncs-module.html#open_logfile" 
+      class="link">open_logfile</a>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#close_logfile">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="read_pmids"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">read_pmids</span>(<span class="sig-arg">filename</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#read_pmids">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Yield PubMed IDs listed one per line in a file. Empty lines and lines 
+  starting with # are ignored.
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="read_pmids_careful"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">read_pmids_careful</span>(<span class="sig-arg">filename</span>,
+        <span class="sig-arg">include</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">exclude</span>=<span class="sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#read_pmids_careful">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Reads array of PubMed IDs one per line, with checking.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>include</code></strong> - Only return members of this set (other PubMed IDs are 
+          considered &quot;broken&quot;).</li>
+        <li><strong class="pname"><code>exclude</code></strong> - Do not return members of this set</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>Arrays for result, broken and excluded PubMed IDs</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="write_lines"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">write_lines</span>(<span class="sig-arg">filename</span>,
+        <span class="sig-arg">items</span>,
+        <span class="sig-arg">desc</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">sep</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">\t</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#write_lines">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Basic function for writing sequence of items to text files
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>filename</code></strong> - Name of file to write to</li>
+        <li><strong class="pname"><code>items</code></strong> - Sequence of items convertible using str().  Tuples are written
+          as separated values.</li>
+        <li><strong class="pname"><code>desc</code></strong> - Optional string to write at the top of the file</li>
+        <li><strong class="pname"><code>sep</code></strong> - Separator for values</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="write_scores"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">write_scores</span>(<span class="sig-arg">filename</span>,
+        <span class="sig-arg">pairs</span>,
+        <span class="sig-arg">sort</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#write_scores">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Write scores and PubMed IDs to file
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>pairs</code></strong> - Iterable over (score, PMID)</li>
+        <li><strong class="pname"><code>sort</code></strong> - If True, write them in decreasing order of score</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="read_scores_array"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">read_scores_array</span>(<span class="sig-arg">filename</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#read_scores_array">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Reads a file written by <a 
+  href="mscanner.core.iofuncs-module.html#write_scores" 
+  class="link">write_scores</a>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>filename</code></strong> - Path to file from which to read the pmid,score</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>An array of PubMed IDs, and an array of scores</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="no_valid_pmids_page"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">no_valid_pmids_page</span>(<span class="sig-arg">filename</span>,
+        <span class="sig-arg">dataset</span>,
+        <span class="sig-arg">pmids</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#no_valid_pmids_page">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Print an error page when no valid PMIDs were found
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>filename</code></strong> - Path to output file</li>
+        <li><strong class="pname"><code>pmids</code></strong> - List of any provided PMIDs (all invalid)</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="start_logger"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">start_logger</span>(<span class="sig-arg">console</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">logfile</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#start_logger">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Set up logging to file or console
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>console</code></strong> - If True, log to the console.</li>
+        <li><strong class="pname"><code>logfile</code></strong> - If True, log to rc.logfile.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="open_logfile"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">open_logfile</span>(<span class="sig-arg">filename</span>,
+        <span class="sig-arg">logname</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">mode</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">a</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#open_logfile">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Add a file handler to a logger using my default format.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>filename</code></strong> - File to write to</li>
+        <li><strong class="pname"><code>logname</code></strong> - Name of log to write to (default '')</li>
+        <li><strong class="pname"><code>mode</code></strong> - File open mode (default 'a')</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The logging.FileHandler instance</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="close_logfile"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">close_logfile</span>(<span class="sig-arg">handler</span>,
+        <span class="sig-arg">logname</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.iofuncs-pysrc.html#close_logfile">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Remove and close a log file previously added with <a 
+  href="mscanner.core.iofuncs-module.html#open_logfile" 
+  class="link">open_logfile</a>.  Does nothing if called a second time.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>handler</code></strong> - FileHandler instance to remove</li>
+        <li><strong class="pname"><code>logname</code></strong> - Name of the logger (defaults to '')</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Fri Nov 23 09:13:20 2007
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

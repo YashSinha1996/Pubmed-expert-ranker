@@ -1,0 +1,94 @@
+#extends page
+
+#def title
+MScanner
+#end def title
+
+#def headertitle
+<h1>MScanner</h1><p style="margin:0">Retrieving Medline citations using examples</p>
+#end def headertitle
+
+#def contents
+<div class="narrow">
+
+<h2>Medline retrieval operation</h2>
+
+<p>On the <a href="query">query</a> page, specify training examples 
+of relevant articles as a list of PubMed IDs, and click "Submit". 
+Help is available for the parameters, although the defaults should
+be fine for high-precision retrieval. Whole-medline classification 
+takes about 90 seconds to complete.</p>
+
+<p>See the <a href="static/sample/query/pg07">sample results</a> of a 
+retrieval operation where the relevant examples were 1,595 
+articles extracted from the Pharmacogenetics KnowledgeBase (<a
+href="http://www.pharmgkb.org">PharmGKB</a>).</p>
+
+
+<h2>Cross validation operation</h2> 
+
+<p>Classification performance depends on terms being enriched or depleted
+in the relevant articles relative to <a
+href="http://www.nlm.nih.gov/pubs/factsheets/medline.html">Medline</a>.  
+Use cross validation to evaluate the Receiver Operating Characteristic
+and averaged precision against a set of random articles (small
+enough set to have very few relevant articles in it).</p>
+
+<p>See the <a href="static/sample/valid/pg07">sample results</a> of
+10-fold cross validation of the pharmacogenetics articles against 100,000
+random articles in Medline.</p>
+
+
+<h2>Downloading the source code</h2>
+
+<p>MScanner is released under the <a href="http://www.gnu.org/licenses"> GNU
+General Public License</a>. The latest revision is 2007.11.20. Download the <a
+href="static/source-20071120.zip">source archive</a>.</p>
+
+
+<h2>Sample training data</h2>
+
+<p>Below are the results using the sample training corpora
+described in the MScanner paper.</p>
+
+<table>
+<tr>
+<th>Training data</th>
+<th>Results</th>
+<th>Results</th>
+</tr>
+<tr>
+<td>PG07 (Pharmacogenetics, 1595 citations)</td>
+<td><a href="static/sample/query/pg07">retrieval</a>
+<td><a href="static/sample/valid/pg07">validation</a></td>
+</tr>
+<tr>
+<td>AIDSBio (AIDS and Bioethics, 10732 citations)</td>
+<td><a href="static/sample/query/aidsbio">retrieval</a></td>
+<td><a href="static/sample/valid/aidsbio">validation</a></td>
+</tr>
+<tr>
+<td>Radiology (splenic imaging, 67 citations)</td>
+<td><a href="static/sample/query/radiology">retrieval</a></td>
+<td><a href="static/sample/valid/radiology">validation</a></td>
+</tr>
+<tr>
+<td>Control (randomly selected, 10000 citations)</td>
+<td></td>
+<td><a href="static/sample/valid/control">validation</a></td>
+</tr>
+</table>
+
+<h3>Browser compatibility</h3>
+
+<p>
+This web interface has been tested with
+<a href="http://www.mozilla.com/firefox/">Mozilla Firefox 2</a>, 
+<a href="http://www.microsoft.com/windows/downloads/ie/getitnow.mspx">Internet Explorer 7</a>, 
+<a href="http://www.apple.com/safari/download/">Safari 3</a> and 
+<a href="http://www.opera.com/download/">Opera 9</a>.  
+Some features may not work in older browsers or with JavaScript disabled.
+</p>
+
+</div><!--class=narrow-->
+#end def contents

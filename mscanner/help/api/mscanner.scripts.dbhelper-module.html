@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>mscanner.scripts.dbhelper</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;mscanner ::
+        <a href="mscanner.scripts-module.html">Package&nbsp;scripts</a> ::
+        Module&nbsp;dbhelper
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="mscanner.scripts.dbhelper-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module dbhelper</h1><span class="codelink"><a href="mscanner.scripts.dbhelper-pysrc.html">source&nbsp;code</a></span><br /><br />
+<p>Utility functions for working with files containing lists of PubMed 
+  IDs, and Berkeley DBs containing pickled Articles, and for regenerating 
+  the FeatureStream and article list.</p>
+  Usage:
+<pre class="literalblock">
+   ./dbhelper.py function_name arg1 arg2 [...]
+</pre>
+  Please read the source code for the different functions available.<br /><br />
+
+<hr />
+<div class="fields">      <p><strong>Copyright:</strong>
+        2007 Graham Poulter
+      </p>
+      <p><strong>License:</strong>
+        This source file is free software. It comes without any 
+        warranty, to the extent permitted by applicable law. You can 
+        redistribute it and/or modify it under the Do Whatever You Want 
+        Public License. Terms and conditions:
+        <ol start="0">
+          <li>
+            Do Whatever You Want
+          </li>
+        </ol>
+      </p>
+</div><!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.scripts.dbhelper-module.html#listkeys" class="summary-sig-name">listkeys</a>(<span class="summary-sig-arg">dbfile</span>,
+        <span class="summary-sig-arg">outfile</span>)</span><br />
+      List the keys in a Berkeley database.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.dbhelper-pysrc.html#listkeys">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.scripts.dbhelper-module.html#regen_stream" class="summary-sig-name">regen_stream</a>(<span class="summary-sig-arg">artdb</span>,
+        <span class="summary-sig-arg">featdb</span>,
+        <span class="summary-sig-arg">featstream</span>)</span><br />
+      Use an Article Shelf and FeatureDatabase to create a 
+      FeatureStream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.dbhelper-pysrc.html#regen_stream">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.scripts.dbhelper-module.html#regen_article_list" class="summary-sig-name">regen_article_list</a>(<span class="summary-sig-arg">artdb</span>,
+        <span class="summary-sig-arg">artlist</span>)</span><br />
+      Regenerate the article list from the article database</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.dbhelper-pysrc.html#regen_article_list">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.scripts.dbhelper-module.html#pmid_dates" class="summary-sig-name">pmid_dates</a>(<span class="summary-sig-arg">artdb</span>,
+        <span class="summary-sig-arg">infile</span>,
+        <span class="summary-sig-arg">outfile</span>)</span><br />
+      Get dates for PMIDs listed in <code class="link">infile</code>, 
+      writing PMID,date pairs to <code class="link">outfile</code> in 
+      increasing order of date.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.dbhelper-pysrc.html#pmid_dates">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.scripts.dbhelper-module.html#select_lines" class="summary-sig-name">select_lines</a>(<span class="summary-sig-arg">infile</span>,
+        <span class="summary-sig-arg">outfile</span>,
+        <span class="summary-sig-arg">mindate</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">00000000</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">maxdate</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">99999999</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">N</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">0</code><code class="variable-quote">'</code></span>)</span><br />
+      Select random PMIDs from <code class="link">infile</code> and 
+      write them to <code class="link">outfile</code>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.scripts.dbhelper-pysrc.html#select_lines">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="listkeys"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">listkeys</span>(<span class="sig-arg">dbfile</span>,
+        <span class="sig-arg">outfile</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.scripts.dbhelper-pysrc.html#listkeys">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  List the keys in a Berkeley database.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>dbfile</code></strong> - Path to Berkeley DB</li>
+        <li><strong class="pname"><code>outfile</code></strong> - Path to write database keys one per line</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="regen_stream"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">regen_stream</span>(<span class="sig-arg">artdb</span>,
+        <span class="sig-arg">featdb</span>,
+        <span class="sig-arg">featstream</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.scripts.dbhelper-pysrc.html#regen_stream">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Use an Article Shelf and FeatureDatabase to create a 
+  FeatureStream.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>artdb</code></strong> - Path to Shelf with Article objects</li>
+        <li><strong class="pname"><code>featdb</code></strong> - Path to FeatureDatabase</li>
+        <li><strong class="pname"><code>featstream</code></strong> - Path to write re-generated FeatureStream to</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="regen_article_list"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">regen_article_list</span>(<span class="sig-arg">artdb</span>,
+        <span class="sig-arg">artlist</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.scripts.dbhelper-pysrc.html#regen_article_list">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Regenerate the article list from the article database
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>artdb</code></strong> - Path to Shelf with Article objects</li>
+        <li><strong class="pname"><code>artlist</code></strong> - Path to write PubMed IDs and YYYYMMDD lines to.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="pmid_dates"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">pmid_dates</span>(<span class="sig-arg">artdb</span>,
+        <span class="sig-arg">infile</span>,
+        <span class="sig-arg">outfile</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.scripts.dbhelper-pysrc.html#pmid_dates">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Get dates for PMIDs listed in <code class="link">infile</code>, 
+  writing PMID,date pairs to <code class="link">outfile</code> in 
+  increasing order of date.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>artdb</code></strong> - Path to Shelf with Article objects</li>
+        <li><strong class="pname"><code>infile</code></strong> - Path to PubMed IDs (PMID lines)</li>
+        <li><strong class="pname"><code>outfile</code></strong> - Path to write PMID YYYYMMDD lines to.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="select_lines"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">select_lines</span>(<span class="sig-arg">infile</span>,
+        <span class="sig-arg">outfile</span>,
+        <span class="sig-arg">mindate</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">00000000</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">maxdate</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">99999999</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">N</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">0</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.scripts.dbhelper-pysrc.html#select_lines">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Select random PMIDs from <code class="link">infile</code> and write 
+  them to <code class="link">outfile</code>.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>infile</code></strong> - Read PMID YYYYMMDD lines from this path.</li>
+        <li><strong class="pname"><code>outfile</code></strong> - Write selected lines to this path.</li>
+        <li><strong class="pname"><code>N</code></strong> - (string) Number of lines to output (N=&quot;0&quot; outputs 
+          all matching)</li>
+        <li><strong class="pname"><code>mindate</code></strong>, <strong class="pname"><code>maxdate</code></strong> - Only consider YYYYMMDD strings between these</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>Selected lines as (PMID,YYYYMMDD) pairs of strings</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Fri Nov 23 09:13:20 2007
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>mscanner.core.ValidationManager.CrossValidation</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;mscanner ::
+        <a href="mscanner.core-module.html">Package&nbsp;core</a> ::
+        <a href="mscanner.core.ValidationManager-module.html">Module&nbsp;ValidationManager</a> ::
+        Class&nbsp;CrossValidation
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="mscanner.core.ValidationManager.CrossValidation-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class CrossValidation</h1><span class="codelink"><a href="mscanner.core.ValidationManager-pysrc.html#CrossValidation">source&nbsp;code</a></span><br /><br />
+<pre class="base-tree">
+    object --+    
+             |    
+<a href="mscanner.core.ValidationManager.ValidationBase-class.html">ValidationBase</a> --+
+                 |
+                <strong class="uidshort">CrossValidation</strong>
+</pre>
+
+<hr />
+Carries out N-fold cross validation.<br /><br />
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.ValidationManager.CrossValidation-class.html#validation" class="summary-sig-name">validation</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pos</span>,
+        <span class="summary-sig-arg">neg</span>,
+        <span class="summary-sig-arg">nfolds</span>=<span class="summary-sig-default">10</span>)</span><br />
+      Loads data and perform cross validation to calculate scores on 
+      that data.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.ValidationManager-pysrc.html#CrossValidation.validation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="report_validation"></a><span class="summary-sig-name">report_validation</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Report cross validation results, using default threshold of 0</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.ValidationManager-pysrc.html#CrossValidation.report_validation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.ValidationManager.CrossValidation-class.html#report_predicted" class="summary-sig-name">report_predicted</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">relevant_low</span>,
+        <span class="summary-sig-arg">relevant_high</span>,
+        <span class="summary-sig-arg">medline_size</span>)</span><br />
+      Experimental: report predicted query performance</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.ValidationManager-pysrc.html#CrossValidation.report_predicted">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.ValidationManager.CrossValidation-class.html#_load_input" class="summary-sig-name">_load_input</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pos</span>,
+        <span class="summary-sig-arg">neg</span>)</span><br />
+      Sets <a 
+      href="mscanner.core.ValidationManager.CrossValidation-class.html#positives"
+      class="link">positives</a> and <a 
+      href="mscanner.core.ValidationManager.CrossValidation-class.html#negatives"
+      class="link">negatives</a> by various means</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.ValidationManager-pysrc.html#CrossValidation._load_input">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html">ValidationBase</a></code></b>:
+      <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html#__del__">__del__</a></code>,
+      <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html#__init__">__init__</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html">ValidationBase</a></code></b> (private):
+      <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html#_crossvalid_scores">_crossvalid_scores</a></code>,
+      <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html#_get_performance">_get_performance</a></code>,
+      <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html#_init_featinfo">_init_featinfo</a></code>,
+      <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html#_update_featscores">_update_featscores</a></code>,
+      <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html#_write_report">_write_report</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mscanner.core.ValidationManager.CrossValidation-class.html#_random_subset" class="summary-sig-name">_random_subset</a>(<span class="summary-sig-arg">k</span>,
+        <span class="summary-sig-arg">pool</span>,
+        <span class="summary-sig-arg">exclude</span>)</span><br />
+      Choose a random subset of k articles from pool</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mscanner.core.ValidationManager-pysrc.html#CrossValidation._random_subset">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html">ValidationBase</a></code></b>:
+      <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html#featinfo">featinfo</a></code>,
+      <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html#logfile">logfile</a></code>,
+      <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html#metric_range">metric_range</a></code>,
+      <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html#metric_vectors">metric_vectors</a></code>,
+      <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html#nfolds">nfolds</a></code>,
+      <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html#notfound_pmids">notfound_pmids</a></code>,
+      <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html#nscores">nscores</a></code>,
+      <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html#pscores">pscores</a></code>
+      </p>
+    </td>
+  </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;Additional attributes</th></tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="negatives"></a><span class="summary-name">negatives</span><br />
+      IDs of negative articles
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="positives"></a><span class="summary-name">positives</span><br />
+      IDs of positive articles
+    </td>
+  </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;Set in the constructor</th></tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html">ValidationBase</a></code></b>:
+      <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html#dataset">dataset</a></code>,
+      <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html#env">env</a></code>,
+      <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html#outdir">outdir</a></code>,
+      <code><a href="mscanner.core.ValidationManager.ValidationBase-class.html#timestamp">timestamp</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="validation"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">validation</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">pos</span>,
+        <span class="sig-arg">neg</span>,
+        <span class="sig-arg">nfolds</span>=<span class="sig-default">10</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.ValidationManager-pysrc.html#CrossValidation.validation">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Loads data and perform cross validation to calculate scores on that 
+  data.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>pos</code></strong>, <strong class="pname"><code>neg</code></strong> - Parameters for <a 
+          href="mscanner.core.ValidationManager.CrossValidation-class.html#_load_input"
+          class="link">_load_input</a></li>
+        <li><strong class="pname"><code>nfolds</code></strong> - Number of validation folds to use.</li>
+    </ul></dd>
+  </dl>
+<div class="fields">      <p><strong>Note:</strong>
+        This saves articles scores to the report directory, and if 
+        possible it will load load those scores instead of calculating from
+        scratch.
+      </p>
+</div></td></tr></table>
+</div>
+<a name="report_predicted"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">report_predicted</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">relevant_low</span>,
+        <span class="sig-arg">relevant_high</span>,
+        <span class="sig-arg">medline_size</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.ValidationManager-pysrc.html#CrossValidation.report_predicted">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Experimental: report predicted query performance
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>relevant_low</code></strong> - Minimum expected relevant articles in Medline</li>
+        <li><strong class="pname"><code>relevant_high</code></strong> - Maximum expected relevant articles in Medline</li>
+        <li><strong class="pname"><code>medline_size</code></strong> - Number of articles in rest of Medline, or None to use <a 
+          href="mscanner.medline.Databases.Databases-class.html#article_list"
+          class="link">Databases.article_list</a> minus relevant 
+          articles.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_load_input"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_load_input</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">pos</span>,
+        <span class="sig-arg">neg</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.ValidationManager-pysrc.html#CrossValidation._load_input">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Sets <a 
+  href="mscanner.core.ValidationManager.CrossValidation-class.html#positives"
+  class="link">positives</a> and <a 
+  href="mscanner.core.ValidationManager.CrossValidation-class.html#negatives"
+  class="link">negatives</a> by various means
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>pos</code></strong> - Path to file of input PubMed IDs, or something convertible to 
+          an integer array.</li>
+        <li><strong class="pname"><code>neg</code></strong> - Path to file of input negative PMIDs, or something convertible
+          to integer array, or an integer representing the number of PubMed
+          IDs to select at random from the database.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>True if the load was successful, False otherwise.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_random_subset"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_random_subset</span>(<span class="sig-arg">k</span>,
+        <span class="sig-arg">pool</span>,
+        <span class="sig-arg">exclude</span>)</span>
+    <br /><em class="fname">Static Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mscanner.core.ValidationManager-pysrc.html#CrossValidation._random_subset">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Choose a random subset of k articles from pool</p>
+  This is a good algorithm when the pool is large (say, 16 million 
+  items), we don't mind if the order of pool gets scrambled, and we have to
+  exclude certain items from being selected.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>k</code></strong> - Number of items to choose from pool</li>
+        <li><strong class="pname"><code>pool</code></strong> - Array of items to choose from (will be scrambled!)</li>
+        <li><strong class="pname"><code>exclude</code></strong> - Set of items that may not be chosen</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A new array of the chosen items</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Fri Nov 23 09:13:21 2007
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

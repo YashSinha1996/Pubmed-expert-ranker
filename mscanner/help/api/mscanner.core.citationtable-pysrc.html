@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>mscanner.core.CitationTable</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;mscanner ::
+        <a href="mscanner.core-module.html">Package&nbsp;core</a> ::
+        Module&nbsp;CitationTable
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="mscanner.core.CitationTable-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="mscanner.core.CitationTable-module.html">Module mscanner.core.CitationTable</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""Writes HTML pages with interactive citation tables"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">__future__</tt> <tt class="py-keyword">import</tt> <tt class="py-name">with_statement</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">__future__</tt> <tt class="py-keyword">import</tt> <tt class="py-name">division</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">mscanner</tt><tt class="py-op">.</tt><tt class="py-name">configuration</tt> <tt class="py-keyword">import</tt> <tt class="py-name">rc</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">mscanner</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Package mscanner.core=mscanner.core-module.html"><a title="mscanner.core" class="py-name" href="#" onclick="return doclink('link-0', 'core', 'link-0');">core</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Module mscanner.core.iofuncs=mscanner.core.iofuncs-module.html"><a title="mscanner.core.iofuncs" class="py-name" href="#" onclick="return doclink('link-1', 'iofuncs', 'link-1');">iofuncs</a></tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Cheetah</tt><tt class="py-op">.</tt><tt class="py-name">Template</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Template</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">warnings</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-name">warnings</tt><tt class="py-op">.</tt><tt class="py-name">simplefilter</tt><tt class="py-op">(</tt><tt class="py-string">"ignore"</tt><tt class="py-op">,</tt> <tt class="py-name">UserWarning</tt><tt class="py-op">)</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-name">__copyright__</tt> <tt class="py-op">=</tt> <tt class="py-string">"2007 Graham Poulter"</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-name">__author__</tt> <tt class="py-op">=</tt> <tt class="py-string">"Graham Poulter &lt;http://graham.poulter.googlepages.com&gt;"</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-name">__license__</tt> <tt class="py-op">=</tt> <tt class="py-string">"""This program is free software: you can redistribute it and/or</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-string">modify it under the terms of the GNU General Public License as published by the</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-string">Free Software Foundation, either version 3 of the License, or (at your option)</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-string">any later version.</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-string"></tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-string">This program is distributed in the hope that it will be useful, but WITHOUT ANY</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-string">WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-string">PARTICULAR PURPOSE. See the GNU General Public License for more details.</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-string"></tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-string">You should have received a copy of the GNU General Public License along with</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-string">this program. If not, see &lt;http://www.gnu.org/licenses/&gt;."""</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"> </tt>
+<a name="write_citations"></a><div id="write_citations-def"><a name="L29"></a><tt class="py-lineno"> 29</tt> <a class="py-toggle" href="#" id="write_citations-toggle" onclick="return toggle('write_citations');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.core.CitationTable-module.html#write_citations">write_citations</a><tt class="py-op">(</tt><tt class="py-param">mode</tt><tt class="py-op">,</tt> <tt class="py-param">dataset</tt><tt class="py-op">,</tt> <tt class="py-param">citations</tt><tt class="py-op">,</tt> <tt class="py-param">fname</tt><tt class="py-op">,</tt> <tt class="py-param">perfile</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="write_citations-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="write_citations-expanded"><a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">    <tt class="py-docstring">"""Writes a set of HTML files containing citation records</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">    @param mode: 'input' or 'output'</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-docstring">    @param dataset: Dataset title to print at the top of the page</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-docstring">    @param citations: List of (score, Article) in descending order of score</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring">    @param fname: Basic name for output files. ../results.html becomes</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring">    ../results.html, ../results_02.html, ../results_03.html etc.)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">    @param perfile: Number of citations per file (the very last file </tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring">    may however have up to 2*perfile-1 citations)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">    <tt class="py-comment"># List of ranks where each file's citation records start</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-name">starts</tt> <tt class="py-op">=</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">citations</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">perfile</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">    <tt class="py-comment"># If the last file is less than half full, we concat to second-last</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">starts</tt><tt class="py-op">)</tt><tt class="py-op">&gt;</tt><tt class="py-number">1</tt> <tt class="py-keyword">and</tt> <tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">citations</tt><tt class="py-op">)</tt><tt class="py-op">-</tt><tt class="py-name">starts</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-op">&lt;</tt> <tt class="py-op">(</tt><tt class="py-name">perfile</tt><tt class="py-op">//</tt><tt class="py-number">2</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">        <tt class="py-keyword">del</tt> <tt class="py-name">starts</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">    <tt class="py-comment"># List of HTML files containing the citations</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">from</tt> <tt class="py-name">path</tt> <tt class="py-keyword">import</tt> <tt class="py-name">path</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">    <tt class="py-name">fnames</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">path</tt><tt class="py-op">(</tt><tt class="py-name">fname</tt><tt class="py-op">.</tt><tt class="py-name">basename</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> <tt class="py-comment"># First file is the basic name</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">    <tt class="py-name">fnames</tt> <tt class="py-op">+=</tt> <tt class="py-op">[</tt><tt class="py-name">path</tt><tt class="py-op">(</tt><tt class="py-name">fname</tt><tt class="py-op">.</tt><tt class="py-name">namebase</tt> <tt class="py-op">+</tt> <tt class="py-op">(</tt><tt class="py-string">"_%02d"</tt> <tt class="py-op">%</tt> <tt class="py-name">x</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-name">fname</tt><tt class="py-op">.</tt><tt class="py-name">ext</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">x</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">+</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">starts</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">    <tt id="link-2" class="py-name" targets="Method mscanner.medline.Shelf.Shelf.values()=mscanner.medline.Shelf.Shelf-class.html#values"><a title="mscanner.medline.Shelf.Shelf.values" class="py-name" href="#" onclick="return doclink('link-2', 'values', 'link-2');">values</a></tt> <tt class="py-op">=</tt> <tt class="py-name">dict</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">    <tt id="link-3" class="py-name" targets="Module mscanner.htdocs.templates.page=mscanner.htdocs.templates.page-module.html,Class mscanner.htdocs.templates.page.page=mscanner.htdocs.templates.page.page-class.html"><a title="mscanner.htdocs.templates.page
+mscanner.htdocs.templates.page.page" class="py-name" href="#" onclick="return doclink('link-3', 'page', 'link-3');">page</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Template</tt><tt class="py-op">(</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt class="py-name">file</tt><tt class="py-op">=</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">rc</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Package mscanner.htdocs.templates=mscanner.htdocs.templates-module.html"><a title="mscanner.htdocs.templates" class="py-name" href="#" onclick="return doclink('link-4', 'templates', 'link-4');">templates</a></tt><tt class="py-op">/</tt><tt class="py-string">"citations.tmpl"</tt><tt class="py-op">)</tt><tt class="py-op">,</tt>  </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-name">filter</tt><tt class="py-op">=</tt><tt class="py-string">"Filter"</tt><tt class="py-op">,</tt> <tt class="py-name">searchList</tt><tt class="py-op">=</tt><tt class="py-op">[</tt><tt id="link-5" class="py-name"><a title="mscanner.medline.Shelf.Shelf.values" class="py-name" href="#" onclick="return doclink('link-5', 'values', 'link-2');">values</a></tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">count</tt><tt class="py-op">,</tt> <tt class="py-name">start</tt> <tt class="py-keyword">in</tt> <tt class="py-name">enumerate</tt><tt class="py-op">(</tt><tt class="py-name">starts</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">count</tt><tt class="py-op">+</tt><tt class="py-number">1</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">starts</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">            <tt class="py-name">towrite</tt> <tt class="py-op">=</tt> <tt class="py-name">citations</tt><tt class="py-op">[</tt><tt class="py-name">start</tt><tt class="py-op">:</tt><tt class="py-name">start</tt><tt class="py-op">+</tt><tt class="py-name">perfile</tt><tt class="py-op">]</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">            <tt class="py-name">towrite</tt> <tt class="py-op">=</tt> <tt class="py-name">citations</tt><tt class="py-op">[</tt><tt class="py-name">start</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt id="link-6" class="py-name"><a title="mscanner.medline.Shelf.Shelf.values" class="py-name" href="#" onclick="return doclink('link-6', 'values', 'link-2');">values</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method mscanner.core.FeatureScores.FeatureScores.update()=mscanner.core.FeatureScores.FeatureScores-class.html#update,Module mscanner.scripts.update=mscanner.scripts.update-module.html"><a title="mscanner.core.FeatureScores.FeatureScores.update
+mscanner.scripts.update" class="py-name" href="#" onclick="return doclink('link-7', 'update', 'link-7');">update</a></tt><tt class="py-op">(</tt><tt class="py-name">dict</tt><tt class="py-op">(</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">            <tt class="py-name">cite_table</tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name" targets="Module mscanner.core.CitationTable=mscanner.core.CitationTable-module.html,Function mscanner.core.CitationTable.CitationTable()=mscanner.core.CitationTable-module.html#CitationTable"><a title="mscanner.core.CitationTable
+mscanner.core.CitationTable.CitationTable" class="py-name" href="#" onclick="return doclink('link-8', 'CitationTable', 'link-8');">CitationTable</a></tt><tt class="py-op">(</tt><tt class="py-name">start</tt><tt class="py-op">+</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-name">towrite</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">            <tt class="py-name">dataset</tt> <tt class="py-op">=</tt> <tt class="py-name">dataset</tt><tt class="py-op">,</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">            <tt class="py-name">mode</tt> <tt class="py-op">=</tt> <tt class="py-name">mode</tt><tt class="py-op">,</tt>  </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">            <tt class="py-name">report_length</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">towrite</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">            <tt class="py-name">filelist</tt> <tt class="py-op">=</tt> <tt class="py-name">fnames</tt><tt class="py-op">,</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">            <tt class="py-name">cur_idx</tt> <tt class="py-op">=</tt> <tt class="py-name">count</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-keyword">with</tt> <tt id="link-9" class="py-name"><a title="mscanner.core.iofuncs" class="py-name" href="#" onclick="return doclink('link-9', 'iofuncs', 'link-1');">iofuncs</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Class mscanner.core.iofuncs.FileTransaction=mscanner.core.iofuncs.FileTransaction-class.html"><a title="mscanner.core.iofuncs.FileTransaction" class="py-name" href="#" onclick="return doclink('link-10', 'FileTransaction', 'link-10');">FileTransaction</a></tt><tt class="py-op">(</tt><tt class="py-name">fname</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">/</tt><tt class="py-name">fnames</tt><tt class="py-op">[</tt><tt class="py-name">count</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-string">"w"</tt><tt class="py-op">)</tt> <tt class="py-keyword">as</tt> <tt class="py-name">ft</tt><tt class="py-op">:</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">            <tt id="link-11" class="py-name"><a title="mscanner.htdocs.templates.page
+mscanner.htdocs.templates.page.page" class="py-name" href="#" onclick="return doclink('link-11', 'page', 'link-3');">page</a></tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method mscanner.htdocs.templates.page.page.respond()=mscanner.htdocs.templates.page.page-class.html#respond"><a title="mscanner.htdocs.templates.page.page.respond" class="py-name" href="#" onclick="return doclink('link-12', 'respond', 'link-12');">respond</a></tt><tt class="py-op">(</tt><tt class="py-name">ft</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">         </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"> </tt>
+<a name="CitationTable"></a><div id="CitationTable-def"><a name="L75"></a><tt class="py-lineno"> 75</tt> <a class="py-toggle" href="#" id="CitationTable-toggle" onclick="return toggle('CitationTable');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.core.CitationTable-module.html#CitationTable">CitationTable</a><tt class="py-op">(</tt><tt class="py-param">startrank</tt><tt class="py-op">,</tt> <tt class="py-param">citations</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CitationTable-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="CitationTable-expanded"><a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">    <tt class="py-docstring">"""Create an HTML table of citations (uses ElementTree)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-docstring">    We use Cheetah when there is more HTML than logic, and ElementTree when</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">    there is more logic than HTML. The old Cheetah template was getting</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring">    cluttered from all the logic. This way also outputs less whitespace.</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-docstring">    @param startrank: Rank of the first article in the table</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring">    @param citations: Iterable of (score, Article) in decreasing order of score</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-docstring">    @return: HTML string for the &lt;table&gt; element containing citations</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt class="py-name">xml</tt><tt class="py-op">.</tt><tt class="py-name">etree</tt><tt class="py-op">.</tt><tt class="py-name">cElementTree</tt> <tt class="py-keyword">import</tt> <tt class="py-name">ElementTree</tt><tt class="py-op">,</tt> <tt class="py-name">Element</tt><tt class="py-op">,</tt> <tt class="py-name">SubElement</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">    <tt class="py-name">table</tt> <tt class="py-op">=</tt> <tt class="py-name">Element</tt><tt class="py-op">(</tt><tt class="py-string">"table"</tt><tt class="py-op">,</tt> <tt class="py-name">id</tt><tt class="py-op">=</tt><tt class="py-string">"citations"</tt><tt class="py-op">)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">    <tt class="py-name">ncols</tt> <tt class="py-op">=</tt> <tt class="py-number">9</tt> <tt class="py-comment"># Number of columns in the table</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">    <tt class="py-name">cg</tt> <tt class="py-op">=</tt> <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">table</tt><tt class="py-op">,</tt> <tt class="py-string">"colgroup"</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">    <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">cg</tt><tt class="py-op">,</tt> <tt class="py-string">"col"</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">"class"</tt><tt class="py-op">:</tt><tt class="py-string">"classification"</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">    <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">cg</tt><tt class="py-op">,</tt> <tt class="py-string">"col"</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">"class"</tt><tt class="py-op">:</tt><tt class="py-string">"rank"</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">    <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">cg</tt><tt class="py-op">,</tt> <tt class="py-string">"col"</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">"class"</tt><tt class="py-op">:</tt><tt class="py-string">"score"</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">    <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">cg</tt><tt class="py-op">,</tt> <tt class="py-string">"col"</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">"class"</tt><tt class="py-op">:</tt><tt class="py-string">"pmid"</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">    <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">cg</tt><tt class="py-op">,</tt> <tt class="py-string">"col"</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">"class"</tt><tt class="py-op">:</tt><tt class="py-string">"date"</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">    <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">cg</tt><tt class="py-op">,</tt> <tt class="py-string">"col"</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">"class"</tt><tt class="py-op">:</tt><tt class="py-string">"author"</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">    <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">cg</tt><tt class="py-op">,</tt> <tt class="py-string">"col"</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">"class"</tt><tt class="py-op">:</tt><tt class="py-string">"abstract"</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">    <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">cg</tt><tt class="py-op">,</tt> <tt class="py-string">"col"</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">"class"</tt><tt class="py-op">:</tt><tt class="py-string">"title"</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">    <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">cg</tt><tt class="py-op">,</tt> <tt class="py-string">"col"</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">"class"</tt><tt class="py-op">:</tt><tt class="py-string">"journal"</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">    <tt class="py-name">thead</tt> <tt class="py-op">=</tt> <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">table</tt><tt class="py-op">,</tt> <tt class="py-string">"thead"</tt><tt class="py-op">)</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">    <tt class="py-name">tr</tt> <tt class="py-op">=</tt> <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">thead</tt><tt class="py-op">,</tt> <tt class="py-string">"tr"</tt><tt class="py-op">)</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">    <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tr</tt><tt class="py-op">,</tt> <tt class="py-string">"th"</tt><tt class="py-op">,</tt> <tt id="link-13" class="py-name" targets="Method mscanner.htdocs.templates.contact.contact.title()=mscanner.htdocs.templates.contact.contact-class.html#title,Method mscanner.htdocs.templates.front.front.title()=mscanner.htdocs.templates.front.front-class.html#title,Method mscanner.htdocs.templates.output.output.title()=mscanner.htdocs.templates.output.output-class.html#title,Method mscanner.htdocs.templates.page.page.title()=mscanner.htdocs.templates.page.page-class.html#title,Method mscanner.htdocs.templates.query.query.title()=mscanner.htdocs.templates.query.query-class.html#title,Method mscanner.htdocs.templates.status.status.title()=mscanner.htdocs.templates.status.status-class.html#title"><a title="mscanner.htdocs.templates.contact.contact.title
+mscanner.htdocs.templates.front.front.title
+mscanner.htdocs.templates.output.output.title
+mscanner.htdocs.templates.page.page.title
+mscanner.htdocs.templates.query.query.title
+mscanner.htdocs.templates.status.status.title" class="py-name" href="#" onclick="return doclink('link-13', 'title', 'link-13');">title</a></tt><tt class="py-op">=</tt><tt class="py-string">"Classification"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">"C"</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">    <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tr</tt><tt class="py-op">,</tt> <tt class="py-string">"th"</tt><tt class="py-op">,</tt> <tt id="link-14" class="py-name"><a title="mscanner.htdocs.templates.contact.contact.title
+mscanner.htdocs.templates.front.front.title
+mscanner.htdocs.templates.output.output.title
+mscanner.htdocs.templates.page.page.title
+mscanner.htdocs.templates.query.query.title
+mscanner.htdocs.templates.status.status.title" class="py-name" href="#" onclick="return doclink('link-14', 'title', 'link-13');">title</a></tt><tt class="py-op">=</tt><tt class="py-string">"Rank"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">"R"</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">    <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tr</tt><tt class="py-op">,</tt> <tt class="py-string">"th"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">"Score"</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">    <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tr</tt><tt class="py-op">,</tt> <tt class="py-string">"th"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">"PMID"</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">    <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tr</tt><tt class="py-op">,</tt> <tt class="py-string">"th"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">"Date"</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">    <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tr</tt><tt class="py-op">,</tt> <tt class="py-string">"th"</tt><tt class="py-op">,</tt> <tt id="link-15" class="py-name"><a title="mscanner.htdocs.templates.contact.contact.title
+mscanner.htdocs.templates.front.front.title
+mscanner.htdocs.templates.output.output.title
+mscanner.htdocs.templates.page.page.title
+mscanner.htdocs.templates.query.query.title
+mscanner.htdocs.templates.status.status.title" class="py-name" href="#" onclick="return doclink('link-15', 'title', 'link-13');">title</a></tt><tt class="py-op">=</tt><tt class="py-string">"Author"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">"Au"</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">    <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tr</tt><tt class="py-op">,</tt> <tt class="py-string">"th"</tt><tt class="py-op">,</tt> <tt id="link-16" class="py-name"><a title="mscanner.htdocs.templates.contact.contact.title
+mscanner.htdocs.templates.front.front.title
+mscanner.htdocs.templates.output.output.title
+mscanner.htdocs.templates.page.page.title
+mscanner.htdocs.templates.query.query.title
+mscanner.htdocs.templates.status.status.title" class="py-name" href="#" onclick="return doclink('link-16', 'title', 'link-13');">title</a></tt><tt class="py-op">=</tt><tt class="py-string">"Abstract"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">"Ab"</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">    <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tr</tt><tt class="py-op">,</tt> <tt class="py-string">"th"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">"Title"</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">    <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tr</tt><tt class="py-op">,</tt> <tt class="py-string">"th"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">"Journal"</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">    <tt class="py-name">tbody</tt> <tt class="py-op">=</tt> <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">table</tt><tt class="py-op">,</tt> <tt class="py-string">"tbody"</tt><tt class="py-op">)</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">    <tt class="py-name">ncbi</tt> <tt class="py-op">=</tt> <tt class="py-string">"http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?"</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">    <tt class="py-name">ncbi_pmid</tt> <tt class="py-op">=</tt> <tt class="py-name">ncbi</tt><tt class="py-op">+</tt><tt class="py-string">"cmd=Retrieve&amp;db=pubmed&amp;list_uids="</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">    <tt class="py-name">ncbi_jour</tt> <tt class="py-op">=</tt> <tt class="py-name">ncbi</tt><tt class="py-op">+</tt><tt class="py-string">"CMD=search&amp;DB=journals&amp;term="</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">idx</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt id="link-17" class="py-name" targets="Method mscanner.fastscores.ScoreCalculator.ScoreCalculator.score()=mscanner.fastscores.ScoreCalculator.ScoreCalculator-class.html#score"><a title="mscanner.fastscores.ScoreCalculator.ScoreCalculator.score" class="py-name" href="#" onclick="return doclink('link-17', 'score', 'link-17');">score</a></tt><tt class="py-op">,</tt> <tt class="py-name">art</tt><tt class="py-op">)</tt> <tt class="py-keyword">in</tt> <tt class="py-name">enumerate</tt><tt class="py-op">(</tt><tt class="py-name">citations</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">        <tt class="py-name">pmid</tt> <tt class="py-op">=</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">art</tt><tt class="py-op">.</tt><tt class="py-name">pmid</tt><tt class="py-op">)</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">        <tt class="py-name">tr</tt> <tt class="py-op">=</tt> <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tbody</tt><tt class="py-op">,</tt> <tt class="py-string">"tr"</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">"class"</tt><tt class="py-op">:</tt><tt class="py-string">"main"</tt><tt class="py-op">}</tt><tt class="py-op">,</tt> <tt class="py-name">id</tt><tt class="py-op">=</tt><tt class="py-string">"P"</tt><tt class="py-op">+</tt><tt class="py-name">pmid</tt><tt class="py-op">)</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">        <tt class="py-comment"># Classification</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tr</tt><tt class="py-op">,</tt> <tt class="py-string">"td"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">" "</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">        <tt class="py-comment"># Rank</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tr</tt><tt class="py-op">,</tt> <tt class="py-string">"td"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">idx</tt><tt class="py-op">+</tt><tt class="py-name">startrank</tt><tt class="py-op">)</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">        <tt class="py-comment"># Score</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tr</tt><tt class="py-op">,</tt> <tt class="py-string">"td"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">"%.2f"</tt> <tt class="py-op">%</tt> <tt id="link-18" class="py-name"><a title="mscanner.fastscores.ScoreCalculator.ScoreCalculator.score" class="py-name" href="#" onclick="return doclink('link-18', 'score', 'link-17');">score</a></tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">        <tt class="py-comment"># PMID</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">td</tt> <tt class="py-op">=</tt> <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tr</tt><tt class="py-op">,</tt> <tt class="py-string">"td"</tt><tt class="py-op">)</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">        <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">td</tt><tt class="py-op">,</tt> <tt class="py-string">"a"</tt><tt class="py-op">,</tt> <tt class="py-name">href</tt><tt class="py-op">=</tt><tt class="py-name">ncbi_pmid</tt><tt class="py-op">+</tt><tt class="py-name">pmid</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-name">pmid</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-comment"># Date the record acquired "Medline" status</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">td</tt> <tt class="py-op">=</tt> <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tr</tt><tt class="py-op">,</tt> <tt class="py-string">"td"</tt><tt class="py-op">)</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">        <tt class="py-name">td</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">"%04d.%02d.%02d"</tt> <tt class="py-op">%</tt> <tt class="py-name">art</tt><tt class="py-op">.</tt><tt class="py-name">date_completed</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-comment"># Expand Author button</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">td</tt> <tt class="py-op">=</tt> <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tr</tt><tt class="py-op">,</tt> <tt class="py-string">"td"</tt><tt class="py-op">)</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">        <tt class="py-name">td</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">"+"</tt> <tt class="py-keyword">if</tt> <tt class="py-name">art</tt><tt class="py-op">.</tt><tt class="py-name">authors</tt> <tt class="py-keyword">else</tt> <tt class="py-string">" "</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        <tt class="py-comment"># Expand Abstract button</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">td</tt> <tt class="py-op">=</tt> <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tr</tt><tt class="py-op">,</tt> <tt class="py-string">"td"</tt><tt class="py-op">)</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">        <tt class="py-name">td</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">"+"</tt> <tt class="py-keyword">if</tt> <tt class="py-name">art</tt><tt class="py-op">.</tt><tt class="py-name">abstract</tt> <tt class="py-keyword">else</tt> <tt class="py-string">" "</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">        <tt class="py-comment"># Title</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">td</tt> <tt class="py-op">=</tt> <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tr</tt><tt class="py-op">,</tt> <tt class="py-string">"td"</tt><tt class="py-op">)</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">        <tt class="py-name">td</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-name">art</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="mscanner.htdocs.templates.contact.contact.title
+mscanner.htdocs.templates.front.front.title
+mscanner.htdocs.templates.output.output.title
+mscanner.htdocs.templates.page.page.title
+mscanner.htdocs.templates.query.query.title
+mscanner.htdocs.templates.status.status.title" class="py-name" href="#" onclick="return doclink('link-19', 'title', 'link-13');">title</a></tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">        <tt class="py-comment"># ISSN</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">td</tt> <tt class="py-op">=</tt> <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tr</tt><tt class="py-op">,</tt> <tt class="py-string">"td"</tt><tt class="py-op">)</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">        <tt class="py-name">a</tt> <tt class="py-op">=</tt> <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">td</tt><tt class="py-op">,</tt> <tt class="py-string">"a"</tt><tt class="py-op">)</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">        <tt class="py-name">a</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">" "</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">art</tt><tt class="py-op">.</tt><tt class="py-name">issn</tt><tt class="py-op">:</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">            <tt class="py-name">a</tt><tt class="py-op">.</tt><tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-string">"href"</tt><tt class="py-op">,</tt> <tt class="py-name">ncbi_jour</tt><tt class="py-op">+</tt><tt class="py-name">art</tt><tt class="py-op">.</tt><tt class="py-name">issn</tt><tt class="py-op">)</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">            <tt class="py-name">a</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-name">art</tt><tt class="py-op">.</tt><tt class="py-name">journal</tt> <tt class="py-keyword">if</tt> <tt class="py-name">art</tt><tt class="py-op">.</tt><tt class="py-name">journal</tt> <tt class="py-keyword">else</tt> <tt class="py-name">art</tt><tt class="py-op">.</tt><tt class="py-name">issn</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">        <tt class="py-comment"># Expanded authors</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">tr</tt> <tt class="py-op">=</tt> <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tbody</tt><tt class="py-op">,</tt> <tt class="py-string">"tr"</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">"class"</tt><tt class="py-op">:</tt><tt class="py-string">"author"</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">        <tt class="py-name">td</tt> <tt class="py-op">=</tt> <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tr</tt><tt class="py-op">,</tt> <tt class="py-string">"td"</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">"colspan"</tt><tt class="py-op">:</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">ncols</tt><tt class="py-op">)</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">        <tt class="py-name">td</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">" "</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">art</tt><tt class="py-op">.</tt><tt class="py-name">authors</tt><tt class="py-op">:</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">initials</tt><tt class="py-op">,</tt> <tt class="py-name">lastname</tt> <tt class="py-keyword">in</tt> <tt class="py-name">art</tt><tt class="py-op">.</tt><tt class="py-name">authors</tt><tt class="py-op">:</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">initials</tt><tt class="py-op">:</tt> <tt class="py-name">td</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">+=</tt> <tt class="py-name">initials</tt> <tt class="py-op">+</tt> <tt class="py-string">" "</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">lastname</tt><tt class="py-op">:</tt> <tt class="py-name">td</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">+=</tt> <tt class="py-name">lastname</tt> <tt class="py-op">+</tt> <tt class="py-string">", "</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">        <tt class="py-comment"># Expanded Abstract</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">tr</tt> <tt class="py-op">=</tt> <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tbody</tt><tt class="py-op">,</tt> <tt class="py-string">"tr"</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">"class"</tt><tt class="py-op">:</tt><tt class="py-string">"abstract"</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">        <tt class="py-name">td</tt> <tt class="py-op">=</tt> <tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tr</tt><tt class="py-op">,</tt> <tt class="py-string">"td"</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">"colspan"</tt><tt class="py-op">:</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">ncols</tt><tt class="py-op">)</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">        <tt class="py-name">td</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">" "</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">art</tt><tt class="py-op">.</tt><tt class="py-name">abstract</tt><tt class="py-op">:</tt>                         </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">            <tt class="py-name">td</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-name">art</tt><tt class="py-op">.</tt><tt class="py-name">abstract</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">cStringIO</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">    <tt class="py-name">s</tt> <tt class="py-op">=</tt> <tt class="py-name">cStringIO</tt><tt class="py-op">.</tt><tt class="py-name">StringIO</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">    <tt class="py-comment"># Tell silly etree to use UTF-8 and not "us-ascii" for output</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-name">ElementTree</tt><tt class="py-op">(</tt><tt class="py-name">table</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Method mscanner.medline.FeatureStream.FeatureStream.write()=mscanner.medline.FeatureStream.FeatureStream-class.html#write"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-20', 'write', 'link-20');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">s</tt><tt class="py-op">,</tt> <tt class="py-string">"utf-8"</tt><tt class="py-op">)</tt>  </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">s</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method mscanner.core.iofuncs.FileTransaction.getvalue()=mscanner.core.iofuncs.FileTransaction-class.html#getvalue"><a title="mscanner.core.iofuncs.FileTransaction.getvalue" class="py-name" href="#" onclick="return doclink('link-21', 'getvalue', 'link-21');">getvalue</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Fri Nov 23 09:13:24 2007
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>mscanner.htdocs.templates.contact</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;mscanner ::
+        <a href="mscanner.htdocs-module.html">Package&nbsp;htdocs</a> ::
+        <a href="mscanner.htdocs.templates-module.html">Package&nbsp;templates</a> ::
+        Module&nbsp;contact
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="mscanner.htdocs.templates.contact-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="mscanner.htdocs.templates.contact-module.html">Module mscanner.htdocs.templates.contact</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">#!/usr/bin/env python</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment">##################################################</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">## DEPENDENCIES</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt> <tt class="py-keyword">import</tt> <tt class="py-name">getmtime</tt><tt class="py-op">,</tt> <tt class="py-name">exists</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">time</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">types</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">__builtin__</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Cheetah</tt><tt class="py-op">.</tt><tt class="py-name">Version</tt> <tt class="py-keyword">import</tt> <tt class="py-name">MinCompatibleVersion</tt> <tt class="py-keyword">as</tt> <tt class="py-name">RequiredCheetahVersion</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Cheetah</tt><tt class="py-op">.</tt><tt class="py-name">Version</tt> <tt class="py-keyword">import</tt> <tt class="py-name">MinCompatibleVersionTuple</tt> <tt class="py-keyword">as</tt> <tt class="py-name">RequiredCheetahVersionTuple</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Cheetah</tt><tt class="py-op">.</tt><tt class="py-name">Template</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Template</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Cheetah</tt><tt class="py-op">.</tt><tt class="py-name">DummyTransaction</tt> <tt class="py-keyword">import</tt> <tt class="py-name">DummyTransaction</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Cheetah</tt><tt class="py-op">.</tt><tt class="py-name">NameMapper</tt> <tt class="py-keyword">import</tt> <tt class="py-name">NotFound</tt><tt class="py-op">,</tt> <tt class="py-name">valueForName</tt><tt class="py-op">,</tt> <tt class="py-name">valueFromSearchList</tt><tt class="py-op">,</tt> <tt class="py-name">valueFromFrameOrSearchList</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Cheetah</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Class Cheetah.CacheRegion.CacheRegion=Cheetah.CacheRegion.CacheRegion-class.html"><a title="Cheetah.CacheRegion.CacheRegion" class="py-name" href="#" onclick="return doclink('link-0', 'CacheRegion', 'link-0');">CacheRegion</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name"><a title="Cheetah.CacheRegion.CacheRegion" class="py-name" href="#" onclick="return doclink('link-1', 'CacheRegion', 'link-0');">CacheRegion</a></tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">Cheetah</tt><tt class="py-op">.</tt><tt class="py-name">Filters</tt> <tt class="py-keyword">as</tt> <tt class="py-name">Filters</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">Cheetah</tt><tt class="py-op">.</tt><tt class="py-name">ErrorCatchers</tt> <tt class="py-keyword">as</tt> <tt class="py-name">ErrorCatchers</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name" targets="Module mscanner.htdocs.templates.page=mscanner.htdocs.templates.page-module.html,Class mscanner.htdocs.templates.page.page=mscanner.htdocs.templates.page.page-class.html"><a title="mscanner.htdocs.templates.page
+mscanner.htdocs.templates.page.page" class="py-name" href="#" onclick="return doclink('link-2', 'page', 'link-2');">page</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name"><a title="mscanner.htdocs.templates.page
+mscanner.htdocs.templates.page.page" class="py-name" href="#" onclick="return doclink('link-3', 'page', 'link-2');">page</a></tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-comment">##################################################</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">## MODULE CONSTANTS</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">    <tt class="py-name">True</tt><tt class="py-op">,</tt> <tt class="py-name">False</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-keyword">except</tt> <tt class="py-name">NameError</tt><tt class="py-op">:</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">    <tt class="py-name">True</tt><tt class="py-op">,</tt> <tt class="py-name">False</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">==</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">==</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-name">VFFSL</tt><tt class="py-op">=</tt><tt class="py-name">valueFromFrameOrSearchList</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-name">VFSL</tt><tt class="py-op">=</tt><tt class="py-name">valueFromSearchList</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-name">VFN</tt><tt class="py-op">=</tt><tt class="py-name">valueForName</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-name">currentTime</tt><tt class="py-op">=</tt><tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">time</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt id="link-4" class="py-name" targets="Variable mscanner.htdocs.templates.contact.__CHEETAH_version__=mscanner.htdocs.templates.contact-module.html#__CHEETAH_version__,Variable mscanner.htdocs.templates.front.__CHEETAH_version__=mscanner.htdocs.templates.front-module.html#__CHEETAH_version__,Variable mscanner.htdocs.templates.output.__CHEETAH_version__=mscanner.htdocs.templates.output-module.html#__CHEETAH_version__,Variable mscanner.htdocs.templates.page.__CHEETAH_version__=mscanner.htdocs.templates.page-module.html#__CHEETAH_version__,Variable mscanner.htdocs.templates.query.__CHEETAH_version__=mscanner.htdocs.templates.query-module.html#__CHEETAH_version__,Variable mscanner.htdocs.templates.status.__CHEETAH_version__=mscanner.htdocs.templates.status-module.html#__CHEETAH_version__"><a title="mscanner.htdocs.templates.contact.__CHEETAH_version__
+mscanner.htdocs.templates.front.__CHEETAH_version__
+mscanner.htdocs.templates.output.__CHEETAH_version__
+mscanner.htdocs.templates.page.__CHEETAH_version__
+mscanner.htdocs.templates.query.__CHEETAH_version__
+mscanner.htdocs.templates.status.__CHEETAH_version__" class="py-name" href="#" onclick="return doclink('link-4', '__CHEETAH_version__', 'link-4');">__CHEETAH_version__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'2.0rc7'</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt id="link-5" class="py-name" targets="Variable mscanner.htdocs.templates.contact.__CHEETAH_versionTuple__=mscanner.htdocs.templates.contact-module.html#__CHEETAH_versionTuple__,Variable mscanner.htdocs.templates.front.__CHEETAH_versionTuple__=mscanner.htdocs.templates.front-module.html#__CHEETAH_versionTuple__,Variable mscanner.htdocs.templates.output.__CHEETAH_versionTuple__=mscanner.htdocs.templates.output-module.html#__CHEETAH_versionTuple__,Variable mscanner.htdocs.templates.page.__CHEETAH_versionTuple__=mscanner.htdocs.templates.page-module.html#__CHEETAH_versionTuple__,Variable mscanner.htdocs.templates.query.__CHEETAH_versionTuple__=mscanner.htdocs.templates.query-module.html#__CHEETAH_versionTuple__,Variable mscanner.htdocs.templates.status.__CHEETAH_versionTuple__=mscanner.htdocs.templates.status-module.html#__CHEETAH_versionTuple__"><a title="mscanner.htdocs.templates.contact.__CHEETAH_versionTuple__
+mscanner.htdocs.templates.front.__CHEETAH_versionTuple__
+mscanner.htdocs.templates.output.__CHEETAH_versionTuple__
+mscanner.htdocs.templates.page.__CHEETAH_versionTuple__
+mscanner.htdocs.templates.query.__CHEETAH_versionTuple__
+mscanner.htdocs.templates.status.__CHEETAH_versionTuple__" class="py-name" href="#" onclick="return doclink('link-5', '__CHEETAH_versionTuple__', 'link-5');">__CHEETAH_versionTuple__</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-string">'candidate'</tt><tt class="py-op">,</tt> <tt class="py-number">7</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt id="link-6" class="py-name" targets="Variable mscanner.htdocs.templates.contact.__CHEETAH_genTime__=mscanner.htdocs.templates.contact-module.html#__CHEETAH_genTime__,Variable mscanner.htdocs.templates.front.__CHEETAH_genTime__=mscanner.htdocs.templates.front-module.html#__CHEETAH_genTime__,Variable mscanner.htdocs.templates.output.__CHEETAH_genTime__=mscanner.htdocs.templates.output-module.html#__CHEETAH_genTime__,Variable mscanner.htdocs.templates.page.__CHEETAH_genTime__=mscanner.htdocs.templates.page-module.html#__CHEETAH_genTime__,Variable mscanner.htdocs.templates.query.__CHEETAH_genTime__=mscanner.htdocs.templates.query-module.html#__CHEETAH_genTime__,Variable mscanner.htdocs.templates.status.__CHEETAH_genTime__=mscanner.htdocs.templates.status-module.html#__CHEETAH_genTime__"><a title="mscanner.htdocs.templates.contact.__CHEETAH_genTime__
+mscanner.htdocs.templates.front.__CHEETAH_genTime__
+mscanner.htdocs.templates.output.__CHEETAH_genTime__
+mscanner.htdocs.templates.page.__CHEETAH_genTime__
+mscanner.htdocs.templates.query.__CHEETAH_genTime__
+mscanner.htdocs.templates.status.__CHEETAH_genTime__" class="py-name" href="#" onclick="return doclink('link-6', '__CHEETAH_genTime__', 'link-6');">__CHEETAH_genTime__</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1193401028.3199999</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt id="link-7" class="py-name" targets="Variable mscanner.htdocs.templates.contact.__CHEETAH_genTimestamp__=mscanner.htdocs.templates.contact-module.html#__CHEETAH_genTimestamp__,Variable mscanner.htdocs.templates.front.__CHEETAH_genTimestamp__=mscanner.htdocs.templates.front-module.html#__CHEETAH_genTimestamp__,Variable mscanner.htdocs.templates.output.__CHEETAH_genTimestamp__=mscanner.htdocs.templates.output-module.html#__CHEETAH_genTimestamp__,Variable mscanner.htdocs.templates.page.__CHEETAH_genTimestamp__=mscanner.htdocs.templates.page-module.html#__CHEETAH_genTimestamp__,Variable mscanner.htdocs.templates.query.__CHEETAH_genTimestamp__=mscanner.htdocs.templates.query-module.html#__CHEETAH_genTimestamp__,Variable mscanner.htdocs.templates.status.__CHEETAH_genTimestamp__=mscanner.htdocs.templates.status-module.html#__CHEETAH_genTimestamp__"><a title="mscanner.htdocs.templates.contact.__CHEETAH_genTimestamp__
+mscanner.htdocs.templates.front.__CHEETAH_genTimestamp__
+mscanner.htdocs.templates.output.__CHEETAH_genTimestamp__
+mscanner.htdocs.templates.page.__CHEETAH_genTimestamp__
+mscanner.htdocs.templates.query.__CHEETAH_genTimestamp__
+mscanner.htdocs.templates.status.__CHEETAH_genTimestamp__" class="py-name" href="#" onclick="return doclink('link-7', '__CHEETAH_genTimestamp__', 'link-7');">__CHEETAH_genTimestamp__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'Fri Oct 26 14:17:08 2007'</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt id="link-8" class="py-name" targets="Variable mscanner.htdocs.templates.contact.__CHEETAH_src__=mscanner.htdocs.templates.contact-module.html#__CHEETAH_src__,Variable mscanner.htdocs.templates.front.__CHEETAH_src__=mscanner.htdocs.templates.front-module.html#__CHEETAH_src__,Variable mscanner.htdocs.templates.output.__CHEETAH_src__=mscanner.htdocs.templates.output-module.html#__CHEETAH_src__,Variable mscanner.htdocs.templates.page.__CHEETAH_src__=mscanner.htdocs.templates.page-module.html#__CHEETAH_src__,Variable mscanner.htdocs.templates.query.__CHEETAH_src__=mscanner.htdocs.templates.query-module.html#__CHEETAH_src__,Variable mscanner.htdocs.templates.status.__CHEETAH_src__=mscanner.htdocs.templates.status-module.html#__CHEETAH_src__"><a title="mscanner.htdocs.templates.contact.__CHEETAH_src__
+mscanner.htdocs.templates.front.__CHEETAH_src__
+mscanner.htdocs.templates.output.__CHEETAH_src__
+mscanner.htdocs.templates.page.__CHEETAH_src__
+mscanner.htdocs.templates.query.__CHEETAH_src__
+mscanner.htdocs.templates.status.__CHEETAH_src__" class="py-name" href="#" onclick="return doclink('link-8', '__CHEETAH_src__', 'link-8');">__CHEETAH_src__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'contact.tmpl'</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt id="link-9" class="py-name" targets="Variable mscanner.htdocs.templates.contact.__CHEETAH_srcLastModified__=mscanner.htdocs.templates.contact-module.html#__CHEETAH_srcLastModified__,Variable mscanner.htdocs.templates.front.__CHEETAH_srcLastModified__=mscanner.htdocs.templates.front-module.html#__CHEETAH_srcLastModified__,Variable mscanner.htdocs.templates.output.__CHEETAH_srcLastModified__=mscanner.htdocs.templates.output-module.html#__CHEETAH_srcLastModified__,Variable mscanner.htdocs.templates.page.__CHEETAH_srcLastModified__=mscanner.htdocs.templates.page-module.html#__CHEETAH_srcLastModified__,Variable mscanner.htdocs.templates.query.__CHEETAH_srcLastModified__=mscanner.htdocs.templates.query-module.html#__CHEETAH_srcLastModified__,Variable mscanner.htdocs.templates.status.__CHEETAH_srcLastModified__=mscanner.htdocs.templates.status-module.html#__CHEETAH_srcLastModified__"><a title="mscanner.htdocs.templates.contact.__CHEETAH_srcLastModified__
+mscanner.htdocs.templates.front.__CHEETAH_srcLastModified__
+mscanner.htdocs.templates.output.__CHEETAH_srcLastModified__
+mscanner.htdocs.templates.page.__CHEETAH_srcLastModified__
+mscanner.htdocs.templates.query.__CHEETAH_srcLastModified__
+mscanner.htdocs.templates.status.__CHEETAH_srcLastModified__" class="py-name" href="#" onclick="return doclink('link-9', '__CHEETAH_srcLastModified__', 'link-9');">__CHEETAH_srcLastModified__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'Fri Oct 26 14:17:08 2007'</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt id="link-10" class="py-name" targets="Variable mscanner.htdocs.templates.contact.__CHEETAH_docstring__=mscanner.htdocs.templates.contact-module.html#__CHEETAH_docstring__,Variable mscanner.htdocs.templates.front.__CHEETAH_docstring__=mscanner.htdocs.templates.front-module.html#__CHEETAH_docstring__,Variable mscanner.htdocs.templates.output.__CHEETAH_docstring__=mscanner.htdocs.templates.output-module.html#__CHEETAH_docstring__,Variable mscanner.htdocs.templates.page.__CHEETAH_docstring__=mscanner.htdocs.templates.page-module.html#__CHEETAH_docstring__,Variable mscanner.htdocs.templates.query.__CHEETAH_docstring__=mscanner.htdocs.templates.query-module.html#__CHEETAH_docstring__,Variable mscanner.htdocs.templates.status.__CHEETAH_docstring__=mscanner.htdocs.templates.status-module.html#__CHEETAH_docstring__"><a title="mscanner.htdocs.templates.contact.__CHEETAH_docstring__
+mscanner.htdocs.templates.front.__CHEETAH_docstring__
+mscanner.htdocs.templates.output.__CHEETAH_docstring__
+mscanner.htdocs.templates.page.__CHEETAH_docstring__
+mscanner.htdocs.templates.query.__CHEETAH_docstring__
+mscanner.htdocs.templates.status.__CHEETAH_docstring__" class="py-name" href="#" onclick="return doclink('link-10', '__CHEETAH_docstring__', 'link-10');">__CHEETAH_docstring__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'Autogenerated by CHEETAH: The Python-Powered Template Engine'</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt id="link-11" class="py-name"><a title="mscanner.htdocs.templates.contact.__CHEETAH_versionTuple__
+mscanner.htdocs.templates.front.__CHEETAH_versionTuple__
+mscanner.htdocs.templates.output.__CHEETAH_versionTuple__
+mscanner.htdocs.templates.page.__CHEETAH_versionTuple__
+mscanner.htdocs.templates.query.__CHEETAH_versionTuple__
+mscanner.htdocs.templates.status.__CHEETAH_versionTuple__" class="py-name" href="#" onclick="return doclink('link-11', '__CHEETAH_versionTuple__', 'link-5');">__CHEETAH_versionTuple__</a></tt> <tt class="py-op">&lt;</tt> <tt class="py-name">RequiredCheetahVersionTuple</tt><tt class="py-op">:</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">    <tt class="py-keyword">raise</tt> <tt class="py-name">AssertionError</tt><tt class="py-op">(</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">      <tt class="py-string">'This template was compiled with Cheetah version'</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">      <tt class="py-string">' %s. Templates compiled before version %s must be recompiled.'</tt><tt class="py-op">%</tt><tt class="py-op">(</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">         <tt id="link-12" class="py-name"><a title="mscanner.htdocs.templates.contact.__CHEETAH_version__
+mscanner.htdocs.templates.front.__CHEETAH_version__
+mscanner.htdocs.templates.output.__CHEETAH_version__
+mscanner.htdocs.templates.page.__CHEETAH_version__
+mscanner.htdocs.templates.query.__CHEETAH_version__
+mscanner.htdocs.templates.status.__CHEETAH_version__" class="py-name" href="#" onclick="return doclink('link-12', '__CHEETAH_version__', 'link-4');">__CHEETAH_version__</a></tt><tt class="py-op">,</tt> <tt class="py-name">RequiredCheetahVersion</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-comment">##################################################</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">## CLASSES</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="contact"></a><div id="contact-def"><a name="L52"></a><tt class="py-lineno"> 52</tt> <a class="py-toggle" href="#" id="contact-toggle" onclick="return toggle('contact');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="mscanner.htdocs.templates.contact.contact-class.html">contact</a><tt class="py-op">(</tt><tt class="py-base-class">page</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="contact-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="contact-expanded"><a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">    <tt class="py-comment">##################################################</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">## CHEETAH GENERATED METHODS</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"> </tt>
+<a name="contact.__init__"></a><div id="contact.__init__-def"><a name="L58"></a><tt class="py-lineno"> 58</tt> <a class="py-toggle" href="#" id="contact.__init__-toggle" onclick="return toggle('contact.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.htdocs.templates.contact.contact-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">KWs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="contact.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="contact.__init__-expanded"><a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt id="link-13" class="py-name"><a title="mscanner.htdocs.templates.page
+mscanner.htdocs.templates.page.page" class="py-name" href="#" onclick="return doclink('link-13', 'page', 'link-2');">page</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method mscanner.core.FeatureScores.FeatureScores.__init__()=mscanner.core.FeatureScores.FeatureScores-class.html#__init__,Method mscanner.core.Plotter.Plotter.__init__()=mscanner.core.Plotter.Plotter-class.html#__init__,Method mscanner.core.QueryManager.QueryManager.__init__()=mscanner.core.QueryManager.QueryManager-class.html#__init__,Method mscanner.core.ValidationManager.ValidationBase.__init__()=mscanner.core.ValidationManager.ValidationBase-class.html#__init__,Method mscanner.core.Validator.CrossValidator.__init__()=mscanner.core.Validator.CrossValidator-class.html#__init__,Method mscanner.core.iofuncs.FileTransaction.__init__()=mscanner.core.iofuncs.FileTransaction-class.html#__init__,Method mscanner.core.metrics.PerformanceMetrics.__init__()=mscanner.core.metrics.PerformanceMetrics-class.html#__init__,Method mscanner.core.metrics.PerformanceRange.__init__()=mscanner.core.metrics.PerformanceRange-class.html#__init__,Method mscanner.core.metrics.PerformanceVectors.__init__()=mscanner.core.metrics.PerformanceVectors-class.html#__init__,Method mscanner.core.metrics.PredictedMetrics.__init__()=mscanner.core.metrics.PredictedMetrics-class.html#__init__,Method mscanner.fastscores.FeatureCounter.FeatureCounter.__init__()=mscanner.fastscores.FeatureCounter.FeatureCounter-class.html#__init__,Method mscanner.fastscores.ScoreCalculator.ScoreCalculator.__init__()=mscanner.fastscores.ScoreCalculator.ScoreCalculator-class.html#__init__,Method mscanner.htdocs.forms.Dropdown.__init__()=mscanner.htdocs.forms.Dropdown-class.html#__init__,Method mscanner.htdocs.forms.Form.__init__()=mscanner.htdocs.forms.Form-class.html#__init__,Method mscanner.htdocs.forms.Input.__init__()=mscanner.htdocs.forms.Input-class.html#__init__,Method mscanner.htdocs.forms.Radio.__init__()=mscanner.htdocs.forms.Radio-class.html#__init__,Method mscanner.htdocs.forms.RegexValidator.__init__()=mscanner.htdocs.forms.RegexValidator-class.html#__init__,Method mscanner.htdocs.forms.Validator.__init__()=mscanner.htdocs.forms.Validator-class.html#__init__,Method mscanner.htdocs.queue.QueueStatus.__init__()=mscanner.htdocs.queue.QueueStatus-class.html#__init__,Method mscanner.htdocs.templates.contact.contact.__init__()=mscanner.htdocs.templates.contact.contact-class.html#__init__,Method mscanner.htdocs.templates.front.front.__init__()=mscanner.htdocs.templates.front.front-class.html#__init__,Method mscanner.htdocs.templates.output.output.__init__()=mscanner.htdocs.templates.output.output-class.html#__init__,Method mscanner.htdocs.templates.page.page.__init__()=mscanner.htdocs.templates.page.page-class.html#__init__,Method mscanner.htdocs.templates.query.query.__init__()=mscanner.htdocs.templates.query.query-class.html#__init__,Method mscanner.htdocs.templates.status.status.__init__()=mscanner.htdocs.templates.status.status-class.html#__init__,Method mscanner.medline.Article.Article.__init__()=mscanner.medline.Article.Article-class.html#__init__,Method mscanner.medline.Databases.Databases.__init__()=mscanner.medline.Databases.Databases-class.html#__init__,Method mscanner.medline.FeatureDatabase.FeatureDatabase.__init__()=mscanner.medline.FeatureDatabase.FeatureDatabase-class.html#__init__,Method mscanner.medline.FeatureMapping.FeatureMapping.__init__()=mscanner.medline.FeatureMapping.FeatureMapping-class.html#__init__,Method mscanner.medline.FeatureStream.FeatureStream.__init__()=mscanner.medline.FeatureStream.FeatureStream-class.html#__init__,Method mscanner.medline.FileTracker.FileTracker.__init__()=mscanner.medline.FileTracker.FileTracker-class.html#__init__,Method mscanner.medline.MedlineCache.MedlineCache.__init__()=mscanner.medline.MedlineCache.MedlineCache-class.html#__init__,Method mscanner.medline.Shelf.Shelf.__init__()=mscanner.medline.Shelf.Shelf-class.html#__init__"><a title="mscanner.core.FeatureScores.FeatureScores.__init__
+mscanner.core.Plotter.Plotter.__init__
+mscanner.core.QueryManager.QueryManager.__init__
+mscanner.core.ValidationManager.ValidationBase.__init__
+mscanner.core.Validator.CrossValidator.__init__
+mscanner.core.iofuncs.FileTransaction.__init__
+mscanner.core.metrics.PerformanceMetrics.__init__
+mscanner.core.metrics.PerformanceRange.__init__
+mscanner.core.metrics.PerformanceVectors.__init__
+mscanner.core.metrics.PredictedMetrics.__init__
+mscanner.fastscores.FeatureCounter.FeatureCounter.__init__
+mscanner.fastscores.ScoreCalculator.ScoreCalculator.__init__
+mscanner.htdocs.forms.Dropdown.__init__
+mscanner.htdocs.forms.Form.__init__
+mscanner.htdocs.forms.Input.__init__
+mscanner.htdocs.forms.Radio.__init__
+mscanner.htdocs.forms.RegexValidator.__init__
+mscanner.htdocs.forms.Validator.__init__
+mscanner.htdocs.queue.QueueStatus.__init__
+mscanner.htdocs.templates.contact.contact.__init__
+mscanner.htdocs.templates.front.front.__init__
+mscanner.htdocs.templates.output.output.__init__
+mscanner.htdocs.templates.page.page.__init__
+mscanner.htdocs.templates.query.query.__init__
+mscanner.htdocs.templates.status.status.__init__
+mscanner.medline.Article.Article.__init__
+mscanner.medline.Databases.Databases.__init__
+mscanner.medline.FeatureDatabase.FeatureDatabase.__init__
+mscanner.medline.FeatureMapping.FeatureMapping.__init__
+mscanner.medline.FeatureStream.FeatureStream.__init__
+mscanner.medline.FileTracker.FileTracker.__init__
+mscanner.medline.MedlineCache.MedlineCache.__init__
+mscanner.medline.Shelf.Shelf.__init__" class="py-name" href="#" onclick="return doclink('link-14', '__init__', 'link-14');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">KWs</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Variable mscanner.htdocs.templates.contact.contact._CHEETAH__instanceInitialized=mscanner.htdocs.templates.contact.contact-class.html#_CHEETAH__instanceInitialized,Variable mscanner.htdocs.templates.front.front._CHEETAH__instanceInitialized=mscanner.htdocs.templates.front.front-class.html#_CHEETAH__instanceInitialized,Variable mscanner.htdocs.templates.output.output._CHEETAH__instanceInitialized=mscanner.htdocs.templates.output.output-class.html#_CHEETAH__instanceInitialized,Variable mscanner.htdocs.templates.page.page._CHEETAH__instanceInitialized=mscanner.htdocs.templates.page.page-class.html#_CHEETAH__instanceInitialized,Variable mscanner.htdocs.templates.query.query._CHEETAH__instanceInitialized=mscanner.htdocs.templates.query.query-class.html#_CHEETAH__instanceInitialized,Variable mscanner.htdocs.templates.status.status._CHEETAH__instanceInitialized=mscanner.htdocs.templates.status.status-class.html#_CHEETAH__instanceInitialized"><a title="mscanner.htdocs.templates.contact.contact._CHEETAH__instanceInitialized
+mscanner.htdocs.templates.front.front._CHEETAH__instanceInitialized
+mscanner.htdocs.templates.output.output._CHEETAH__instanceInitialized
+mscanner.htdocs.templates.page.page._CHEETAH__instanceInitialized
+mscanner.htdocs.templates.query.query._CHEETAH__instanceInitialized
+mscanner.htdocs.templates.status.status._CHEETAH__instanceInitialized" class="py-name" href="#" onclick="return doclink('link-15', '_CHEETAH__instanceInitialized', 'link-15');">_CHEETAH__instanceInitialized</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">            <tt class="py-name">cheetahKWArgs</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">            <tt class="py-name">allowedKWs</tt> <tt class="py-op">=</tt> <tt class="py-string">'searchList namespaces filter filtersLib errorCatcher'</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">k</tt><tt class="py-op">,</tt><tt class="py-name">v</tt> <tt class="py-keyword">in</tt> <tt class="py-name">KWs</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method mscanner.medline.Shelf.Shelf.items()=mscanner.medline.Shelf.Shelf-class.html#items"><a title="mscanner.medline.Shelf.Shelf.items" class="py-name" href="#" onclick="return doclink('link-16', 'items', 'link-16');">items</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">k</tt> <tt class="py-keyword">in</tt> <tt class="py-name">allowedKWs</tt><tt class="py-op">:</tt> <tt class="py-name">cheetahKWArgs</tt><tt class="py-op">[</tt><tt class="py-name">k</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">v</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_initCheetahInstance</tt><tt class="py-op">(</tt><tt class="py-op">**</tt><tt class="py-name">cheetahKWArgs</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">         </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"> </tt>
+<a name="contact.title"></a><div id="contact.title-def"><a name="L69"></a><tt class="py-lineno"> 69</tt> <a class="py-toggle" href="#" id="contact.title-toggle" onclick="return toggle('contact.title');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.htdocs.templates.contact.contact-class.html#title">title</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">KWS</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="contact.title-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="contact.title-expanded"><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-comment">## CHEETAH: generated from #def title at line 3, col 1.</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">trans</tt> <tt class="py-op">=</tt> <tt class="py-name">KWS</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">"trans"</tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-keyword">not</tt> <tt class="py-name">trans</tt> <tt class="py-keyword">and</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_CHEETAH__isBuffering</tt> <tt class="py-keyword">and</tt> <tt class="py-keyword">not</tt> <tt class="py-name">callable</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">transaction</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">            <tt class="py-name">trans</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">transaction</tt> <tt class="py-comment"># is None unless self.awake() was called</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">trans</tt><tt class="py-op">:</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">            <tt class="py-name">trans</tt> <tt class="py-op">=</tt> <tt class="py-name">DummyTransaction</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">            <tt class="py-name">_dummyTrans</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> <tt class="py-name">_dummyTrans</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt id="link-17" class="py-name" targets="Method mscanner.medline.FeatureStream.FeatureStream.write()=mscanner.medline.FeatureStream.FeatureStream-class.html#write"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-17', 'write', 'link-17');">write</a></tt> <tt class="py-op">=</tt> <tt class="py-name">trans</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-18', 'write', 'link-17');">write</a></tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-name">SL</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_CHEETAH__searchList</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-name">_filter</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_CHEETAH__currentFilter</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">         </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-comment">########################################</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">## START - generated method body</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-comment"></tt>         </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt id="link-19" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-19', 'write', 'link-17');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">'Contact the Author\n'</tt><tt class="py-op">)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">         </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">        <tt class="py-comment">########################################</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">## END - generated method body</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-comment"></tt>         </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">_dummyTrans</tt> <tt class="py-keyword">and</tt> <tt class="py-name">trans</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Method mscanner.core.iofuncs.FileTransaction.getvalue()=mscanner.core.iofuncs.FileTransaction-class.html#getvalue"><a title="mscanner.core.iofuncs.FileTransaction.getvalue" class="py-name" href="#" onclick="return doclink('link-20', 'getvalue', 'link-20');">getvalue</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-string">""</tt> </tt>
+</div><a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">         </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"> </tt>
+<a name="contact.contents"></a><div id="contact.contents-def"><a name="L96"></a><tt class="py-lineno"> 96</tt> <a class="py-toggle" href="#" id="contact.contents-toggle" onclick="return toggle('contact.contents');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.htdocs.templates.contact.contact-class.html#contents">contents</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">KWS</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="contact.contents-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="contact.contents-expanded"><a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-comment">## CHEETAH: generated from #def contents at line 7, col 1.</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">trans</tt> <tt class="py-op">=</tt> <tt class="py-name">KWS</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">"trans"</tt><tt class="py-op">)</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-keyword">not</tt> <tt class="py-name">trans</tt> <tt class="py-keyword">and</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_CHEETAH__isBuffering</tt> <tt class="py-keyword">and</tt> <tt class="py-keyword">not</tt> <tt class="py-name">callable</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">transaction</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">            <tt class="py-name">trans</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">transaction</tt> <tt class="py-comment"># is None unless self.awake() was called</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">trans</tt><tt class="py-op">:</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">            <tt class="py-name">trans</tt> <tt class="py-op">=</tt> <tt class="py-name">DummyTransaction</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">            <tt class="py-name">_dummyTrans</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> <tt class="py-name">_dummyTrans</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">        <tt id="link-21" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-21', 'write', 'link-17');">write</a></tt> <tt class="py-op">=</tt> <tt class="py-name">trans</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-22', 'write', 'link-17');">write</a></tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-name">SL</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_CHEETAH__searchList</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">        <tt class="py-name">_filter</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_CHEETAH__currentFilter</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">         </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-comment">########################################</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">## START - generated method body</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"><tt class="py-comment"></tt>         </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt id="link-23" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-23', 'write', 'link-17');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">'&lt;div class="narrow"&gt;\n\n'</tt><tt class="py-op">)</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">VFSL</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">locals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">+</tt><tt class="py-name">SL</tt><tt class="py-op">+</tt><tt class="py-op">[</tt><tt class="py-name">globals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">__builtin__</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-string">"getVar"</tt><tt class="py-op">,</tt><tt class="py-name">False</tt><tt class="py-op">)</tt><tt class="py-op">(</tt><tt class="py-string">"success"</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> <tt class="py-comment"># generated from line 10, col 1</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">            <tt id="link-24" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-24', 'write', 'link-17');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">'    &lt;p&gt;\n'</tt><tt class="py-op">)</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">VFSL</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">locals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">+</tt><tt class="py-name">SL</tt><tt class="py-op">+</tt><tt class="py-op">[</tt><tt class="py-name">globals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">__builtin__</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-string">"success"</tt><tt class="py-op">,</tt><tt class="py-name">True</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-comment"># generated from line 12, col 5</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">                <tt id="link-25" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-25', 'write', 'link-17');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">'        Your message was sent successfully:\n'</tt><tt class="py-op">)</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> <tt class="py-comment"># generated from line 14, col 5</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">                <tt id="link-26" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-26', 'write', 'link-17');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">'        Failed to send the email! Please contact \n        &lt;a href="mailto:mscanner.w3f@gishpuppy.com"&gt;Graham poulter&lt;/a&gt;.\n        Error: &lt;pre&gt;'</tt><tt class="py-op">)</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">                <tt class="py-name">_v</tt> <tt class="py-op">=</tt> <tt class="py-name">VFSL</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">locals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">+</tt><tt class="py-name">SL</tt><tt class="py-op">+</tt><tt class="py-op">[</tt><tt class="py-name">globals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">__builtin__</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-string">"error"</tt><tt class="py-op">,</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> <tt class="py-comment"># '$error' on line 17, col 21</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">_v</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> <tt id="link-27" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-27', 'write', 'link-17');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">_filter</tt><tt class="py-op">(</tt><tt class="py-name">_v</tt><tt class="py-op">,</tt> <tt class="py-name">rawExpr</tt><tt class="py-op">=</tt><tt class="py-string">'$error'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-comment"># from line 17, col 21.</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">                <tt id="link-28" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-28', 'write', 'link-17');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">'&lt;/pre&gt;\n'</tt><tt class="py-op">)</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">            <tt id="link-29" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-29', 'write', 'link-17');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">'    &lt;/p&gt;\n'</tt><tt class="py-op">)</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">        <tt id="link-30" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-30', 'write', 'link-17');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">'\n&lt;form action="contact" method="post"&gt;\n'</tt><tt class="py-op">)</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">        <tt class="py-name">_v</tt> <tt class="py-op">=</tt> <tt class="py-name">VFN</tt><tt class="py-op">(</tt><tt class="py-name">VFSL</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">locals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">+</tt><tt class="py-name">SL</tt><tt class="py-op">+</tt><tt class="py-op">[</tt><tt class="py-name">globals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">__builtin__</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-string">"inputs"</tt><tt class="py-op">,</tt><tt class="py-name">True</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-string">"render"</tt><tt class="py-op">,</tt><tt class="py-name">False</tt><tt class="py-op">)</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-comment"># '$inputs.render()' on line 23, col 1</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">_v</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> <tt id="link-31" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-31', 'write', 'link-17');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">_filter</tt><tt class="py-op">(</tt><tt class="py-name">_v</tt><tt class="py-op">,</tt> <tt class="py-name">rawExpr</tt><tt class="py-op">=</tt><tt class="py-string">'$inputs.render()'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-comment"># from line 23, col 1.</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">        <tt id="link-32" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-32', 'write', 'link-17');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">'''</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-string">&lt;p&gt;&lt;input type="submit" value="Send Message"&gt;&lt;/p&gt;</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"><tt class="py-string">&lt;/form&gt;</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-string"></tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-string">&lt;/div&gt;&lt;!--class=narrow--&gt;</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt class="py-string">'''</tt><tt class="py-op">)</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">         </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">        <tt class="py-comment">########################################</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">## END - generated method body</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"><tt class="py-comment"></tt>         </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">_dummyTrans</tt> <tt class="py-keyword">and</tt> <tt class="py-name">trans</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="mscanner.core.iofuncs.FileTransaction.getvalue" class="py-name" href="#" onclick="return doclink('link-33', 'getvalue', 'link-20');">getvalue</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-string">""</tt> </tt>
+</div><a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">         </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"> </tt>
+<a name="contact.writeBody"></a><div id="contact.writeBody-def"><a name="L142"></a><tt class="py-lineno">142</tt> <a class="py-toggle" href="#" id="contact.writeBody-toggle" onclick="return toggle('contact.writeBody');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="mscanner.htdocs.templates.contact.contact-class.html#writeBody">writeBody</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">KWS</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="contact.writeBody-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="contact.writeBody-expanded"><a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line"> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">        <tt class="py-comment">## CHEETAH: main method generated for this template</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">trans</tt> <tt class="py-op">=</tt> <tt class="py-name">KWS</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">"trans"</tt><tt class="py-op">)</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-keyword">not</tt> <tt class="py-name">trans</tt> <tt class="py-keyword">and</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_CHEETAH__isBuffering</tt> <tt class="py-keyword">and</tt> <tt class="py-keyword">not</tt> <tt class="py-name">callable</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">transaction</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">            <tt class="py-name">trans</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">transaction</tt> <tt class="py-comment"># is None unless self.awake() was called</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">trans</tt><tt class="py-op">:</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">            <tt class="py-name">trans</tt> <tt class="py-op">=</tt> <tt class="py-name">DummyTransaction</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">            <tt class="py-name">_dummyTrans</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> <tt class="py-name">_dummyTrans</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">        <tt id="link-34" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-34', 'write', 'link-17');">write</a></tt> <tt class="py-op">=</tt> <tt class="py-name">trans</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-35', 'write', 'link-17');">write</a></tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">        <tt class="py-name">SL</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_CHEETAH__searchList</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">        <tt class="py-name">_filter</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_CHEETAH__currentFilter</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">         </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">        <tt class="py-comment">########################################</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">## START - generated method body</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-comment"></tt>         </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">        <tt id="link-36" class="py-name"><a title="mscanner.medline.FeatureStream.FeatureStream.write" class="py-name" href="#" onclick="return doclink('link-36', 'write', 'link-17');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">'\n\n'</tt><tt class="py-op">)</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">         </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">        <tt class="py-comment">########################################</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">## END - generated method body</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line"><tt class="py-comment"></tt>         </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">_dummyTrans</tt> <tt class="py-keyword">and</tt> <tt class="py-name">trans</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="mscanner.core.iofuncs.FileTransaction.getvalue" class="py-name" href="#" onclick="return doclink('link-37', 'getvalue', 'link-20');">getvalue</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-string">""</tt> </tt>
+</div><a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">         </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">    <tt class="py-comment">##################################################</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">## CHEETAH GENERATED ATTRIBUTES</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line"> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">    <tt id="link-38" class="py-name"><a title="mscanner.htdocs.templates.contact.contact._CHEETAH__instanceInitialized
+mscanner.htdocs.templates.front.front._CHEETAH__instanceInitialized
+mscanner.htdocs.templates.output.output._CHEETAH__instanceInitialized
+mscanner.htdocs.templates.page.page._CHEETAH__instanceInitialized
+mscanner.htdocs.templates.query.query._CHEETAH__instanceInitialized
+mscanner.htdocs.templates.status.status._CHEETAH__instanceInitialized" class="py-name" href="#" onclick="return doclink('link-38', '_CHEETAH__instanceInitialized', 'link-15');">_CHEETAH__instanceInitialized</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">    <tt id="link-39" class="py-name" targets="Variable mscanner.htdocs.templates.contact.contact._CHEETAH_version=mscanner.htdocs.templates.contact.contact-class.html#_CHEETAH_version,Variable mscanner.htdocs.templates.front.front._CHEETAH_version=mscanner.htdocs.templates.front.front-class.html#_CHEETAH_version,Variable mscanner.htdocs.templates.output.output._CHEETAH_version=mscanner.htdocs.templates.output.output-class.html#_CHEETAH_version,Variable mscanner.htdocs.templates.page.page._CHEETAH_version=mscanner.htdocs.templates.page.page-class.html#_CHEETAH_version,Variable mscanner.htdocs.templates.query.query._CHEETAH_version=mscanner.htdocs.templates.query.query-class.html#_CHEETAH_version,Variable mscanner.htdocs.templates.status.status._CHEETAH_version=mscanner.htdocs.templates.status.status-class.html#_CHEETAH_version"><a title="mscanner.htdocs.templates.contact.contact._CHEETAH_version
+mscanner.htdocs.templates.front.front._CHEETAH_version
+mscanner.htdocs.templates.output.output._CHEETAH_version
+mscanner.htdocs.templates.page.page._CHEETAH_version
+mscanner.htdocs.templates.query.query._CHEETAH_version
+mscanner.htdocs.templates.status.status._CHEETAH_version" class="py-name" href="#" onclick="return doclink('link-39', '_CHEETAH_version', 'link-39');">_CHEETAH_version</a></tt> <tt class="py-op">=</tt> <tt id="link-40" class="py-name"><a title="mscanner.htdocs.templates.contact.__CHEETAH_version__
+mscanner.htdocs.templates.front.__CHEETAH_version__
+mscanner.htdocs.templates.output.__CHEETAH_version__
+mscanner.htdocs.templates.page.__CHEETAH_version__
+mscanner.htdocs.templates.query.__CHEETAH_version__
+mscanner.htdocs.templates.status.__CHEETAH_version__" class="py-name" href="#" onclick="return doclink('link-40', '__CHEETAH_version__', 'link-4');">__CHEETAH_version__</a></tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line"> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">    <tt id="link-41" class="py-name" targets="Variable mscanner.htdocs.templates.contact.contact._CHEETAH_versionTuple=mscanner.htdocs.templates.contact.contact-class.html#_CHEETAH_versionTuple,Variable mscanner.htdocs.templates.front.front._CHEETAH_versionTuple=mscanner.htdocs.templates.front.front-class.html#_CHEETAH_versionTuple,Variable mscanner.htdocs.templates.output.output._CHEETAH_versionTuple=mscanner.htdocs.templates.output.output-class.html#_CHEETAH_versionTuple,Variable mscanner.htdocs.templates.page.page._CHEETAH_versionTuple=mscanner.htdocs.templates.page.page-class.html#_CHEETAH_versionTuple,Variable mscanner.htdocs.templates.query.query._CHEETAH_versionTuple=mscanner.htdocs.templates.query.query-class.html#_CHEETAH_versionTuple,Variable mscanner.htdocs.templates.status.status._CHEETAH_versionTuple=mscanner.htdocs.templates.status.status-class.html#_CHEETAH_versionTuple"><a title="mscanner.htdocs.templates.contact.contact._CHEETAH_versionTuple
+mscanner.htdocs.templates.front.front._CHEETAH_versionTuple
+mscanner.htdocs.templates.output.output._CHEETAH_versionTuple
+mscanner.htdocs.templates.page.page._CHEETAH_versionTuple
+mscanner.htdocs.templates.query.query._CHEETAH_versionTuple
+mscanner.htdocs.templates.status.status._CHEETAH_versionTuple" class="py-name" href="#" onclick="return doclink('link-41', '_CHEETAH_versionTuple', 'link-41');">_CHEETAH_versionTuple</a></tt> <tt class="py-op">=</tt> <tt id="link-42" class="py-name"><a title="mscanner.htdocs.templates.contact.__CHEETAH_versionTuple__
+mscanner.htdocs.templates.front.__CHEETAH_versionTuple__
+mscanner.htdocs.templates.output.__CHEETAH_versionTuple__
+mscanner.htdocs.templates.page.__CHEETAH_versionTuple__
+mscanner.htdocs.templates.query.__CHEETAH_versionTuple__
+mscanner.htdocs.templates.status.__CHEETAH_versionTuple__" class="py-name" href="#" onclick="return doclink('link-42', '__CHEETAH_versionTuple__', 'link-5');">__CHEETAH_versionTuple__</a></tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line"> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">    <tt id="link-43" class="py-name" targets="Variable mscanner.htdocs.templates.contact.contact._CHEETAH_genTime=mscanner.htdocs.templates.contact.contact-class.html#_CHEETAH_genTime,Variable mscanner.htdocs.templates.front.front._CHEETAH_genTime=mscanner.htdocs.templates.front.front-class.html#_CHEETAH_genTime,Variable mscanner.htdocs.templates.output.output._CHEETAH_genTime=mscanner.htdocs.templates.output.output-class.html#_CHEETAH_genTime,Variable mscanner.htdocs.templates.page.page._CHEETAH_genTime=mscanner.htdocs.templates.page.page-class.html#_CHEETAH_genTime,Variable mscanner.htdocs.templates.query.query._CHEETAH_genTime=mscanner.htdocs.templates.query.query-class.html#_CHEETAH_genTime,Variable mscanner.htdocs.templates.status.status._CHEETAH_genTime=mscanner.htdocs.templates.status.status-class.html#_CHEETAH_genTime"><a title="mscanner.htdocs.templates.contact.contact._CHEETAH_genTime
+mscanner.htdocs.templates.front.front._CHEETAH_genTime
+mscanner.htdocs.templates.output.output._CHEETAH_genTime
+mscanner.htdocs.templates.page.page._CHEETAH_genTime
+mscanner.htdocs.templates.query.query._CHEETAH_genTime
+mscanner.htdocs.templates.status.status._CHEETAH_genTime" class="py-name" href="#" onclick="return doclink('link-43', '_CHEETAH_genTime', 'link-43');">_CHEETAH_genTime</a></tt> <tt class="py-op">=</tt> <tt id="link-44" class="py-name"><a title="mscanner.htdocs.templates.contact.__CHEETAH_genTime__
+mscanner.htdocs.templates.front.__CHEETAH_genTime__
+mscanner.htdocs.templates.output.__CHEETAH_genTime__
+mscanner.htdocs.templates.page.__CHEETAH_genTime__
+mscanner.htdocs.templates.query.__CHEETAH_genTime__
+mscanner.htdocs.templates.status.__CHEETAH_genTime__" class="py-name" href="#" onclick="return doclink('link-44', '__CHEETAH_genTime__', 'link-6');">__CHEETAH_genTime__</a></tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line"> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">    <tt id="link-45" class="py-name" targets="Variable mscanner.htdocs.templates.contact.contact._CHEETAH_genTimestamp=mscanner.htdocs.templates.contact.contact-class.html#_CHEETAH_genTimestamp,Variable mscanner.htdocs.templates.front.front._CHEETAH_genTimestamp=mscanner.htdocs.templates.front.front-class.html#_CHEETAH_genTimestamp,Variable mscanner.htdocs.templates.output.output._CHEETAH_genTimestamp=mscanner.htdocs.templates.output.output-class.html#_CHEETAH_genTimestamp,Variable mscanner.htdocs.templates.page.page._CHEETAH_genTimestamp=mscanner.htdocs.templates.page.page-class.html#_CHEETAH_genTimestamp,Variable mscanner.htdocs.templates.query.query._CHEETAH_genTimestamp=mscanner.htdocs.templates.query.query-class.html#_CHEETAH_genTimestamp,Variable mscanner.htdocs.templates.status.status._CHEETAH_genTimestamp=mscanner.htdocs.templates.status.status-class.html#_CHEETAH_genTimestamp"><a title="mscanner.htdocs.templates.contact.contact._CHEETAH_genTimestamp
+mscanner.htdocs.templates.front.front._CHEETAH_genTimestamp
+mscanner.htdocs.templates.output.output._CHEETAH_genTimestamp
+mscanner.htdocs.templates.page.page._CHEETAH_genTimestamp
+mscanner.htdocs.templates.query.query._CHEETAH_genTimestamp
+mscanner.htdocs.templates.status.status._CHEETAH_genTimestamp" class="py-name" href="#" onclick="return doclink('link-45', '_CHEETAH_genTimestamp', 'link-45');">_CHEETAH_genTimestamp</a></tt> <tt class="py-op">=</tt> <tt id="link-46" class="py-name"><a title="mscanner.htdocs.templates.contact.__CHEETAH_genTimestamp__
+mscanner.htdocs.templates.front.__CHEETAH_genTimestamp__
+mscanner.htdocs.templates.output.__CHEETAH_genTimestamp__
+mscanner.htdocs.templates.page.__CHEETAH_genTimestamp__
+mscanner.htdocs.templates.query.__CHEETAH_genTimestamp__
+mscanner.htdocs.templates.status.__CHEETAH_genTimestamp__" class="py-name" href="#" onclick="return doclink('link-46', '__CHEETAH_genTimestamp__', 'link-7');">__CHEETAH_genTimestamp__</a></tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line"> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">    <tt id="link-47" class="py-name" targets="Variable mscanner.htdocs.templates.contact.contact._CHEETAH_src=mscanner.htdocs.templates.contact.contact-class.html#_CHEETAH_src,Variable mscanner.htdocs.templates.front.front._CHEETAH_src=mscanner.htdocs.templates.front.front-class.html#_CHEETAH_src,Variable mscanner.htdocs.templates.output.output._CHEETAH_src=mscanner.htdocs.templates.output.output-class.html#_CHEETAH_src,Variable mscanner.htdocs.templates.page.page._CHEETAH_src=mscanner.htdocs.templates.page.page-class.html#_CHEETAH_src,Variable mscanner.htdocs.templates.query.query._CHEETAH_src=mscanner.htdocs.templates.query.query-class.html#_CHEETAH_src,Variable mscanner.htdocs.templates.status.status._CHEETAH_src=mscanner.htdocs.templates.status.status-class.html#_CHEETAH_src"><a title="mscanner.htdocs.templates.contact.contact._CHEETAH_src
+mscanner.htdocs.templates.front.front._CHEETAH_src
+mscanner.htdocs.templates.output.output._CHEETAH_src
+mscanner.htdocs.templates.page.page._CHEETAH_src
+mscanner.htdocs.templates.query.query._CHEETAH_src
+mscanner.htdocs.templates.status.status._CHEETAH_src" class="py-name" href="#" onclick="return doclink('link-47', '_CHEETAH_src', 'link-47');">_CHEETAH_src</a></tt> <tt class="py-op">=</tt> <tt id="link-48" class="py-name"><a title="mscanner.htdocs.templates.contact.__CHEETAH_src__
+mscanner.htdocs.templates.front.__CHEETAH_src__
+mscanner.htdocs.templates.output.__CHEETAH_src__
+mscanner.htdocs.templates.page.__CHEETAH_src__
+mscanner.htdocs.templates.query.__CHEETAH_src__
+mscanner.htdocs.templates.status.__CHEETAH_src__" class="py-name" href="#" onclick="return doclink('link-48', '__CHEETAH_src__', 'link-8');">__CHEETAH_src__</a></tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line"> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">    <tt id="link-49" class="py-name" targets="Variable mscanner.htdocs.templates.contact.contact._CHEETAH_srcLastModified=mscanner.htdocs.templates.contact.contact-class.html#_CHEETAH_srcLastModified,Variable mscanner.htdocs.templates.front.front._CHEETAH_srcLastModified=mscanner.htdocs.templates.front.front-class.html#_CHEETAH_srcLastModified,Variable mscanner.htdocs.templates.output.output._CHEETAH_srcLastModified=mscanner.htdocs.templates.output.output-class.html#_CHEETAH_srcLastModified,Variable mscanner.htdocs.templates.page.page._CHEETAH_srcLastModified=mscanner.htdocs.templates.page.page-class.html#_CHEETAH_srcLastModified,Variable mscanner.htdocs.templates.query.query._CHEETAH_srcLastModified=mscanner.htdocs.templates.query.query-class.html#_CHEETAH_srcLastModified,Variable mscanner.htdocs.templates.status.status._CHEETAH_srcLastModified=mscanner.htdocs.templates.status.status-class.html#_CHEETAH_srcLastModified"><a title="mscanner.htdocs.templates.contact.contact._CHEETAH_srcLastModified
+mscanner.htdocs.templates.front.front._CHEETAH_srcLastModified
+mscanner.htdocs.templates.output.output._CHEETAH_srcLastModified
+mscanner.htdocs.templates.page.page._CHEETAH_srcLastModified
+mscanner.htdocs.templates.query.query._CHEETAH_srcLastModified
+mscanner.htdocs.templates.status.status._CHEETAH_srcLastModified" class="py-name" href="#" onclick="return doclink('link-49', '_CHEETAH_srcLastModified', 'link-49');">_CHEETAH_srcLastModified</a></tt> <tt class="py-op">=</tt> <tt id="link-50" class="py-name"><a title="mscanner.htdocs.templates.contact.__CHEETAH_srcLastModified__
+mscanner.htdocs.templates.front.__CHEETAH_srcLastModified__
+mscanner.htdocs.templates.output.__CHEETAH_srcLastModified__
+mscanner.htdocs.templates.page.__CHEETAH_srcLastModified__
+mscanner.htdocs.templates.query.__CHEETAH_srcLastModified__
+mscanner.htdocs.templates.status.__CHEETAH_srcLastModified__" class="py-name" href="#" onclick="return doclink('link-50', '__CHEETAH_srcLastModified__', 'link-9');">__CHEETAH_srcLastModified__</a></tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line"> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">    <tt id="link-51" class="py-name" targets="Variable mscanner.htdocs.templates.contact.contact._mainCheetahMethod_for_contact=mscanner.htdocs.templates.contact.contact-class.html#_mainCheetahMethod_for_contact"><a title="mscanner.htdocs.templates.contact.contact._mainCheetahMethod_for_contact" class="py-name" href="#" onclick="return doclink('link-51', '_mainCheetahMethod_for_contact', 'link-51');">_mainCheetahMethod_for_contact</a></tt><tt class="py-op">=</tt> <tt class="py-string">'writeBody'</tt> </tt>
+</div><a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line"> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line"><tt class="py-comment">## END CLASS DEFINITION</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt id="link-52" class="py-name" targets="Module mscanner.htdocs.templates.contact=mscanner.htdocs.templates.contact-module.html,Class mscanner.htdocs.templates.contact.contact=mscanner.htdocs.templates.contact.contact-class.html"><a title="mscanner.htdocs.templates.contact
+mscanner.htdocs.templates.contact.contact" class="py-name" href="#" onclick="return doclink('link-52', 'contact', 'link-52');">contact</a></tt><tt class="py-op">,</tt> <tt class="py-string">'_initCheetahAttributes'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">    <tt class="py-name">templateAPIClass</tt> <tt class="py-op">=</tt> <tt class="py-name">getattr</tt><tt class="py-op">(</tt><tt id="link-53" class="py-name"><a title="mscanner.htdocs.templates.contact
+mscanner.htdocs.templates.contact.contact" class="py-name" href="#" onclick="return doclink('link-53', 'contact', 'link-52');">contact</a></tt><tt class="py-op">,</tt> <tt class="py-string">'_CHEETAH_templateClass'</tt><tt class="py-op">,</tt> <tt class="py-name">Template</tt><tt class="py-op">)</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">    <tt class="py-name">templateAPIClass</tt><tt class="py-op">.</tt><tt class="py-name">_addCheetahPlumbingCodeToClass</tt><tt class="py-op">(</tt><tt id="link-54" class="py-name"><a title="mscanner.htdocs.templates.contact
+mscanner.htdocs.templates.contact.contact" class="py-name" href="#" onclick="return doclink('link-54', 'contact', 'link-52');">contact</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line"> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line"> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line"><tt class="py-comment"># CHEETAH was developed by Tavis Rudd and Mike Orr</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># with code, advice and input from many other volunteers.</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># For more information visit http://www.CheetahTemplate.org/</tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line"><tt class="py-comment">##################################################</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">## if run from command line:</tt> </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">'__main__'</tt><tt class="py-op">:</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt class="py-name">Cheetah</tt><tt class="py-op">.</tt><tt class="py-name">TemplateCmdLineIface</tt> <tt class="py-keyword">import</tt> <tt class="py-name">CmdLineIface</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">    <tt class="py-name">CmdLineIface</tt><tt class="py-op">(</tt><tt class="py-name">templateObj</tt><tt class="py-op">=</tt><tt id="link-55" class="py-name"><a title="mscanner.htdocs.templates.contact
+mscanner.htdocs.templates.contact.contact" class="py-name" href="#" onclick="return doclink('link-55', 'contact', 'link-52');">contact</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">run</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://mscanner.stanford.edu">MScanner</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Fri Nov 23 09:13:24 2007
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

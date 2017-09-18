@@ -1,0 +1,138 @@
+/*
+#C2D7EE; /* light blue (page background)
+#FFFFDD; /* pale yellow (row heading background)
+#A3C2E2; /* middle blue
+#F6F9FE; /* pale blue (header and body background)
+#93B2D2; /* pastel blue
+#EEEEEE; /* gray 1 (table background)
+#DDDDDD; /* gray 2 (table heading)
+*/
+
+html {
+    background-color: #C2D7EE; /* light blue */
+    color: black; /* black font */ }
+html, body, div {
+    display: block;
+    padding: 0;
+    margin: 0; }
+.trim {
+    margin: 0;
+    padding: 0; }
+
+/*************** TABLES ********************/
+
+thead {
+    /* table heading rows */
+    background-color: #FFFFDD; /* light yellow */ }
+tbody th {
+    /* table heading cells */
+    background-color: #DDDDDD; /* gray 2 */ }
+td {
+    /* table cells */
+    background-color: #EEEEEE; /* gray 1 */ }
+
+/************* BLOCK ELEMENTS ***********************/
+
+div#header {
+    /* header for each page */
+    margin: 0;
+    padding: 0.3em;
+    text-align: center;
+    border-bottom-style: dotted;
+    background-color: #F6F9FE; /* pale blue */ }
+div#header h1 {
+    margin: 0; }
+div#contents {
+    /* pad the contents a bit to keep it away from edges */
+    background-color: #F6F9FE; /* pale blue */
+    padding: 1em;
+    width: 100%; }
+div#footer {
+    /* footer for each page */
+    border-top-style: dotted;
+    background-color: #FFFFDD; /* pale yellow */
+    width: 100%;
+    padding: 1ex; }
+div.narrow { 
+    /* narrowed things for readability */
+    padding-right: 2em;
+    max-width: 35em; }
+table.form th {
+    text-align: left;
+    font-weight: normal; }
+table.form tr.error td {
+    background-color: #FFEEEE; /* pale red */ }
+
+/***************** TOP MENU ******************8*/
+
+div#topmenu {
+    /* container for the top menu */
+    text-align: center;
+    border-bottom: dotted; }
+div#topmenu table {
+    /* hold menu buttons in a table with separated cells */
+    width: 80%;
+    margin: 0 auto 0 auto;
+    border-collapse: separate;
+    border-spacing: 1ex; }
+div#topmenu a {
+    /* use no underlining on links */
+    text-decoration: none; }
+div#topmenu td {
+    /* simulate a button */
+    background-color: #F6F9FE; /* pale blue */
+    border: solid 2px black;
+    padding: 0.5ex; }
+
+/********** STATUS BLOCK **********/
+
+table.status thead th {
+    font-weight: bold;
+    text-align: center; }
+table.status tbody th {
+    width: 10em; 
+    font-weight: normal; 
+    text-align: left; }
+table.status td {
+    width: auto; }
+
+/************************ QUERY PAGE ****************/
+
+form#query fieldset {
+    margin: 1ex; }
+form#query fieldset legend {
+    font-weight: bold; }
+form#query {
+    width: 100%; }
+form#query table {
+    width: 100%; }
+form#query tbody th {
+    width: 10em; 
+    text-align: left; }
+form#query td.value {
+    background-color: #EEEEEE; /* gray */ }
+form#query td.help {
+    width: 3em;
+    text-align: right;
+    background-color: #EEEEFF; /* pale yellow */ }
+form#query tr.help div {
+    background-color: #EEEEFF; /* pale yellow */ }
+form#query tr.error td {
+    background-color: #FFEEEE; /* pale red */ }
+
+/************* OUTPUT PAGE ************/
+
+form#output table {
+    border-spacing: 3px;
+    width: auto; }
+form#output td.del {
+    /* selection radio button cells */
+    background-color: #BBBBBB; /* gray 4 */
+    text-align: center; }
+form#output td.dataset {
+    /* dataset name cells */
+    background-color: #CCCCCC; /* gray 3 */
+    width: 15em; }
+form#output td.timestamp {
+    /* timestamp cells */
+    background-color: #DDDDDD; /* gray 2 */ }
